@@ -5,7 +5,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function(){
     console.log("Ready");
-    bot.user.setGame("here comes iown");
+    bot.user.setGame("whorshipping iown");
 });
 function wait(ms){
    var start = new Date().getTime();
