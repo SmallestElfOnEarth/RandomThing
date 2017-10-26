@@ -7,7 +7,13 @@ bot.on("ready", function(){
     console.log("Ready");
     bot.user.setGame("here comes iown");
 });
-
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
@@ -32,7 +38,7 @@ bot.on("message", function(message) {
 
                 var mentionlist = message.mentions.members;
                 mentionlist.forEach(function (user) {
-                    setTimeout('',250)
+                    wait(250);
                     message.channel.send(user.user.username+ " , You have been ranked up! ");
                     user.addRole("202542658634252289");
                 });
