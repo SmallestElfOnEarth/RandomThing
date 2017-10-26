@@ -32,7 +32,7 @@ bot.on("message", function(message) {
 
                 var mentionlist = message.mentions.members;
                 mentionlist.forEach(function (user) {
-                    setTimeout(null,250)
+                    setTimeout('',250)
                     message.channel.send(user.user.username+ " , You have been ranked up! ");
                     user.addRole("202542658634252289");
                 });
