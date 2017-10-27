@@ -47,6 +47,10 @@ bot.on("message", function(message) {
 
             }
             break;
+            
+        case "enter":
+            message.channel.send("https://cdn.discordapp.com/attachments/187018991074541568/307967143079837698/Hitting_Enter_Meme.jpg");
+            break;
         default:
             message.channel.send("no such command bro")
     }
