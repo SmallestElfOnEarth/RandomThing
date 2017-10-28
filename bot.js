@@ -10,12 +10,13 @@ bot.on("ready", function(){
 
 function autoannounce(){
     var date = new Date();
-    var channel = bot.channels.find("name","discussion");
+    var channel = bot.channels.find("name","announcements");
     var day = date.getDay();
     var hours = date.getHours();
     var mins = date.getMinutes();
-    if (day == 6 && hours == 12 && mins == 03)
-        channel.send("i love rhyo");
+    var challenge = "!challenge";
+    if (day == 1 || day == 3 || day == 5 && hours == 12 && mins == 03)
+        channel.send("Weekly challenge submissions due every Sunday! Type " + challenge + " in #bot-commands  to see what this week's gun is.");
  }
     setInterval(autoannounce,60000);
         //does it wor
