@@ -51,6 +51,11 @@ bot.on("message", function(message) {
         case "enter":
             message.channel.send("https://cdn.discordapp.com/attachments/187018991074541568/307967143079837698/Hitting_Enter_Meme.jpg");
             break;
+            
+        case "day":
+         var today = new Date();
+            if (today.GetDay() == 6)
+                message.channel.send("today is  saturday bro");
         default:
             message.channel.send("no such command bro")
     }
