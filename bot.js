@@ -32,7 +32,7 @@ bot.on("message", function(message) {
             message.channel.send("if you wanna know how to eat ass you should contact godstatus");
             break;
         case "takeover":
-            message.channel.send("I will do what iOwn wants to, iOwn wants me to take over PR! http://www.reactiongifs.com/wp-content/uploads/2013/09/evil-laugh.gif");
+            message.channel.send("I will do what iOwn wants to, iOwn wants me to take over PR! \n http://www.reactiongifs.com/wp-content/uploads/2013/09/evil-laugh.gif");
         case "rankup":
             console.log(args.length);
             let role = message.guild.roles.find("name", "Staff Assistant | Bitches");
