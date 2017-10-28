@@ -8,17 +8,6 @@ bot.on("ready", function(){
     bot.user.setGame("worshipping iown");
 });
 
-window.setInterval(function(){ // Set interval for checking
-    var date = new Date(); // Create a Date object to find out what time it is
-    if(date.getHours() === 10 && date.getMinutes() === 5){ // Check the time
-    var channel = client.channels.find("name","prbot");
-     channel.send.message("time is 10:05"); 
-    }
-}, 60000); // Repeat every 60000 milliseconds (1 minute)
-
-
-
-
 function wait(ms){
    var start = new Date().getTime();
    var end = start;
