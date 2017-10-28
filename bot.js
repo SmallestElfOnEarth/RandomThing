@@ -11,7 +11,8 @@ bot.on("ready", function(){
 window.setInterval(function(){ // Set interval for checking
     var date = new Date(); // Create a Date object to find out what time it is
     if(date.getHours() === 10 && date.getMinutes() === 5){ // Check the time
-    client.channels.find("name","prbot").send.message("time is 10:05); 
+    var channel = client.channels.find("name","prbot");
+     channel.send.message("time is 10:05); 
     }
 }, 60000); // Repeat every 60000 milliseconds (1 minute)
 
