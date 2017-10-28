@@ -56,7 +56,7 @@ bot.on("message", function(message) {
             
         case "day":
          var today = new Date();
-            message.channel.send(today);
+            message.channel.send(today.getHours() + "hours");
             if (today.getDay() == 6)
                 message.channel.send("today is  saturday bro");
             else if (today.getDay() == 5) 
