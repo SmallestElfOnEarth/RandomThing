@@ -58,7 +58,7 @@ bot.on("message", function(message) {
                     message.channel.send(user.user.username+ " , You have been ranked up! ");
                     user.addRole("202542658634252289");
                 });
-            message.channel.send(".\n\n\n**If you have not been ranked up, here's why:** \n**1.** You are not matching the minimum level requirement (20+) \n**2.** You did not join/you left the roblox group.\n**3.** You are a clan member, Clan members dont get ranked on the group.\n**4.** You need to show a picture of ALL your stats, not just level.")
+            message.channel.send(" \n\n\n**If you have not been ranked up, here's why:** \n**1.** You are not matching the minimum level requirement (20+) \n**2.** You did not join/you left the roblox group.\n**3.** You are a clan member, Clan members dont get ranked on the group.\n**4.** You need to show a picture of ALL your stats, not just level.")
             }
             
             break;
