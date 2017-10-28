@@ -14,10 +14,10 @@ function autoannounce(){
     var day = date.getDay();
     var hours = date.getHours();
     var mins = date.getMinutes();
-    if (day == 6 && hours == 11 && mins == 40)
+    if (day == 6 && hours == 11 && mins == 43)
         channel.send("iOwn is amazing");
  }
-    setInterval(autoannounce(),60000);
+    setInterval(autoannounce,60000);
         //does it wor
 
 function wait(ms){
