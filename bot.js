@@ -12,7 +12,7 @@ var ontime = require('ontime')
 ontime({
     cycle: [ '06:55:00', '9:00:00' ]
 }, function (ot) {
-    var channel = client.channels.find("name",("prbot");
+    var channel = client.channels.find("name","prbot");
         channel.sendMessage("the time is 6:55am");
     ot.done()
     return
