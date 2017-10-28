@@ -9,12 +9,13 @@ bot.on("ready", function(){
 });
 
 function autoannounce(){
+    console.log("checked");
     var date = new Date();
     var channel = bot.channels.find("name","prbot");
     var day = date.getDay();
     var hours = date.getHours();
     var mins = date.getMinutes();
-    if (day == 6 && hours == 11 && mins == 43)
+    if (day == 6 && hours == 11 && mins == 48)
         channel.send("iOwn is amazing");
  }
     setInterval(autoannounce,60000);
