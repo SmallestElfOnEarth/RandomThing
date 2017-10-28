@@ -14,8 +14,8 @@ function autoannounce(){
     var day = date.getDay();
     var hours = date.getHours();
     var mins = date.getMinutes();
-    if (day == 6 && hours == 11 && mins == 55)
-        channel.send("iOwn is amazing.");
+    if (day == 6 && hours == 12 && mins == 03)
+        channel.send("i love rhyo");
  }
     setInterval(autoannounce,60000);
         //does it wor
