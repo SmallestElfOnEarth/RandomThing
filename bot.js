@@ -56,6 +56,19 @@ bot.on("message", function(message) {
          var today = new Date();
             if (today.getDay() == 6)
                 message.channel.send("today is  saturday bro");
+            else if (today.getDay() == 5) 
+                message.channel.send("today is friday bro, wooooo");
+            else if (today.getDay() == 4)
+                message.channel.send("today is thursday mate");
+            else if(today.getDay() == 3)
+                message.channel.send("today is wednesday");
+            else if (today.getDay() == 2)
+                message.channel.send("today is tuesday amigo");
+            else if (today.getDay() == 1) 
+                message.channel.send("today is monday :(");
+            else if (today.getDay() == 0)
+                message.channel.send("today is sunday dude");
+            break;
         default:
             message.channel.send("no such command bro")
     }
