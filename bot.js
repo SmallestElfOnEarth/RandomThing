@@ -7,16 +7,16 @@ bot.on("ready", function(){
     console.log("Ready");
     bot.user.setGame("worshipping iown");
 });
-var ontime = require('ontime')
 
-ontime({
-    cycle: [ '06:55:00', '9:00:00' ]
-}, function (ot) {
-    var channel = client.channels.find("name","prbot");
-        channel.sendMessage("the time is 6:55am");
-    ot.done()
-    return
-})
+window.setInterval(function(){ // Set interval for checking
+    var date = new Date(); // Create a Date object to find out what time it is
+    if(date.getHours() === 10 && date.getMinutes() === 5){ // Check the time
+    client.channels.find("name","prbot").send.message("time is 10:05); 
+    }
+}, 60000); // Repeat every 60000 milliseconds (1 minute)
+
+
+
 
 function wait(ms){
    var start = new Date().getTime();
