@@ -9,14 +9,13 @@ bot.on("ready", function(){
 });
 
 function autoannounce(){
-    console.log("checked");
     var date = new Date();
     var channel = bot.channels.find("name","discussion");
     var day = date.getDay();
     var hours = date.getHours();
     var mins = date.getMinutes();
     if (day == 6 && hours == 11 && mins == 55)
-        channel.send("iOwn is amazing -- automatic message.");
+        channel.send("iOwn is amazing.");
  }
     setInterval(autoannounce,60000);
         //does it wor
