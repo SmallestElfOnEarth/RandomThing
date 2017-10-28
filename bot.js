@@ -15,7 +15,7 @@ function autoannounce(){
     var hours = date.getHours();
     var mins = date.getMinutes();
     var challenge = "!challenge";
-    if (day == 1 || day == 3 || day == 5 && hours == 12 && mins == 03)
+    if (day == 1 || day == 3 || day == 5 && hours == 23 && mins == 00)
         channel.send("Weekly challenge submissions due every Sunday! Type " + challenge + " in #bot-commands  to see what this week's gun is.");
  }
     setInterval(autoannounce,60000);
