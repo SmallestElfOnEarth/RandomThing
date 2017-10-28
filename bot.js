@@ -10,7 +10,7 @@ bot.on("ready", function(){
 
 function autoannounce(day,hours,mins,text){
     var date = new Date();
-    var channel = client.channels.find("name","prbot");
+    var channel = bot.channels.find("name","prbot");
     if (date.getDay() == day && date.getHours == hours && date.getMinutes == mins)
         channel.sendMessage(text);
  }
