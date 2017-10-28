@@ -15,7 +15,7 @@ function autoannounce(){
         channel.sendMessage("iOwn is amazing");
  }
     setInterval(autoannounce(),60000);
-        
+        //does it work
 
 }
     ,60000);
