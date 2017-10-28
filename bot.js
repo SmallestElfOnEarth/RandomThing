@@ -11,7 +11,10 @@ bot.on("ready", function(){
 function autoannounce(){
     var date = new Date();
     var channel = bot.channels.find("name","prbot");
-    if (date.getDay() == 6 && date.getHours() == 11 && date.getMinutes() == 37)
+    var day = date.getDay();
+    var hours = date.getHours();
+    var mins = date.getMinutes();
+    if (day == 6 && hours == 11 && mins == 40)
         channel.send.message("iOwn is amazing");
  }
     setInterval(autoannounce(),60000);
