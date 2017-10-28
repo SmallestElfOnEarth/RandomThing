@@ -8,15 +8,15 @@ bot.on("ready", function(){
     bot.user.setGame("worshipping iown");
 });
 
-function autoannounce(day,hours,mins,text){
+function autoannounce(){
     var date = new Date();
     var channel = bot.channels.find("name","prbot");
-    if (date.getDay() == day && date.getHours == hours && date.getMinutes == mins)
-        channel.sendMessage(text);
+    if (date.getDay() == 6 && date.getHours == 11 && date.getMinutes == 26)
+        channel.sendMessage("iOwn is amazing");
  }
       
         
-setInterval(autoannounce(6,11,22,"iown is amazing"),60000);
+setInterval(autoannounce(),60000);
 
 function wait(ms){
    var start = new Date().getTime();
