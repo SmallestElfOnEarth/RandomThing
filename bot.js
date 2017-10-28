@@ -57,19 +57,14 @@ bot.on("message", function(message) {
                     message.channel.send(user.user.username+ " , You have been ranked up! ");
                     user.addRole("202542658634252289");
                 });
-                
-              
-
             }
             break;
             
         case "enter":
             message.channel.send("https://cdn.discordapp.com/attachments/187018991074541568/307967143079837698/Hitting_Enter_Meme.jpg");
-            break;
-            
+            break;   
         case "day":
          var today = new Date();
-            message.channel.send(today.getHours() + "hours");
             if (today.getDay() == 6)
                 message.channel.send("today is  saturday bro");
             else if (today.getDay() == 5) 
