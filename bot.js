@@ -47,6 +47,7 @@ bot.on("message", function(message) {
             break;
         case "takeover":
             message.channel.send("I will do what iOwn wants to, iOwn wants me to take over PR! \n http://www.reactiongifs.com/wp-content/uploads/2013/09/evil-laugh.gif");
+        break;
         case "rankup":
             console.log(args.length);
             let role = message.guild.roles.find("name", "Staff Assistant | Bitches");
@@ -59,13 +60,12 @@ bot.on("message", function(message) {
                     user.addRole("202542658634252289");
                 });
             message.channel.send(" \n\n\n**If you have not been ranked up, here's why:** \n**1.** You are not matching the minimum level requirement (20+) \n**2.** You did not join/you left the roblox group.\n**3.** You are a clan member, Clan members dont get ranked on the group.\n**4.** You need to show a picture of ALL your stats, not just level.")
-            }
-            
-            break;
+            }  
+        break;
             
         case "enter":
             message.channel.send("https://cdn.discordapp.com/attachments/187018991074541568/307967143079837698/Hitting_Enter_Meme.jpg");
-            break;   
+        break;   
         case "day":
          var today = new Date();
             if (today.getDay() == 6)
