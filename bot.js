@@ -5,7 +5,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function(){
     console.log("Ready");
-    bot.user.setGame("worshipping iown");
+    bot.user.setGame("with iown's genitalia");
 });
 
 function autoannounce(){
@@ -16,10 +16,9 @@ function autoannounce(){
     var mins = date.getMinutes();
     var challenge = "!challenge";
     if (day == 1 || day == 3 || day == 5 && hours == 23 && mins == 00)
-        channel.send("Weekly challenge submissions due every Sunday! Type " + challenge + " in #bot-commands  to see what this week's gun is.");
+        channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in #bot-commands  to see what this week's gun is.**");
  }
     setInterval(autoannounce,60000);
-        //does it wor
 
 function wait(ms){
    var start = new Date().getTime();
@@ -28,6 +27,7 @@ function wait(ms){
      end = new Date().getTime();
   }
 }
+
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
