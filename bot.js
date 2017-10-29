@@ -5,7 +5,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function(){
     console.log("Ready");
-    bot.user.setGame("with iown's genitalia");
+    bot.user.setGame("with iown's genitalia.");
 });
 
 function autoannounce(){
