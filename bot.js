@@ -83,6 +83,10 @@ bot.on("message", function(message) {
             else if (today.getDay() == 0)
                 message.channel.send("today is sunday dude");
             break;
+            
+        case "enderking":
+            message.channel.send("https://tenor.com/view/asian-dance-gif-6014113");
+            break;
         default:
             message.channel.send("no such command bro")
     }
