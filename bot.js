@@ -83,7 +83,7 @@ bot.on("message", function(message) {
             else if(today.getDay() == 3)
                 message.channel.send("today is wednesday");
             else if (today.getDay() == 2)
-                message.channel.send("today is tuesday amigo "+today.GetMinutes());
+                message.channel.send("today is tuesday amigo "+today.getMinutes());
             else if (today.getDay() == 1) 
                 message.channel.send("today is monday :(");
             else if (today.getDay() == 0)
