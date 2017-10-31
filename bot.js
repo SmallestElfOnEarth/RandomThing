@@ -15,7 +15,7 @@ function autoannounce(){
     var hours = date.getHours();
     var mins = date.getMinutes();
     var challenge = "!challenge";
-    if (day == 1 || day == 3 || day == 5 && hours == 23 && mins == 00)
+    if (day == 1 || day == 3 || day == 5 && hours == 23 && mins == 1)
         channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in #bot-commands  to see what this week's gun is.**");
  }
     setInterval(autoannounce,60000);
@@ -77,7 +77,7 @@ bot.on("message", function(message) {
             else if(today.getDay() == 3)
                 message.channel.send("today is wednesday");
             else if (today.getDay() == 2)
-                message.channel.send("today is tuesday amigo");
+                message.channel.send("today is tuesday amigo "+today.GetMinutes());
             else if (today.getDay() == 1) 
                 message.channel.send("today is monday :(");
             else if (today.getDay() == 0)
