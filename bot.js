@@ -62,6 +62,12 @@ bot.on("message", function(message) {
             message.channel.send(" \n\n\n**If you have not been ranked up, here's why:** \n**1.** You are not matching the minimum level requirement (20+) \n**2.** You did not join/you left the roblox group.\n**3.** You are a clan member, Clan members dont get ranked on the group.\n**4.** You need to show a picture of ALL your stats, not just level.")
             }  
         break;
+        case "pleb": 
+            message.channel.send("PostmanSAM");
+        break;
+        case "shitsorry":
+            message.channel.send("https://cdn.discordapp.com/attachments/248201103311634433/375027459327918080/shitsorry.png");
+        break;
             
         case "enter":
             message.channel.send("https://cdn.discordapp.com/attachments/187018991074541568/307967143079837698/Hitting_Enter_Meme.jpg");
