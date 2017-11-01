@@ -17,7 +17,7 @@ function autoannounce(){
     var challenge = "!challenge";
     if (day == 1 || day == 3 || day == 5){
         console.log("day = true "+"Hour: "+hours +" Minutes: "+ mins);
-        if( hours === 23 && mins < 1){
+        if( hours === 23 && mins == 1){
             console.log("Hour: "hours +" Minutes: "+ mins);
         channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in #bot-commands  to see what this week's gun is.**");
  }}}
