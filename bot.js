@@ -74,7 +74,10 @@ bot.on("message", function(message) {
             
         case "enter":
             message.channel.send("https://cdn.discordapp.com/attachments/187018991074541568/307967143079837698/Hitting_Enter_Meme.jpg");
-        break;   
+        break; 
+        case "drderp":
+            message.channel.send("You'll never be mod.");
+        break;
         case "day":
          var today = new Date();
             if (today.getDay() == 6)
