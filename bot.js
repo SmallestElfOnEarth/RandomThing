@@ -99,6 +99,8 @@ bot.on("message", function(message) {
         case "enderking":
             message.channel.send("https://tenor.com/view/asian-dance-gif-6014113");
             break;
+case "iown":
+message.channel.send("iown is king lol");
         default:
             message.channel.send("no such command bro")
     }
