@@ -107,7 +107,7 @@ bot.on("message", function(message) {
             break;
             
         case "test":
-             channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in ** <#202547037667983360> ** to see what this week's gun is.**");
+             message.channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in ** <#202547037667983360> ** to see what this week's gun is.**");
             break;
         default:
             message.channel.send("no such command bro")
