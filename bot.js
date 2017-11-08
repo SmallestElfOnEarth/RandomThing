@@ -15,7 +15,7 @@ function autoannounce(){
     var hours = date.getHours();
     var mins = date.getMinutes();
     var challenge = "!challenge";
-    if (day == 1 || day == 3 || day == 5){
+    if (day == 2 || day == 5){
         console.log("day = true " + "Hour: " + hours + " Minutes: "+ mins);
         if( hours === 23 && mins == 1){
             console.log("Hour: " + hours +" Minutes: "+ mins);
