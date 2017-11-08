@@ -105,10 +105,7 @@ bot.on("message", function(message) {
         case "sheep":
             message.channel.send("iown wants to fuck my cousin, she's a goat!!!!11");
             break;
-            
-        case "test":
-             message.channel.send("**Weekly challenge submissions due every Sunday! Type " + " in ** <#202547037667983360> ** to see what this week's gun is.**");
-            break;
+           
         default:
             message.channel.send("no such command bro")
     }
