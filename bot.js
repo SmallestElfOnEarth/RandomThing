@@ -19,7 +19,7 @@ function autoannounce(){
         console.log("day = true " + "Hour: " + hours + " Minutes: "+ mins);
         if( hours === 23 && mins == 1){
             console.log("Hour: " + hours +" Minutes: "+ mins);
-        channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in ** #bot-commands ** to see what this week's gun is.**");
+        channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in ** <#202547037667983360> ** to see what this week's gun is.**");
  }}}
     setInterval(autoannounce,60000);
 
@@ -104,6 +104,10 @@ bot.on("message", function(message) {
             break;
         case "sheep":
             message.channel.send("iown wants to fuck my cousin, she's a goat!!!!11");
+            break;
+            
+        case "test":
+             channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in ** <#202547037667983360> ** to see what this week's gun is.**");
             break;
         default:
             message.channel.send("no such command bro")
