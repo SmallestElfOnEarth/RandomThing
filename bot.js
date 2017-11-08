@@ -19,7 +19,7 @@ function autoannounce(){
         console.log("day = true " + "Hour: " + hours + " Minutes: "+ mins);
         if( hours === 23 && mins == 1){
             console.log("Hour: " + hours +" Minutes: "+ mins);
-        channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in #bot-commands  to see what this week's gun is.**");
+        channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in ** #bot-commands ** to see what this week's gun is.**");
  }}}
     setInterval(autoannounce,60000);
 
