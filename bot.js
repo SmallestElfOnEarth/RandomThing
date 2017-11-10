@@ -108,6 +108,9 @@ bot.on("message", function(message) {
         case "meme":
             message.channel.send("YOU JUST GOT MEME'D BY........Azsures!!!!");
             break; 
+            
+        case "azuricus":
+            message.channel.send("competitive legos... and then step on them.");
         default:
             message.channel.send("no such command bro")
     }
