@@ -105,7 +105,9 @@ bot.on("message", function(message) {
         case "sheep":
             message.channel.send("iown wants to fuck my cousin, she's a goat!!!!11");
             break;
-           
+        case "meme":
+            message.channel.send("YOU JUST GOT MEME'D BY........Azsures!!!!");
+            break; 
         default:
             message.channel.send("no such command bro")
     }
