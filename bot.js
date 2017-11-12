@@ -115,6 +115,7 @@ bot.on("message", function(message) {
             
         case "daddy":
             message.channel.send("daddy koods is my true passion i love him");
+            break;
         default:
             message.channel.send("no such command bro")
     }
