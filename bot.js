@@ -112,6 +112,9 @@ bot.on("message", function(message) {
         case "azuricus":
             message.channel.send("competitive legos... and then step on them.");
             break;
+            
+        case "daddy":
+            message.channel.send("daddy koods is my true passion i love him");
         default:
             message.channel.send("no such command bro")
     }
