@@ -54,7 +54,7 @@ function PullLeaderboard(time, startindex) {
                 // clanfound.push(boi[key].Name);
             }
          //   console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
-            number++;
+            //number++;
         });
         arr = arr.filter(x => !~clanfound.indexOf(x));
         arr = arr.filter(x => !~arrog.indexOf(x));
