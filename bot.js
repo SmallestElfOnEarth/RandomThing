@@ -181,7 +181,7 @@ bot.on("message", function(message) {
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
-                message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more: \n **"+ arr.join("/n") + "**");
+                message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more: \n **"+ arr.join("\n") + "**");
     
             }
             else {
