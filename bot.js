@@ -1,4 +1,5 @@
 const Discord = require("discord.js"); 
+requestjson = require('request-json');
 var arr = require('./clanmembers');
 var arrog = require('./clanogs');
 
