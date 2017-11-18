@@ -1,0 +1,18 @@
+﻿module.exports = [
+      'eliteelitebob'
+    , 'GAMERT4G'
+    , 'EnderCrome'
+    , 'zash_a'
+    , 'rhyo1'
+    , 'ShadowSentinal'
+    , 'xxspasxx'
+    , 'zehdy'
+    , 'iOwn_You'
+    , 'Jakein8r'
+    , 'skullthug'
+    , 'MARTYRKAMIKAZE'
+    ,'anewplayer'
+    ,'MrPutrid_Patrick'
+    , 'PostmanSAM'
+    , 'Funks_ter'
+]
