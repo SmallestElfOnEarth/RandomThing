@@ -181,7 +181,8 @@ bot.on("message", function(message) {
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
-                message.channel.send("Valid to kick list: \n" + arr);
+                message.channel.send("Valid to kick list: \n **"+ arr + "**");
+    
             }
             else {
                 message.channel.send("Insufficient Permissions.");
