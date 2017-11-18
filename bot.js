@@ -160,7 +160,7 @@ bot.on("message", function(message) {
             break;
 
         case "calculate":
-            let role = message.guild.roles.find("name", "Clan Manager");
+            let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role.id)) {
 
                 var i = 0;
@@ -176,7 +176,7 @@ bot.on("message", function(message) {
             break;
 
         case "validtokick":
-            let role = message.guild.roles.find("name", "Clan Manager");
+            let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role.id)) {
                 message.channel.send("Valid to kick list: \n" + arr);
             }
