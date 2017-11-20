@@ -52,19 +52,19 @@ function PullLeaderboard_WithName(time, startindex,name) {
         time = 0;
        
     client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
-      //  const boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team');
+        const boi = (body).filter(({Name}) => Name === name);
         
         Object.keys(body).map((key) => {
             //clanfound.push(body[key].Name);
             if (body[key].Name == name) {
-                console.log(body[key].Name);
-                return body[key].Points;
+               var message = "The score for "+name+" Is: "+body[key].Points;
             }
            // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
           //  number++;
         });
       // return clansort();
     });
+    return message;
 }
 var i = 0;
 
@@ -223,7 +223,7 @@ bot.on("message", function(message) {
                 
                 var i = 0;
                 while (i < 650) {
-                    message.channel.send("The user " + name + "has" + PullLeaderboard_WithName(time, i * 50,name) + "score");
+                    message.channel.send(PullLeaderboard_WithName(time, i * 50,name));
                     i++
                 }
             }
