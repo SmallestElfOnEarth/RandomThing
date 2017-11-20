@@ -5,7 +5,7 @@ var arrog = require('./clanogs');
 var client = requestjson.createClient('https://www.roblox.com/');
 var clanfound = [];
 var playerscore = [];
-var playerfound = ""
+var playerfound = "";
 
 //const TOKEN = "MzQyNjYxNzI4MTc1MjU5NjQ5.DGS4Jg.EjbL-_QR1AnRDgosj4PBB5qPOLc"
 const PREFIX = ">>"
@@ -226,9 +226,11 @@ bot.on("message", function(message) {
                     PullLeaderboard_WithName(time, i * 50,name);
                     i++
                 }
-                if (playerfound != "")
+                if (playerfound != ""){
                 message.channel.send(playerfound);
-                else console.log("Could not find player");
+                playerfound = "";
+                }
+                else console.log("Could not find player:"+playerfound);
             }
             else {
                 message.channel.send("Insufficient Permissions.");
