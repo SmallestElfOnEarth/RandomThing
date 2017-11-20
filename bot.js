@@ -221,6 +221,7 @@ bot.on("message", function(message) {
             if (message.member.roles.has(role4.id)) {
                 var name = args[2];
                 var time = args[1];
+                console.log("arg1= "+args[1]+"arg2= "+args[2]);
                 var i = 0;
                 while (i < 650) {
                     PullLeaderboard_WithName(time, i * 50,name);
