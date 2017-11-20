@@ -40,6 +40,32 @@ function wait(ms){
 
 
 
+function PullLeaderboard_WithName(time, startindex,name) {
+    wait(10);
+    if (time == 'alltime')
+        time = 3;
+    else if(time == 'monthly')
+        time = 2;
+    else if(time == 'weekly')
+        time = 1;
+    else if(time == 'daily')
+        time = 0;
+       
+    client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
+      //  const boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team');
+        
+        Object.keys(body).map((key) => {
+            //clanfound.push(body[key].Name);
+            if (body[key].Name == name) {
+                return body[key].Points
+            }
+           // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
+          //  number++;
+        });
+      // return clansort();
+    });
+}
+var i = 0;
 
 
 
@@ -51,7 +77,7 @@ function PullLeaderboard(time, startindex) {
         Object.keys(boi).map((key) => {
             clanfound.push(boi[key].Name);
             if (boi[key].Points > 400000) {
-                // clanfound.push(boi[key].Name);
+                 clanfound.push(boi[key].Name);
             }
          //   console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
             //number++;
@@ -187,7 +213,24 @@ bot.on("message", function(message) {
             else {
                 message.channel.send("Insufficient Permissions.");
             }
-           break;
+        break;
+        case "search":
+            let role4 = message.guild.roles.find("name", "Clan Manager");
+            if (message.member.roles.has(role4.id)) {
+                var name = args[2];
+                var time = args[1];
+                
+                var i = 0;
+                while (i < 650) {
+                    message.channel.send("The user " + name + "has" + PullLeaderboard_WithName(time, i * 50,name) + "score");
+                    i++
+                }
+            }
+            else {
+                message.channel.send("Insufficient Permissions.");
+            }
+            
+         break;   
         default:
             message.channel.send("no such command bro")
     }
