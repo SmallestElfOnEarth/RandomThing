@@ -226,7 +226,9 @@ bot.on("message", function(message) {
                     PullLeaderboard_WithName(time, i * 50,name);
                     i++
                 }
+                if (playerfound != "")
                 message.channel.send(playerfound);
+                else return;
             }
             else {
                 message.channel.send("Insufficient Permissions.");
