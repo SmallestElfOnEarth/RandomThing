@@ -57,12 +57,13 @@ function PullLeaderboard_WithName(time, startindex,name) {
         Object.keys(body).map((key) => {
             //clanfound.push(body[key].Name);
             if (body[key].Name == name) {
-               var message = "The score for "+name+" Is: "+body[key].Points;
+               var msg = "The score for "+name+" Is: "+body[key].Points;
+               message.channel.send(msg);
             }
            // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
           //  number++;
         });
-      return message;
+      return null;
     });
 }
 var i = 0;
