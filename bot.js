@@ -221,7 +221,7 @@ bot.on("message", function(message) {
                 
                 var i = 0;
                 while (i < 650) {
-                    PullLeaderboard_WithName(time, i * 50,name);
+                    message.channel.send(PullLeaderboard_WithName(time, i * 50,name));
                     i++
                 }
                 message.channel.send("Calculation Completed. Now procceed to >>validtokick or >>showscore.")
