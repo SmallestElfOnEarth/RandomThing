@@ -44,27 +44,27 @@ function wait(ms){
 function PullLeaderboard_WithName(time, startindex,name) {
     wait(10);
     if (time == 'alltime')
-        time = 3;
+       var time2 = 3;
     else if(time == 'monthly')
-        time = 2;
-    else if(time == 'weekly')
-        time = 1;
+       var time2 = 2;
+    else if(time2 == 'weekly')
+       var time2 = 1;
     else if(time == 'daily')
-        time = 0;
+       var time2 = 0;
        
-    client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
+    client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time2 + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
         const boi = (body).filter(({Name}) => Name === name);
         
-        Object.keys(body).map((key) => {
+       // Object.keys(body).map((key) => {
             //clanfound.push(body[key].Name);
             if (body[key].Name == name) {
-                playerfound = "The score for " +name+ " is: " + body[key].FullPoints;
+                playerfound = "The score for " +name+ "on " +time+ " is: " + body[0].FullPoints;
             }
            // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
           //  number++;
         });
       return null;
-    });
+   //);
 }
 var i = 0;
 
