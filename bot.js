@@ -58,7 +58,7 @@ function PullLeaderboard_WithName(time, startindex,name) {
         Object.keys(body).map((key) => {
             //clanfound.push(body[key].Name);
             if (body[key].Name == name) {
-                playerfound = "The score for " +name+ " is: " + body[key].FullPoints);
+                playerfound = "The score for " +name+ " is: " + body[key].FullPoints;
             }
            // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
           //  number++;
