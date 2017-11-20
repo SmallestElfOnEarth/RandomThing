@@ -62,9 +62,8 @@ function PullLeaderboard_WithName(time, startindex,name) {
            // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
           //  number++;
         });
-      // return clansort();
+      return message;
     });
-    return message;
 }
 var i = 0;
 
