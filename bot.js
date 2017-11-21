@@ -216,6 +216,7 @@ bot.on("message", function(message) {
             }
         break;
         case "search":
+            playerfound = "";
             let role4 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role4.id)) {
                 var name = args[2];
