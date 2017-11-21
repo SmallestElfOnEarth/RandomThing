@@ -55,14 +55,14 @@ function PullLeaderboard_WithName(time, startindex,name) {
     client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
         const boi = (body).filter(({Name}) => Name === name);
         
-       // Object.keys(body).map((key) => {
+        Object.keys(boi).map((key) => {
             //clanfound.push(body[key].Name);
            // if (body[key].Name == name) {
                 playerfound = "The score for " +name+ " is: " + boi[0].FullPoints;
           //  }
            // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
           //  number++;
-      // });
+      });
       return null;
     });
 }
