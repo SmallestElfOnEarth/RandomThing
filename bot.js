@@ -226,9 +226,10 @@ bot.on("message", function(message) {
                     PullLeaderboard_WithName(time, i * 50,name);
                     i++
                 }
-                if (playerfound != "")
+                if (playerfound != ""){
                 message.channel.send(playerfound);
                 playerfound = "";
+                }
                 else message.channel.send("Could not find "+name);
             }
             else {
