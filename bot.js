@@ -5,7 +5,7 @@ var arrog = require('./clanogs');
 var client = requestjson.createClient('https://www.roblox.com/');
 var clanfound = [];
 var playerscore = [];
-var playerfound = "";
+var playerfound = ""
 
 //const TOKEN = "MzQyNjYxNzI4MTc1MjU5NjQ5.DGS4Jg.EjbL-_QR1AnRDgosj4PBB5qPOLc"
 const PREFIX = ">>"
@@ -44,23 +44,21 @@ function wait(ms){
 function PullLeaderboard_WithName(time, startindex,name) {
     wait(10);
     if (time == 'alltime')
-       var time2 = 3;
+        time = 3;
     else if(time == 'monthly')
-       var time2 = 2;
-    else if(time2 == 'weekly')
-       var time2 = 1;
+        time = 2;
+    else if(time == 'weekly')
+        time = 1;
     else if(time == 'daily')
-       var time2 = 0;
+        time = 0;
        
-    client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time2 + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
-        wait(10);
-        console.log("time:"+time2);
+    client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
         const boi = (body).filter(({Name}) => Name === name);
         
         Object.keys(body).map((key) => {
             //clanfound.push(body[key].Name);
-            if (boi[key].Name == name) {
-                playerfound = "The score for " +name+ "on " +time+ " is: " + boi[key].FullPoints;
+            if (body[key].Name == name) {
+                playerfound = "The score for " +name+ " is: " + body[key].FullPoints;
             }
            // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
           //  number++;
@@ -218,22 +216,17 @@ bot.on("message", function(message) {
             }
         break;
         case "search":
-            playerfound = ""; 
             let role4 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role4.id)) {
                 var name = args[2];
                 var time = args[1];
-                console.log("arg1= "+args[1]+"arg2= "+args[2]);
+                
                 var i = 0;
                 while (i < 650) {
                     PullLeaderboard_WithName(time, i * 50,name);
                     i++
                 }
-                if (playerfound != ""){
                 message.channel.send(playerfound);
-                playerfound = "";
-                }
-                else console.log("Could not find player:"+playerfound);
             }
             else {
                 message.channel.send("Insufficient Permissions.");
