@@ -228,7 +228,8 @@ bot.on("message", function(message) {
                 }
                 if (playerfound != "")
                 message.channel.send(playerfound);
-                else return;
+                playerfound = "";
+                else message.channel.send("Could not find "+name);
             }
             else {
                 message.channel.send("Insufficient Permissions.");
