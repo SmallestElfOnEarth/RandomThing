@@ -53,7 +53,8 @@ function PullLeaderboard_WithName(time, startindex,name) {
        var time2 = 0;
        
     client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time2 + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
-        const boi = body.filter(({Name}) => Name === name);
+        wait(10);
+        const boi = (body).filter(({Name}) => Name === name);
         
         Object.keys(body).map((key) => {
             //clanfound.push(body[key].Name);
