@@ -237,7 +237,11 @@ bot.on("message", function(message) {
                 message.channel.send("Insufficient Permissions.");
             }
             
-         break;   
+         break;  
+            
+        case "trickked": 
+            message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
+        break;
         default:
             message.channel.send("no such command bro")
     }
