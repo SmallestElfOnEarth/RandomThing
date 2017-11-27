@@ -27,7 +27,6 @@ module.exports = [
 ,'ShadowSentinal'
 ,'xxspasxx'
 ,'zehdy'
-,'iOwn_You'
 ,'Jakeln8r'
 ,'Funks_ter'
 ,'skullthug'
