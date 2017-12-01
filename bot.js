@@ -250,6 +250,9 @@ bot.on("message", function(message) {
             message.channel.send("Sabrina: https://cdn.discordapp.com/attachments/224193833506701312/385947836610772992/dancinbb.gif");
             message.channel.send("**iOwn:** https://www.youtube.com/watch?v=tyrKeThaEJM");
         break;
+        case "kys":
+            message.channel.send("KYS = Keep yourself safe.");
+            break;
        default:
             message.channel.send("no such command bro")
     }
