@@ -247,7 +247,8 @@ bot.on("message", function(message) {
         break;
             
         case "sabrina":
-            message.channel.send("Sabrina: https://cdn.discordapp.com/attachments/224193833506701312/385947836610772992/dancinbb.gif \n\n iOwn: https://www.youtube.com/watch?v=tyrKeThaEJM"
+            message.channel.send("Sabrina: https://cdn.discordapp.com/attachments/224193833506701312/385947836610772992/dancinbb.gif");
+            message.channel.send("**iOwn:** https://www.youtube.com/watch?v=tyrKeThaEJM");
         break;
        default:
             message.channel.send("no such command bro")
