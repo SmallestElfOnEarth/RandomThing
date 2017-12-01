@@ -245,7 +245,11 @@ bot.on("message", function(message) {
         case "sneeze":
             message.channel.send("https://www.youtube.com/watch?v=EvqHm37L1do&feature=youtu.be");
         break;
-        default:
+            
+        case "sabrina":
+            message.channel.send("Sabrina: https://cdn.discordapp.com/attachments/224193833506701312/385947836610772992/dancinbb.gif \n\n iOwn: https://www.youtube.com/watch?v=tyrKeThaEJM"
+        break;
+       default:
             message.channel.send("no such command bro")
     }
 });
