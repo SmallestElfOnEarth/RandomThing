@@ -77,7 +77,7 @@ function PullLeaderboard(time, startindex) {
         const boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team');
         Object.keys(boi).map((key) => {
             clanfound.push(boi[key].Name);
-            if (boi[key].Points > 400000) {
+            if (boi[key].Points > 500000) {
                  clanfound.push(boi[key].Name);
             }
          //   console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
