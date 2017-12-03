@@ -252,7 +252,10 @@ bot.on("message", function(message) {
         break;
         case "kys":
             message.channel.send("KYS = Keep yourself safe.");
-            break;
+        break;
+        case "tung":
+            message.channel.send("TUTURU! UR GAYYYYYYYYYYYYYYYY");
+        break;
        default:
             message.channel.send("no such command bro")
     }
