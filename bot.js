@@ -6,6 +6,7 @@ var client = requestjson.createClient('https://www.roblox.com/');
 var clanfound = [];
 var playerscore = [];
 var playerfound = ""
+var scorereq = 500000
 
 //const TOKEN = "MzQyNjYxNzI4MTc1MjU5NjQ5.DGS4Jg.EjbL-_QR1AnRDgosj4PBB5qPOLc"
 const PREFIX = ">>"
@@ -77,7 +78,7 @@ function PullLeaderboard(time, startindex) {
         const boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team');
         Object.keys(boi).map((key) => {
             clanfound.push(boi[key].Name);
-            if (boi[key].Points > 500000) {
+            if (boi[key].Points > scorereq) {
                  clanfound.push(boi[key].Name);
             }
          //   console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
@@ -208,7 +209,7 @@ bot.on("message", function(message) {
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
-                message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more: \n **"+ arr.join("\n") + "**");
+                message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\n Or they have a score of" + scorereq + " or less : \n **"+ arr.join("\n") + "**");
     
             }
             else {
