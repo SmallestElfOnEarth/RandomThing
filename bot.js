@@ -257,6 +257,9 @@ bot.on("message", function(message) {
         case "tung":
             message.channel.send("TUTURU! UR GAYYYYYYYYYYYYYYYY");
         break;
+        case "faggot":
+            message.channel.send("https://cdn.discordapp.com/attachments/224193833506701312/388680687378497546/faggot.png");
+        break;
        default:
             message.channel.send("no such command bro")
     }
