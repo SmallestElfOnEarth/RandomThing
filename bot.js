@@ -6,7 +6,7 @@ var client = requestjson.createClient('https://www.roblox.com/');
 var clanfound = [];
 var playerscore = [];
 var playerfound = ""
-var scorereq = 500000
+var scorereq = 600000
 
 //const TOKEN = "MzQyNjYxNzI4MTc1MjU5NjQ5.DGS4Jg.EjbL-_QR1AnRDgosj4PBB5qPOLc"
 const PREFIX = ">>"
