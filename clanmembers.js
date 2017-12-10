@@ -77,7 +77,6 @@ module.exports = [
 ,'Derpioguy'
 ,'deogi'
 ,'tantudtap'
-,'c_orrosive'
 ,'ineedagunbadly'
 ,'VuTheBest'
 ,'xXUNFORGIVENx'
