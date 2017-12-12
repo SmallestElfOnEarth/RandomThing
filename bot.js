@@ -80,7 +80,7 @@ function PullLeaderboard(time, startindex) {
             clanfound.push(boi[key].Name);
             if (boi[key].Points > scorereq) {
                  clanfound.push(boi[key].Name);
-                console.log(boi[key].Name+" passed the score req");
+                console.log(boi[key].Name+" passed the score req with "+boi[key].Points);
             }
          //   console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
             //number++;
