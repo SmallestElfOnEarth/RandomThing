@@ -208,8 +208,12 @@ bot.on("message", function(message) {
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
-                arr = arr.filter(x => !~clanfound.indexOf(x));
-                arr = arr.filter(x => !~arrog.indexOf(x));
+                const filteredArray = arr.filter(function(x) { 
+                 return clanfound.indexOf(x) < 0;
+                });
+                const filteredArray = arrog.filter(function(x) { 
+                 return clanfound.indexOf(x) < 0;
+                });
                 message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ arr.join("\n") + "**");
     
             }
