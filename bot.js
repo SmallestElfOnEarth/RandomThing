@@ -211,7 +211,7 @@ bot.on("message", function(message) {
                 const filteredArray = arr.filter(function(x) { 
                  return clanfound.indexOf(x) < 0;
                 });
-                const filteredArray = arrog.filter(function(x) { 
+                 filteredArray = arrog.filter(function(x) { 
                  return clanfound.indexOf(x) < 0;
                 });
                 message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ arr.join("\n") + "**");
