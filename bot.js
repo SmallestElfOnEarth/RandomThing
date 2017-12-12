@@ -85,8 +85,6 @@ function PullLeaderboard(time, startindex) {
          //   console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
             //number++;
         });
-        arr = arr.filter(x => !~clanfound.indexOf(x));
-        arr = arr.filter(x => !~arrog.indexOf(x));
     });
 }
 
@@ -210,6 +208,8 @@ bot.on("message", function(message) {
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
+                arr = arr.filter(x => !~clanfound.indexOf(x));
+                arr = arr.filter(x => !~arrog.indexOf(x));
                 message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ arr.join("\n") + "**");
     
             }
