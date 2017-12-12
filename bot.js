@@ -208,7 +208,7 @@ bot.on("message", function(message) {
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
-                const filteredArray = arr.filter(function(x) { 
+                var filteredArray = arr.filter(function(x) { 
                  return clanfound.indexOf(x) < 0;
                 });
                  filteredArray = arrog.filter(function(x) { 
