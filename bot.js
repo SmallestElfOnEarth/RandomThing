@@ -208,10 +208,10 @@ bot.on("message", function(message) {
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
                 
-                var filtered = arr.filter(x => !~clanfound.indexOf(x))
-                filtered = filtered.filter(x => !~clanfound.indexOf(x))
-                filtered = filtered.filter(x => !~clanfound.indexOf(x))
-                filtered = filtered.filter(x => !~clanfound.indexOf(x))
+                arr.filter(x => !~clanfound.indexOf(x))
+                arr.filter(x => !~clanfound.indexOf(x))
+                arr.filter(x => !~clanfound.indexOf(x))
+                arr.filter(x => !~clanfound.indexOf(x))
              
                 message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ filtered.join("\n") + "**");
     
@@ -265,6 +265,7 @@ bot.on("message", function(message) {
             message.channel.send("https://cdn.discordapp.com/attachments/224193833506701312/388680687378497546/faggot.png");
         break;
         case "testing":
+            clanfound.filter(x => !~clanfound.indexOf(x))
             message.channel.send(clanfound.join("\n"));
         break;
        default:
