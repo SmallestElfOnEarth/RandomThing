@@ -75,12 +75,13 @@ function PullLeaderboard(time, startindex) {
     wait(10);
     client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex="+startindex+"&currentRank=1&previousPoints=988541&max=20&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
         const boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team');
+        boi = (body).filter(({Points}) => Points > scorereq);
         Object.keys(boi).map((key) => {
             clanfound.push(boi[key].Name);
-            if (boi[key].Points > scorereq) {
+           /* if (boi[key].Points > scorereq) {
                  clanfound.push(boi[key].Name);
                 console.log(boi[key].Name+" passed the score req with "+boi[key].Points);
-            }
+            } */
          //   console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
             //number++;
         });
@@ -265,8 +266,7 @@ bot.on("message", function(message) {
             message.channel.send("https://cdn.discordapp.com/attachments/224193833506701312/388680687378497546/faggot.png");
         break;
         case "testing":
-            clanfound.filter(x => !~clanfound.indexOf(x))
-            message.channel.send(clanfound.join("\n"));
+            message.channel.send(arr.join("\n"));
         break;
        default:
             message.channel.send("no such command bro");
