@@ -213,7 +213,7 @@ bot.on("message", function(message) {
                 arr.filter(x => !~clanfound.indexOf(x))
                 arr.filter(x => !~clanfound.indexOf(x))
              
-                message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ filtered.join("\n") + "**");
+                message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ arr.join("\n") + "**");
     
             }
             else {
