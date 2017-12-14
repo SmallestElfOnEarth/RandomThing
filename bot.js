@@ -74,8 +74,8 @@ var i = 0;
 function PullLeaderboard(time, startindex) {
     wait(10);
     client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex="+startindex+"&currentRank=1&previousPoints=988541&max=20&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
-        const boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team' && ({Points}) => Points > scorereq);
-      \\  boi = (body).filter(({Points}) => Points > scorereq);
+        var boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team');
+         boi = (body).filter(({Points}) => Points > scorereq);
         console.log(boi.join("\n"));
         Object.keys(boi).map((key) => {
             clanfound.push(boi[key].Name);
