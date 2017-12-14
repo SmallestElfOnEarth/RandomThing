@@ -61,7 +61,7 @@ function PullLeaderboard_WithName(time, startindex,name) {
                 playerfound = "The score for " +name+ " is: " + boi[0].FullPoints;
           //  }
            // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
-          //  number++;
+          //  number++; 
       });
       return null;
     });
