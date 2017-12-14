@@ -77,7 +77,7 @@ function PullLeaderboard(time, startindex) {
         var boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team');
          boi = (boi).filter(({Points}) => Points < scorereq);
         Object.keys(boi).map((key) => {
-            clanfound.push(boi[key].Name+" - "+boi[key].Points);
+            clanfound.push(boi[key].Name+" - "+boi[key].FullPoints);
             
            /* if (boi[key].Points > scorereq) {
                  clanfound.push(boi[key].Name);
