@@ -210,7 +210,7 @@ bot.on("message", function(message) {
             if (message.member.roles.has(role3.id)) {
                 arr.filter(x => !~clanfound.indexOf(x)))
              
-                message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ filteredArray.join("\n") + "**");
+                message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ arr.join("\n") + "**");
     
             }
             else {
