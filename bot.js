@@ -262,6 +262,9 @@ bot.on("message", function(message) {
         case "testing":
             message.channel.send(arr.join("\n"));
         break;
+        case "christmas":
+            message.channel.send("iown wishes y'all niggers merry christmas or whatever idk... i'm jewish tbh happy hanukkah motherfuckers");
+        break;
        default:
             message.channel.send("no such command bro");
     }
