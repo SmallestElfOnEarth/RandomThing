@@ -196,7 +196,7 @@ bot.on("message", function(message) {
                 clanfound = [];
                 var i = 0;
                 while (i < 650) {
-                    PullLeaderboard(2, i * 50);
+                    PullLeaderboard(1, i * 50);
                     i++
                 }
                 message.channel.send("Calculation Completed. Now procceed to >>validtokick or >>showscore.")
