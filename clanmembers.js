@@ -98,5 +98,5 @@ module.exports = [
 ,'rybud29'
 ,'SingaporeHD'
 ,'IDCAYNTM'
-,'shaunnxx1'
-]
+,'shaunnxx1
+  ]
