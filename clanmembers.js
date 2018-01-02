@@ -102,5 +102,5 @@ module.exports = [
 ,'Doc5003'
 ,'iQriminal'
 ,'Goldilock'
-,'Agrosin
+,'Agrosin'
   ]
