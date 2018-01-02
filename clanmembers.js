@@ -99,4 +99,8 @@ module.exports = [
 ,'SingaporeHD'
 ,'IDCAYNTM'
 ,'shaunnxx1'
+,'Doc5003'
+,'iQriminal'
+,'Goldilock'
+,'Agrosin'
   ]
