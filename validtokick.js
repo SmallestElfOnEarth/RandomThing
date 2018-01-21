@@ -1,9 +1,9 @@
 var clanMembers = require ('./clanmembers.js');
 var clanIgnore = require ('./clanogs.js');
 
+var ranking = 1
 var http = require ('http');
-var timeout = (1000 * 60 * 15); //5 minutes
-
+var timeout = (1000 * 60 * 1); //5 minutes
 var httpGet = function (url, callback){
 	http.get (url, function (res){
 		var ret = "";
@@ -49,9 +49,10 @@ var method = function (points, channel){
 					members.forEach (function (query){
 						if (!clanIgnore.find (j => query.Name.toLowerCase() == j.toLowerCase()) && query.Points < points)
 							embed.fields.push ({
-								name: query.Name + " (" + query.UserId + ")",
+								name: ranking + "query.Name + " (" + query.UserId + ")",
 								value: "Points: " + query.FullPoints + " | Rank: " + query.Rank
 							});
+						ranking++;
 					});
 					
 					clanMembers.forEach (function (userName){
