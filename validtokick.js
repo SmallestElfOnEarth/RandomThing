@@ -1,7 +1,6 @@
 var clanMembers = require ('./clanmembers.js');
 var clanIgnore = require ('./clanogs.js');
-var timeout = (1000 * 60 * 5);
-var ranking = 1
+var timeout = (1000 * 60 * 1);
 var http = require ('http');
 //var timeout = (1000 * 60 * 5); //5 minutes
 var httpGet = function (url, callback){
@@ -31,6 +30,7 @@ var httpGet = function (url, callback){
 var method = function (points, channel){
 	var members = [];
 	var notFound = [];
+	var ranking = 1
 	var expire = Date.now( )+ timeout;
 	var iterator = null, index = -50;
 		iterator = function (){
@@ -45,7 +45,6 @@ var method = function (points, channel){
 						title: "Members found with less than " + points + " points!",
 						fields: []
 					};
-					
 					members.forEach (function (query){
 						if (!clanIgnore.find (j => query.Name.toLowerCase() == j.toLowerCase()) && query.Points < points)
 							embed.fields.push ({
@@ -80,4 +79,4 @@ var method = function (points, channel){
 };
 
 module.exports = method;
-ranking = 1
+
