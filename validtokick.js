@@ -80,3 +80,4 @@ var method = function (points, channel){
 };
 
 module.exports = method;
+ranking = 1
