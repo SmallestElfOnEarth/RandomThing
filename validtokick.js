@@ -29,7 +29,7 @@ var httpGet = function (url, callback){
 	});
 };
 
-var method = function (points, channel,time){
+var method = function (points, channel){
 	var members = [];
 	var notFound = [];
 	var expire = Date.now( )+ timeout;
