@@ -96,5 +96,5 @@ module.exports = [
 ,"ma_axx"
 ,"GReenBoy767"
 ,"xTh3Legend27"
-."Tappix888"
+,"Tappix888"
   ]
