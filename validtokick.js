@@ -49,7 +49,7 @@ var method = function (points, channel){
 					members.forEach (function (query){
 						if (!clanIgnore.find (j => query.Name.toLowerCase() == j.toLowerCase()) && query.Points < points)
 							embed.fields.push ({
-								name: ranking + "query.Name + " (" + query.UserId + ")",
+								name: ranking + query.Name + " (" + query.UserId + ")",
 								value: "Points: " + query.FullPoints + " | Rank: " + query.Rank
 							});
 						ranking++;
