@@ -1,9 +1,10 @@
 var clanMembers = require ('./clanmembers.js');
 var clanIgnore = require ('./clanogs.js');
-
+var main = require ('./bot.js');
+var timeout = (1000 * 60 * main.time);
 var ranking = 1
 var http = require ('http');
-var timeout = (1000 * 60 * 5); //5 minutes
+//var timeout = (1000 * 60 * 5); //5 minutes
 var httpGet = function (url, callback){
 	http.get (url, function (res){
 		var ret = "";
@@ -28,9 +29,11 @@ var httpGet = function (url, callback){
 	});
 };
 
-var method = function (points, channel){
+var method = function (points, channel,time){
 	var members = [];
 	var notFound = [];
+	var time = time;
+	console.log(time);
 	var expire = Date.now( )+ timeout;
 	var iterator = null, index = -50;
 		iterator = function (){
