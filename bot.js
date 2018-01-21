@@ -115,7 +115,7 @@ bot.on("message", function(message) {
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
             message.channel.send("Fetching the list of users valid to kick... This will take **5** minutes.");
-            require('./validtokick.js')(1000000, message.channel,)                
+            require('./validtokick.js')(1000000, message.channel)                
             }
             else {
                 message.channel.send("Insufficient Permissions.");
@@ -148,7 +148,7 @@ bot.on("message", function(message) {
             message.channel.send("iown wishes y'all niggers merry christmas or whatever idk... i'm jewish tbh happy hanukkah motherfuckers");
         break;
         case "args":
-            message.channel.send("arg0 =" +args[0] + "arg1 = "+args[1]  
+            message.channel.send("arg0 =" +args[0] + "arg1 = "+args[1] + "arg2 = "+args[2]  
        default:
             message.channel.send("no such command bro");
     }
