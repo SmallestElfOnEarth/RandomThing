@@ -1,6 +1,5 @@
 var clanMembers = require ('./clanmembers.js');
 var clanIgnore = require ('./clanogs.js');
-var main = require ('./bot.js');
 var timeout = (1000 * 60 * 5);
 var ranking = 1
 var http = require ('http');
