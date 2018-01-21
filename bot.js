@@ -118,7 +118,7 @@ bot.on("message", function(message) {
                     require('./validtokick.js')(1000000, message.channel)
                 }
                 else
-                    require('./validtokick.js')(parseInt(args[1],message.channel)
+                    require('./validtokick.js')(parseInt(args[1]),message.channel)
             }
             else {
                 message.channel.send("Insufficient Permissions.");
