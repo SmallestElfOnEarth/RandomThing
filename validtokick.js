@@ -33,8 +33,8 @@ var httpGet = function (url, callback){
 var method = function (points, channel,time){
 	var members = [];
 	var notFound = [];
-	var time = time;
-	console.log(time);
+	//var time = time;
+	//console.log(time);
 	var expire = Date.now( )+ timeout;
 	var iterator = null, index = -50;
 		iterator = function (){
