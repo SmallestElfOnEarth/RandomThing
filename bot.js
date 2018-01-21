@@ -159,5 +159,5 @@ bot.on("message", function(message) {
             message.channel.send("no such command bro");
     }
 });
-
+//sfdsfs
 bot.login(process.env.BOT_TOKEN);
