@@ -41,66 +41,6 @@ function wait(ms){
 
 
 
-function PullLeaderboard_WithName(time, startindex,name) {
-    wait(10);
-    if (time == 'alltime')
-        time = 3;
-    else if(time == 'monthly')
-        time = 2;
-    else if(time == 'weekly')
-        time = 1;
-    else if(time == 'daily')
-        time = 0;
-       
-    client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex=" + startindex + "&currentRank=1&previousPoints=0&max=500000&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
-        const boi = (body).filter(({Name}) => Name === name);
-        
-        Object.keys(boi).map((key) => {
-            //clanfound.push(body[key].Name);
-           // if (body[key].Name == name) {
-                playerfound = "The score for " +name+ " is: " + boi[0].FullPoints;
-          //  }
-           // console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
-          //  number++; 
-      });
-      return null;
-    });
-}
-var i = 0;
-
-
-
-
-function PullLeaderboard(time, startindex) {
-    wait(10);
-    client.get("leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=" + time + "&startIndex="+startindex+"&currentRank=1&previousPoints=988541&max=20&imgWidth=48&imgHeight=48&imgFormat=PNG", function (err, res, body) {
-        var boi = (body).filter(({ClanName}) => ClanName === 'Phantom Rangers || Competitive PF Team');
-         boi = (boi).filter(({Points}) => Points < scorereq);
-        Object.keys(boi).map((key) => {
-            clanfound.push(boi[key].Name+" - "+boi[key].FullPoints);
-            
-           /* if (boi[key].Points > scorereq) {
-                 clanfound.push(boi[key].Name);
-                console.log(boi[key].Name+" passed the score req with "+boi[key].Points);
-            } */
-         //   console.log(number + ".Name: " + boi[key].Name + " Score:" + boi[key].FullPoints + " Position:" + boi[key].Rank);
-            //number++;
-        });
-    });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
@@ -150,25 +90,7 @@ bot.on("message", function(message) {
         break; 
         case "drderp":
             message.channel.send("You'll never be mod.");
-        break;
-        case "day":
-         var today = new Date();
-            if (today.getDay() == 6)
-                message.channel.send("today is  saturday bro");
-            else if (today.getDay() == 5) 
-                message.channel.send("today is friday bro, wooooo");
-            else if (today.getDay() == 4)
-                message.channel.send("today is thursday mate");
-            else if(today.getDay() == 3)
-                message.channel.send("today is wednesday");
-            else if (today.getDay() == 2)
-                message.channel.send("today is tuesday amigo ");
-            else if (today.getDay() == 1) 
-                message.channel.send("today is monday :(");
-            else if (today.getDay() == 0)
-                message.channel.send("today is sunday dude");
-            break;
-            
+        break;  
         case "enderking":
             message.channel.send("https://tenor.com/view/asian-dance-gif-6014113");
             break;
@@ -189,57 +111,16 @@ bot.on("message", function(message) {
         case "daddy":
             message.channel.send("daddy koods is my true passion i love him");
             break;
-
-        case "calculate":
-            let role2 = message.guild.roles.find("name", "Clan Manager");
-            if (message.member.roles.has(role2.id)) {
-                clanfound = [];
-                var i = 0;
-                while (i < 650) {
-                    PullLeaderboard(2, i * 50);
-                    i++
-                }
-                message.channel.send("Calculation Completed. Now procceed to >>validtokick or >>showscore.")
-            }
-            else {
-                message.channel.send("Insufficient Permissions.");
-            }
-            break;
-
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
-             //   message.channel.send("List of users the scanner couldnt find, Meaning they are position 27,500 or more\nOr they have a score of " + scorereq + " or less : \n **"+ clanfound.join("\n") + "**");
+            message.channel.send("Fetching the list of users valid to kick... Please allow up to **5** minutes.");
             require('./validtokick.js')(1000000, message.channel)                
             }
             else {
                 message.channel.send("Insufficient Permissions.");
             }
-        break;
-        case "search":
-            playerfound = "";
-            let role4 = message.guild.roles.find("name", "Clan Manager");
-            if (message.member.roles.has(role4.id)) {
-                var name = args[2];
-                var time = args[1];
-                
-                var i = 0;
-                while (i < 650) {
-                    PullLeaderboard_WithName(time, i * 50,name);
-                    i++
-                }
-                if (playerfound != ""){
-                message.channel.send(playerfound);
-                playerfound = "";
-                }
-                else message.channel.send("Could not find "+name);
-            }
-            else {
-                message.channel.send("Insufficient Permissions.");
-            }
-            
-         break;  
-            
+        break;            
         case "trickked": 
             message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
         break;
