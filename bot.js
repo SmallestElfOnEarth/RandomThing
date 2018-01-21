@@ -117,6 +117,9 @@ bot.on("message", function(message) {
                 if (args[1] != "undefined" || args[1] != undefined){
                     message.channel.send("Fetching the list of users valid to kick... This will take **"+parseInt(args[1])+"** minutes.");
                     require('./validtokick.js')(1000000, message.channel,parseInt(args[1])) 
+                    module.exports = [
+                        var time = parseInt(args[1]);
+                    ]
                 }
                 else
                     message.channel.send("Fetching the list of users valid to kick... This will take **5** minutes.");
