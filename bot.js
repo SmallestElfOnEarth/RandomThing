@@ -148,7 +148,7 @@ bot.on("message", function(message) {
             message.channel.send("iown wishes y'all niggers merry christmas or whatever idk... i'm jewish tbh happy hanukkah motherfuckers");
         break;
         case "args":
-            message.channel.send("arg0 =" +args[0] + "arg1 = "+args[1] + "arg2 = "+args[2];
+            message.channel.send("arg0 =" +args[0] + "arg1 = "+args[1] + "arg2 = "+args[2]);
         break;
        default:
             message.channel.send("no such command bro");
