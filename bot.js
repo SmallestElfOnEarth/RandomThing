@@ -151,7 +151,7 @@ bot.on("message", function(message) {
             message.channel.send("iown wishes y'all niggers merry christmas or whatever idk... i'm jewish tbh happy hanukkah motherfuckers");
         break;
         case "kolonoscopy":
-            message.channel.send("Why are you awake?");
+            message.channel.send("If you read this, you're a six piece chicken Mcnobody");
         break;
        default:
             message.channel.send("no such command bro");
