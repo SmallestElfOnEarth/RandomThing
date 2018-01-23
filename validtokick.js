@@ -75,9 +75,9 @@ var m = function (points, channel){
 	};
 	
 	scannedMembers.forEach (function (query){
-		if (!clanIgnore.find (j => query.Name.toLowerCase() == j.toLowerCase()) && query.Points < points && embeds.fields.length < 24)
+		if (!clanIgnore.find (j => query.Name.toLowerCase() == j.toLowerCase()) && query.Points < points && embed.fields.length < 24)
 			embed.fields.push ({
-				name: (embeds.fields.length + 1) + '. ' + query.Name + " (" + query.UserId + ")",
+				name: (embed.fields.length + 1) + '. ' + query.Name + " (" + query.UserId + ")",
 				value: "Points: " + query.Points + " | Rank: " + query.Rank
 			});
 	});
