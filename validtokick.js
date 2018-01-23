@@ -83,7 +83,7 @@ var m = function (points, channel){
 	});
 	
 	clanMembers.forEach (function (userName){
-		if (!clanIgnore.find (j => j.toLowerCase() == userName.toLowerCase()) && !scannedMembers.find (j => j.Name == userName) && embeds.fields.length < 24)
+		if (!clanIgnore.find (j => j.toLowerCase() == userName.toLowerCase()) && !scannedMembers.find (j => j.Name == userName) && embed.fields.length < 24)
 			embed.fields.push ({
 				name: userName,
 				value: "This member was not found on the list, far below required points"
