@@ -2,8 +2,8 @@ var clanMembers = require ('./clanmembers.js');
 var clanIgnore = require ('./clanogs.js');
 
 var http = require ('http');
-var timeout = (1000 * 60 * 2); //30 minutes
-var scanDelay = (1000 * 60 * 2); //60 minutes
+var timeout = (1000 * 60 * 5); //30 minutes
+var scanDelay = (1000 * 60 * 10); //60 minutes
 
 var httpGet = function (url, callback){
 	http.get (url, function (res){
