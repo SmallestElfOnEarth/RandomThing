@@ -1,4 +1,4 @@
-var clanMembers = require ('.clanmembers.js');
+var clanMembers = require ('./clanmembers.js');
 var clanIgnore = require ('./clanogs.js');
 
 var http = require ('http');
