@@ -1,5 +1,5 @@
-var clanMembers = require ('.clanMembers.js');
-var clanIgnore = require ('./clanIgnore.js');
+var clanMembers = require ('.clanmembers.js');
+var clanIgnore = require ('./clanogs.js');
 
 var http = require ('http');
 var timeout = (1000 * 60 * 5); //30 minutes
