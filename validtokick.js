@@ -41,7 +41,7 @@ var scanInProgress = true;
 				index += 50;
 				httpGet ('http://www.roblox.com/leaderboards/game/json?targetType=0&distributorTargetId=113491250&timeFilter=2&startIndex=' +  index + '&currentRank=1&previousPoints=3372937&max=50&imgWidth=48&imgHeight=48&imgFormat=PNG', function (data){
 					if (Date.now() >= expire || data.length == 0 || scannedMembers.length == clanMembers.length || typeof(Data)!= "object") {
-						scannedMembers = newScanned;
+					  if (newScanned.length > 0) scannedMembers = newScanned;
 						scanInProgress = false;
 						setTimeout (scan, scanDelay);
 						return;
