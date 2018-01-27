@@ -30,6 +30,20 @@ function autoannounce(){
  }}}
     setInterval(autoannounce,60000);
 
+function format(seconds){
+  function pad(s){
+    return (s < 10 ? '0' : '') + s;
+  }
+  var hours = Math.floor(seconds / (60*60));
+  var minutes = Math.floor(seconds % (60*60) / 60);
+  var seconds = Math.floor(seconds % 60);
+
+  return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+}
+
+
+
+
 function wait(ms){
    var start = new Date().getTime();
    var end = start;
@@ -151,6 +165,10 @@ bot.on("message", function(message) {
         break;
         case "kolonoscopy":
             message.channel.send("If you read this, you're a six piece chicken Mcnobody");
+        break;
+        case "uptime":
+            var uptime = process.uptime();
+            message.channel.send("Uptime: "+ format(uptime));
         break;
        default:
             message.channel.send("no such command bro");
