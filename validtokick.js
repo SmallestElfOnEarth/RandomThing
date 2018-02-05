@@ -61,8 +61,8 @@ var scanInProgress = true;
 	setTimeout (scan, 0);
 	
 var m = function (points, channel){
-	//if (scanInProgress)
-		//return channel.send ('Unable to process command, initial scan still in progress');
+	if (scanInProgress)
+		return channel.send ('Unable to process command, initial scan still in progress');
 	
 	scannedMembers.sort (function (a, b){
 		return (a.Points == b.Points ? 0 : (a.Points < b.Points ? -1 : 1));
