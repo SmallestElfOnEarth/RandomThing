@@ -1,5 +1,5 @@
-var clanMembers = require ('./path/clanMembers.js');
-var clanIgnore = require ('./path/clanIgnore.js');
+var clanMembers = require ('./clanmembers.js');
+var clanIgnore = require ('./clanogs.js');
 var scannedMembers = [];
 var firstScanInProgress = true;
 
