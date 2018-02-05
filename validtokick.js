@@ -19,7 +19,7 @@ var httpGet = function (url){
 		});
 	});
 };
-var timeout = (1000 * 60 * 720); 
+var timeout = (1000 * 60 * 5); 
 var scanDelay = (1000 * 60 * 5); 
 
 var beginIteration; beginIteration = function(){
