@@ -127,12 +127,7 @@ bot.on("message", function(message) {
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
-                if (args[1] == "undefined" || args[1] == undefined){
-                    require('./validtokick.js')(1000000, message.channel)
-                }
-                else
-                    require('./validtokick.js')(parseInt(args[1]),message.channel)
-            }
+                require('./validtokick.js').default(isNaN(Number(args[1])) ? 1000000 : Number(arg[1]), message.channel);
             else {
                 message.channel.send("Insufficient Permissions.");
             }
