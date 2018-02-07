@@ -135,8 +135,13 @@ bot.on("message", function(message) {
         break; 
             
         case "vtk_uptime":
-            if message.member.roles.has(role3.id)){
+            let role4 = message.guild.roles.find("name","Clan Manager");
+            if message.member.roles.has(role4.id)){
                 require('./validtokick.js').getCurrentCount(message.channel,message.user);
+            }
+            else{
+                message.channel.send("Insufficient Permissions.");
+            }
         case "trickked": 
             message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
         break;
