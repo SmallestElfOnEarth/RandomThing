@@ -137,7 +137,7 @@ bot.on("message", function(message) {
         case "vtk_uptime":
             let role4 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role4.id)) {
-                require('./validtokick.js').getCurrentCount(message.channel,message.user);
+                require('./validtokick.js').getCurrentCount(message.channel,message.author);
             }
             else{
                 message.channel.send("Insufficient Permissions.");
