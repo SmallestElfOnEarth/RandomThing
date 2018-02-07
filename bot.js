@@ -132,7 +132,11 @@ bot.on("message", function(message) {
             else {
                 message.channel.send("Insufficient Permissions.");
             }
-        break;            
+        break; 
+            
+        case "vtk_uptime":
+            if message.member.roles.has(role3.id)){
+                require('./validtokick.js').getCurrentCount(message.channel,message.user);
         case "trickked": 
             message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
         break;
