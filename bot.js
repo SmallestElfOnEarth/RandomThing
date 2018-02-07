@@ -135,8 +135,8 @@ bot.on("message", function(message) {
         break; 
             
         case "vtk_uptime":
-            let role4 = message.guild.roles.find("name","Clan Manager");
-            if message.member.roles.has(role4.id)){
+            let role4 = message.guild.roles.find("name", "Clan Manager");
+            if (message.member.roles.has(role4.id)) {
                 require('./validtokick.js').getCurrentCount(message.channel,message.user);
             }
             else{
