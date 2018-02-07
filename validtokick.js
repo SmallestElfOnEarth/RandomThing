@@ -22,7 +22,7 @@ var httpGet = function (url, callback){
 		});
 	});
 };
-var timeout = (1000 * 60 * 120); 
+var timeout = (1000 * 60 * 180); 
 var scanDelay = (1000 * 60 * 5); 
 var l = [];
 var n = 0;
@@ -81,7 +81,7 @@ var beginIteration; beginIteration = function(){
 					console.log ('' + new Date(), 'Attempting new http request #' + t + ' in 15 seconds| startIndex: ' + n);
 					
 					i (0, c, t + 1);
-				}, 15 * (60 * 1000));
+				}, 15 *1000);
 			}
 		});
 		
