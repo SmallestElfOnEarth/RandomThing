@@ -12,7 +12,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function(){
     console.log("Ready");
-    bot.user.setActivity("with iown's genitalia.",PLAYING);
+    bot.user.setActivity("with iown's genitalia.");
 });
 
 function autoannounce(){
