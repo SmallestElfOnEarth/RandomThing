@@ -149,7 +149,7 @@ bot.on("message", function(message) {
                 message.channel.send("Insufficient Permissions.");
             }
         break;
-        case: "vtk_setdelay":
+        case "vtk_setdelay":
             let role5 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role5.id)){
                 require('./validtokick.js').setDelay(isNaN(Number(args[1])) ? 30 : Number(arg[1]), message.channel)
