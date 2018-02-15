@@ -195,6 +195,6 @@ module.exports = {
 		})
 	},
 	scaninit: function(channel){
-		c.send("Scan initiating... Scanning for players..);
+		c.send("Scan initiating... Scanning for players..");
 	}
 };
