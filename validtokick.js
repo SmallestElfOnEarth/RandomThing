@@ -2,8 +2,6 @@ var clanMembers = require ('./clanmembers.js');
 var clanIgnore = require ('./clanogs.js');
 var scannedMembers = [];
 var firstScanInProgress = true;
-const Discord = require("discord.js")
-const bot =  new Discord.Client()
 
 var http = require ('http');
 var httpGet = function (url, callback){
@@ -24,8 +22,8 @@ var httpGet = function (url, callback){
 		});
 	});
 };
-var timeout = (1000 * 60 * 60); 
-var scanDelay = (1000 * 60 * 30); 
+var timeout = (1000 * 60 * 180); 
+var scanDelay = (1000 * 60 * 5); 
 var l = [];
 var n = 0;
 var s = 0;
@@ -188,6 +186,14 @@ module.exports = {
 			}
 		})
 	},
+		scaninit: function (c){
+		c.send ({
+			embed: {
+				title: 'Bot initiating...',
+				description: 'Valid to kick scan is initiating...'
+			}
+		})
+	},
 	isInProgress: function (c, u){
 		c.send ('<@' + u.id + '>', {
 			embed: {
@@ -196,12 +202,4 @@ module.exports = {
 			}
 		})
 	},
-	scaninit: function(c, u){
-		c.send ('<@' + u.id + '>', {
-			embed: {
-				title: 'Initiating...',
-				description: 'Valid to kick scan initiating...'
-			}
-		})
-	},
-}
+};
