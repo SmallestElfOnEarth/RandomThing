@@ -186,14 +186,6 @@ module.exports = {
 			}
 		})
 	},
-		scaninit: function (c){
-		c.send ({
-			embed: {
-				title: 'Bot restarted...',
-				description: 'Commands are ready to use.'
-			}
-		})
-	},
 	isInProgress: function (c, u){
 		c.send ('<@' + u.id + '>', {
 			embed: {
