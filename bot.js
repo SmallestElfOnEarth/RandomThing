@@ -12,7 +12,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function(){
     console.log("Ready");
-    bot.user.setGame("with iown's genitalia.");
+    bot.user.setActivity("with iown's genitalia.",PLAYING);
 });
 
 function autoannounce(){
@@ -42,6 +42,9 @@ function format(seconds){
 }
 
 
+setInterval (function(){
+console.log ('30 mins keepalive!');
+}, (30*60*1000));
 
 
 function wait(ms){
