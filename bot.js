@@ -141,6 +141,7 @@ bot.on("message", function(message) {
             }
             else{
                 message.channel.send("Insufficient Permissions.");
+break;
             }
         case "trickked": 
             message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
@@ -175,6 +176,9 @@ bot.on("message", function(message) {
             var uptime = process.uptime();
             message.channel.send("Uptime: "+ format(uptime));
         break;
+case "kris":
+message.channel.send("what a fucking lil bitch lmao");
+break;
        default:
             message.channel.send("no such command bro");
     }
