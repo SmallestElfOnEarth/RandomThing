@@ -196,8 +196,13 @@ module.exports = {
 			}
 		})
 	},
-	scaninit: function(){
-		var channel = bot.channels.find("name","prbot");
-		channel.send("bot initiating... scan starting..");
+	scaninit: function(c, u){
+		c.send ('<@' + u.id + '>', {
+			embed: {
+				title: 'Initiating...',
+				description: 'Valid to kick scan initiating...'
+			}
+		})
+	},
 	}
 };
