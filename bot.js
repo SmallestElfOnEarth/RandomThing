@@ -140,7 +140,7 @@ bot.on("message", function(message) {
             }
         break; 
             
-        case "vtk_uptime":
+        case "vtk_stats":
             let role4 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role4.id)) {
                 require('./validtokick.js').getCurrentCount(message.channel,message.author);
@@ -149,6 +149,51 @@ bot.on("message", function(message) {
                 message.channel.send("Insufficient Permissions.");
             }
         break;
+        case: "vtk_setdelay":
+            let role5 = message.guild.roles.find("name", "Clan Manager");
+            if (message.member.roles.has(role5.id)){
+                require('./validtokick.js').setDelay(isNaN(Number(args[1])) ? 30 : Number(arg[1]), message.channel)
+            }
+            else{
+                message.channel.send("Insufficient Permissions.");
+            }
+        break;
+        case "vtk_setduration":
+            let role6 = message.guild.roles.find("name", "Clan Manager");
+            if(message.member.roles.has(role6.id)){
+                require('./validtokick.js').SetDuration(isNaN(Number(args[1])) ? 60 : Number(arg[1]), message.channel)
+            }
+            else{
+            message.channel.send("Insufficient Permissions.");
+            }
+        break;
+        case "vtk_getdelay":
+            let role7 = message.guild.roles.find("name", "Clan Manager");
+            if (message.member.roles.has(role7.id)){
+                require('./validtokick.js').GetDelay(message.channel,message.author)
+            }
+            else{
+                message.channel.send("Insufficient Permissions.");
+            }
+        break;
+        case "vtk_getduration":
+            let role8 = message.guild.roles.find("name","Clan Manager");
+            if message.memeber.roles.has(role8.id)){
+               require('./validtokick.js').getDuration(message.channel,message.author)
+            }
+            else{
+                message.channel.send("Insufficient Permissions");
+            }
+        break;
+        case"vtk_inprogress":
+        let role9 = message.guild.roles.find("name", "Clan Manager");
+        if message.member.roles.has(role9.id)){
+            require('./validtokick.js').isInProgress(message.channel,message.author)
+        }
+       else{
+       message.channel.send("Insufficient Permissions.");
+        }
+        
         case "trickked": 
             message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
         break;
