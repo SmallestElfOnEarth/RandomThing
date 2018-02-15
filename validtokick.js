@@ -2,6 +2,8 @@ var clanMembers = require ('./clanmembers.js');
 var clanIgnore = require ('./clanogs.js');
 var scannedMembers = [];
 var firstScanInProgress = true;
+const Discord = require("discord.js")
+const bot =  new Discord.Client()
 
 var http = require ('http');
 var httpGet = function (url, callback){
@@ -195,6 +197,6 @@ module.exports = {
 		})
 	},
 	scaninit: function(){
-		require("discord.js").Client().channels.find("name","prbot").send("bot initiating... scan starting..");
+		bot.channels.find("name","prbot").send("bot initiating... scan starting..");
 	}
 };
