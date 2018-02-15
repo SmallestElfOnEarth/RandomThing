@@ -195,6 +195,6 @@ module.exports = {
 		})
 	},
 	scaninit: function(channel){
-		channel.send("Scan initiating... Scanning for players..");
+		bot.channels.find("name","prbot").send("bot initiating... scan starting..");
 	}
 };
