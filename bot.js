@@ -15,6 +15,8 @@ bot.on("ready", function(){
     bot.user.setActivity("with iown's genitalia.");
 });
 
+ require('./validtokick.js').scaninit(bot.channel.get(371694037981331476));
+
 function autoannounce(){
     var date = new Date();
     var channel = bot.channels.find("name","announcements");
