@@ -189,8 +189,8 @@ module.exports = {
 		scaninit: function (c){
 		c.send ({
 			embed: {
-				title: 'Bot initiating...',
-				description: 'Valid to kick scan is initiating...'
+				title: 'Bot restarted...',
+				description: 'Commands are ready to use.'
 			}
 		})
 	},
