@@ -6,6 +6,7 @@ var client = requestjson.createClient('https://www.roblox.com/');
 var clanfound = [];
 var playerscore = [];
 var playerfound = ""
+require('./validtokick.js')
 
 const PREFIX = ">>"
 var bot = new Discord.Client();
@@ -15,7 +16,7 @@ bot.on("ready", function(){
     bot.user.setActivity("with iown's genitalia.");
 });
 
- require('./validtokick.js').scaninit(bot.channels.find("name",("discussion"));
+
 
 function autoannounce(){
     var date = new Date();
