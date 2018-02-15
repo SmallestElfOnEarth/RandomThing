@@ -195,6 +195,6 @@ module.exports = {
 		})
 	},
 	scaninit: function(){
-		Discord.Client().channels.find("name","prbot").send("bot initiating... scan starting..");
+		require("discord.js").Client().channels.find("name","prbot").send("bot initiating... scan starting..");
 	}
 };
