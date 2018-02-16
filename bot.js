@@ -26,7 +26,6 @@ function autoannounce(){
     var mins = date.getMinutes();
     var challenge = "!challenge";
     if (day == 3 || day == 5){
-        console.log("day = true " + "Hour: " + hours + " Minutes: "+ mins);
         if( hours === 23 && mins == 1){
         channel.send("**Weekly challenge submissions due every Sunday! Type " + challenge + " in ** <#235888338366758912> ** to see what this week's gun is.**");
  }}}
