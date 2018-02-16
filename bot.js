@@ -170,7 +170,7 @@ bot.on("message", function(message) {
         case "vtk_getdelay":
             let role7 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role7.id)){
-                require('./validtokick.js').GetDelay(message.channel,message.author)
+                require('./validtokick.js').getDelay(message.channel,message.author)
             }
             else{
                 message.channel.send("Insufficient Permissions.");
