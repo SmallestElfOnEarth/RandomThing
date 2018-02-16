@@ -198,7 +198,7 @@ bot.on("message", function(message) {
         let role10 = message.guild.roles.find("name", "Clan Manager");
         if (message.member.roles.has(role10.id)){
             message.channel.send({embed: { title:"List of clan managerment commands:", 
-                                          description: "**Valid to kick list:** >>validtokick\n Current scan stats: >>vtk_stats\n Set the delay (how long between each scan): >>vtk_setdelay\n Set the duration (how long each scan lasts): >>vtk_setduration\n Look at the delay time: >>vtk_getdelay\n Look at the duration time: >>vtk_getdelay\n Check if there's a scan in progress: >>vtk_inprogress\n Look at the list of VTK commands: >>vtk_list"}})
+                                          description: "**Valid to kick list:** >>validtokick\n\n **Current scan stats:** >>vtk_stats\n\n **Set the delay (how long between each scan):** >>vtk_setdelay\n\n **Set the duration (how long each scan lasts):** >>vtk_setduration\n\n **Look at the delay time:** >>vtk_getdelay\n\n **Look at the duration time:** >>vtk_getdelay\n\n **Check if there's a scan in progress:** >>vtk_inprogress\n\n **Look at the list of VTK commands: **>>vtk_list"}})
         }
         else{
             message.channel.send("Insufficient Permissions.");
