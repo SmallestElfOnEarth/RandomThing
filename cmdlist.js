@@ -1,6 +1,6 @@
 const Discord = require("discord.js"); 
 module.exports = {
-	commandlist: function (c, u){
+	cmdlist: function (c, u){
 		const embed = new Discord.RichEmbed()
 			.setTitle("Command list")
 			.setDescription("A list of all the bot commands.")
