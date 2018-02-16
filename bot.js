@@ -257,11 +257,9 @@ bot.on("message", function(message) {
             httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){
             var data = JSON.parse (data);
             var ID = data.Id;
-             require("./payoutsys.js").payout(message.channel,message.author,ID,args[2]);
+             
+             require("./payoutsys.js").payout(message.channel,message.author,ID,args[2],args[1]);
 });
-        break;
-        case "payout":
-            message.channel.send("fuck uu");
         break;
        default:
             message.channel.send("no such command bro");
