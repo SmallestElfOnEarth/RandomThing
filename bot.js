@@ -243,7 +243,7 @@ bot.on("message", function(message) {
             require("./cmdlist.js").cmdlist(message.channel,message.author);
         break;
         case "payout":
-            require("./payoutsys.js).payout(message.channel,message.author,args[1],args[2]);
+            require("./payoutsys.js").payout(message.channel,message.author,args[1],args[2]);
         break;
        default:
             message.channel.send("no such command bro");
