@@ -243,6 +243,7 @@ bot.on("message", function(message) {
         break;
         case "pay":
             require("./payoutsys.js").payout(message.channel,message.author,args[1],args[2]);
+            console.log (require("./payoutsys.js").payout(message.channel,message.author,args[1],args[2]));
         break;
         case "payout":
             message.channel.send("fuck uu");
