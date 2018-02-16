@@ -254,11 +254,18 @@ bot.on("message", function(message) {
             require("./cmdlist.js").cmdlist(message.channel,message.author);
         break;
         case "pay":
+            message.channel.send("Are you sure you want to pay "+args[1]+" "+ args[2] +" Robux?");
+            switch (args[0].toLowerCase()) {
+            case "yes":   
             httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){
             var data = JSON.parse (data);
             var ID = data.Id;
-             
-             require("./payoutsys.js").payout(message.channel,message.author,ID,args[2],args[1]);
+            // require("./payoutsys.js").payout(message.channel,message.author,ID,args[2],args[1]);
+             message.channel.send("Transaction Gone Through.");
+            break;
+            case "no":
+            message.channel.send("Transaction Cancelled.");
+            break;
 });
         break;
        default:
