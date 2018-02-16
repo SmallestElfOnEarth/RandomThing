@@ -161,7 +161,7 @@ bot.on("message", function(message) {
         case "vtk_setduration":
             let role6 = message.guild.roles.find("name", "Clan Manager");
             if(message.member.roles.has(role6.id)){
-                require('./validtokick.js').SetDuration(isNaN(Number(args[1])) ? 60 : Number(args[1]))
+                require('./validtokick.js').setDuration(isNaN(Number(args[1])) ? 30 : Number(args[1]))
             }
             else{
             message.channel.send("Insufficient Permissions.");
