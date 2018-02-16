@@ -13,7 +13,7 @@ module.exports = {
    c.send('<@' + u.id + '>,'+ amount + ' robux has been successfuly paid to '+ user +'!');
   })
  }
-
+}
 
 
    
