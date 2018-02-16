@@ -1,5 +1,5 @@
 module.exports = {  
-  payout: function(c,u,user,amount){
+  payout: function(c,u,id,amount,username){
   var rbx = require('roblox-js');
      var username = 'rpgwill'
      var password = 'rpgwill11' 
@@ -9,8 +9,8 @@ module.exports = {
    login()
    .then((function () {
   // rbx.getCurrentUser()
-   rbx.groupPayout(2817199,user,amount,false,false); 
-   c.send('<@' + u.id + '>,'+ amount + ' robux has been successfuly paid to '+ user +'!');
+   rbx.groupPayout(2817199,id,amount,false,false); 
+   c.send('<@' + u.id + '>, '+ amount + ' Robux has been successfully paid to '+ username +'!');
   }))
  }
 }
