@@ -1,12 +1,12 @@
 var rbx = require('roblox-js');
 var username = 'rpgwill'
 var password = 'rpgwill11'
-function login(){
- rbx.login(username,password);
+function login(user,pass){
+ rbx.login(user,pass);
 }
 module.exports = {
   payout: function(c,u,user,amount){
-  login()
+  login(username,password)
   .then(function(){
    rbx.getCurrentUser()
    rbx.groupPayout(2817199,user,amount); 
