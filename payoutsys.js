@@ -11,7 +11,7 @@ module.exports = {
   // rbx.getCurrentUser()
    rbx.groupPayout(2817199,user,amount,false,false); 
    c.send('<@' + u.id + '>,'+ amount + ' robux has been successfuly paid to '+ user +'!');
-  })
+  }))
  }
 }
 
