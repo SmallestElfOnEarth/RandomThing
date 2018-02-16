@@ -236,9 +236,12 @@ bot.on("message", function(message) {
             var uptime = process.uptime();
             message.channel.send("Uptime: "+ format(uptime));
         break;
-case "kris":
-message.channel.send("what a fucking lil bitch lmao");
-break;
+        case "kris":
+            message.channel.send("what a fucking lil bitch lmao");
+        break;
+        case: "cmd":
+            require("./cmdlist.js").cmdlist(message.channel,message.author);
+        break;
        default:
             message.channel.send("no such command bro");
     }
