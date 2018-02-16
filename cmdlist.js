@@ -28,7 +28,7 @@ module.exports = {
 			.addField(">>kris","fuck u godstatus <3")
 			.addField(">>cmd","Displays this list.")
 			
-			c.send({embed});
+			c.send('<@' + u.id + '>',{embed});
 			
 			
 			
