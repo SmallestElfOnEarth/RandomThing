@@ -133,7 +133,7 @@ bot.on("message", function(message) {
         case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
-                require('./validtokick.js').default(isNaN(Number(args[1])) ? 1000000 : Number(arg[1]), message.channel);
+                require('./validtokick.js').default(isNaN(Number(args[1])) ? 1000000 : Number(args[1]), message.channel);
             }
             else {
                 message.channel.send("Insufficient Permissions.");
@@ -152,7 +152,7 @@ bot.on("message", function(message) {
         case "vtk_setdelay":
             let role5 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role5.id)){
-                require('./validtokick.js').setDelay(isNaN(Number(args[1])) ? 30 : Number(arg[1]))
+                require('./validtokick.js').setDelay(isNaN(Number(args[1])) ? 30 : Number(args[1]))
             }
             else{
                 message.channel.send("Insufficient Permissions.");
@@ -161,7 +161,7 @@ bot.on("message", function(message) {
         case "vtk_setduration":
             let role6 = message.guild.roles.find("name", "Clan Manager");
             if(message.member.roles.has(role6.id)){
-                require('./validtokick.js').SetDuration(isNaN(Number(args[1])) ? 60 : Number(arg[1]))
+                require('./validtokick.js').SetDuration(isNaN(Number(args[1])) ? 60 : Number(args[1]))
             }
             else{
             message.channel.send("Insufficient Permissions.");
