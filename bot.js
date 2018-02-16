@@ -178,7 +178,7 @@ bot.on("message", function(message) {
         break;
         case "vtk_getduration":
             let role8 = message.guild.roles.find("name","Clan Manager");
-            if (message.memeber.roles.has(role8.id)){
+            if (message.member.roles.has(role8.id)){
                require('./validtokick.js').getDuration(message.channel,message.author)
             }
             else{
