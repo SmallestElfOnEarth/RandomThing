@@ -202,9 +202,6 @@ bot.on("message", function(message) {
             message.channel.send("Insufficient Permissions.");
         }   
         break;
-        case "payout":
-            require("./payoutsys.js").payout(message.channel,message.author,args[1],args[2]);
-        break;
         case "trickked": 
             message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
         break;
@@ -244,8 +241,11 @@ bot.on("message", function(message) {
         case "cmd":
             require("./cmdlist.js").cmdlist(message.channel,message.author);
         break;
-        case "payout":
+        case "pay":
             require("./payoutsys.js").payout(message.channel,message.author,args[1],args[2]);
+        break;
+        case "payout":
+            message.channel.send("fuck u");
         break;
        default:
             message.channel.send("no such command bro");
