@@ -3,7 +3,7 @@ module.exports = {
 	commandlist: function (c, u){
 		const embed = new Discord.RichEmbed()
 			.setTitle("Command list")
-			.setDescription("A list of all the bot commands.)
+			.setDescription("A list of all the bot commands.")
 			.addField(">>waddup","A general introduction to the bot.")
 			.addField(">>info","Just some general information.")
 			.addField(">>asseating","Godstatus's command.")
