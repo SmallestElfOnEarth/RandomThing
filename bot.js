@@ -266,6 +266,7 @@ bot.on("message", function(message) {
             case "no":
             message.channel.send("Transaction Cancelled.");
             break;
+            }
 });
         break;
        default:
