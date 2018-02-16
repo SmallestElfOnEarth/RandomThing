@@ -245,7 +245,7 @@ bot.on("message", function(message) {
             require("./payoutsys.js").payout(message.channel,message.author,args[1],args[2]);
         break;
         case "payout":
-            message.channel.send("fuck u");
+            message.channel.send("fuck uu");
         break;
        default:
             message.channel.send("no such command bro");
