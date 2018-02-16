@@ -12,7 +12,7 @@ const PREFIX = ">>"
 var bot = new Discord.Client();
 
 bot.on("ready", function(){
-    console.log("Ready");
+    console.log("Ready bitch");
     bot.user.setActivity("with iown's genitalia.");
 });
 
