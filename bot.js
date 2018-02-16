@@ -178,7 +178,7 @@ bot.on("message", function(message) {
         break;
         case "vtk_getduration":
             let role8 = message.guild.roles.find("name","Clan Manager");
-            if message.memeber.roles.has(role8.id)){
+            if (message.memeber.roles.has(role8.id)){
                require('./validtokick.js').getDuration(message.channel,message.author)
             }
             else{
@@ -187,13 +187,13 @@ bot.on("message", function(message) {
         break;
         case"vtk_inprogress":
         let role9 = message.guild.roles.find("name", "Clan Manager");
-        if message.member.roles.has(role9.id)){
+        if (message.member.roles.has(role9.id)){
             require('./validtokick.js').isInProgress(message.channel,message.author)
         }
        else{
        message.channel.send("Insufficient Permissions.");
         }
-        
+        break;
         case "trickked": 
             message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
         break;
