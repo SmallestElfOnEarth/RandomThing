@@ -239,7 +239,7 @@ bot.on("message", function(message) {
         case "kris":
             message.channel.send("what a fucking lil bitch lmao");
         break;
-        case: "cmd":
+        case "cmd":
             require("./cmdlist.js").cmdlist(message.channel,message.author);
         break;
        default:
