@@ -193,6 +193,17 @@ bot.on("message", function(message) {
        else{
        message.channel.send("Insufficient Permissions.");
         }
+       break;
+        case "vtk_list":
+        let role10 = message.guild.roles.find("name", "Clan Manager");
+        if message.member.roles.has(role10.id)){
+            message.channel.send({embed: { title:"List of clan managerment commands:", 
+                                          description: "Valid to kick list: >>validtokick\n Current scan stats: >>vtk_stats\n Set the delay (how long between each scan): >>vtk_setdelay\n Set the duration (how long each scan lasts): >>vtk_setduration\n Look at the delay time: >>vtk_getdelay\n Look at the duration time: >>vtk_getdelay\n Check if there's a scan in progress: >>vtk_inprogress\n Look at the list of VTK commands: >>vtk_list"}})
+        }
+        else{
+            message.channel.send("Insufficient Permissions.");
+        }
+            
         break;
         case "trickked": 
             message.channel.send("Trick? You mean maxxed? https://gyazo.com/5701dec0bb357b688df1c15977a59920");
