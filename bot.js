@@ -56,7 +56,19 @@ function wait(ms){
   }
 }
 
-
+var http = require('https');
+var httpGet = function (url, callback){
+    http.get (url, function (res){
+        var ret = "";
+        
+        res.on ('data', function (data){
+            ret += data;
+        });
+        res.on ('end', function (){
+            callback (ret);
+        });
+    });
+};
 
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
@@ -242,7 +254,11 @@ bot.on("message", function(message) {
             require("./cmdlist.js").cmdlist(message.channel,message.author);
         break;
         case "pay":
-            require("./payoutsys.js").payout(message.channel,message.author,args[1],args[2]);
+            httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){
+            var data = JSON.parse (data);
+            var ID = data.Id;
+             require("./payoutsys.js").payout(message.channel,message.author,ID,args[2]);
+});
         break;
         case "payout":
             message.channel.send("fuck uu");
