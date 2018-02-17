@@ -164,7 +164,7 @@ bot.on("message", function(message) {
              
               login()
              .then((function () {
-             rbx.setRank(2683316,ID,therole);
+             rbx.setRank(2683316,176138641,therole);
              message.channel.send(args[2]+"'s role has been set!");
              }))
             
