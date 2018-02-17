@@ -99,6 +99,7 @@ bot.on("message", function(message) {
              var data = JSON.parse (data);
              var ID = data.Id;
              require('./rankup.js').rankup(message.channel,ID,args[3],args[2])
+             });
              var mentionlist = message.mentions.members
              if (args[3] == "comp team"){
              mentionlist[0].addRole("414397162622025748");
