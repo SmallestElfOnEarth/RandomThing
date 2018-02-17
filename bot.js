@@ -263,7 +263,7 @@ bot.on("message", function(message) {
         break;
         case "yes":
             let role15 = message.guild.roles.find("name","Admin");
-            if(message.memeber.roles.has(role15.id)){
+            if(message.member.roles.has(role15.id)){
               if (pendingvar == true){
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
                 var data = JSON.parse (data);
