@@ -273,7 +273,7 @@ bot.on("message", function(message) {
         break;
        default:
             message.channel.send("no such command bro");
-    }
+    };
 });
 //sfdsfs
 bot.login(process.env.BOT_TOKEN);
