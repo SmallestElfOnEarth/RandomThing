@@ -12,7 +12,6 @@ var username = "";
 var amount = 0;
 const PREFIX = ">>"
 var bot = new Discord.Client();
-new Discord.Client({ fetchAllMembers: true })
 bot.on("ready", function(){
     console.log("Ready");
     bot.user.setActivity("with iown's genitalia.");
@@ -99,7 +98,6 @@ function format(seconds){
 
 setInterval (function(){
 console.log ('30 mins keepalive!');
-    guild.fetchMembers();
 }, (30*60*1000));
 
 
@@ -148,7 +146,6 @@ bot.on("message", function(message) {
         break;
         case "rankup":
             console.log(args.length);
-            message.guild.fetchMembers();
             console.log("arg1: "+args[1]+" arg2: "+args[2]+" arg3: "+args[3]+" arg4: "+args[4]);
             let role = message.guild.roles.find("name", "Staff Assistant | Bitches");
             if (message.member.roles.has(role.id)){           
@@ -173,7 +170,8 @@ bot.on("message", function(message) {
              }))
             
              });
-             
+             let user = message.mentions.users.first();
+             message.guild.fetchMembers(user);
              let member = message.mentions.members.first();
              if (args[2] == "comp"){
                  let comprole = message.guild.roles.find("name","Competitive Team");
