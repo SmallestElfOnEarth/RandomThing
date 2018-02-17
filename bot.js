@@ -100,15 +100,16 @@ bot.on("message", function(message) {
              var ID = data.Id;
              require('./rankup.js').rankup(message.channel,ID,args[3],args[2])
              });
+             let member = message.mentions.members.first()
              var mentionlist = message.mentions.members
              if (args[3] == "comp team"){
-                message.mentions[0].addRole("414397162622025748");
+                    member.addRole("414397162622025748");
              }
               else if(args[3] == "clan"){
-                  message.mentions[0].addRole("414397198650966037");
+                    member.addRole("414397198650966037");
               }
               else{
-                  message.mentions[0].addRole("202542658634252289");
+                    member.addRole("202542658634252289");
              }
             }
                
