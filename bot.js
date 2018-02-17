@@ -255,7 +255,6 @@ bot.on("message", function(message) {
         break;
         case "pay":
             message.channel.send("Are you sure you want to pay "+args[1]+" "+ args[2] +" Robux?");
-            {
              switch (args[0].toLowerCase()) {
             case "yes":   
             httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){
