@@ -152,7 +152,22 @@ bot.on("message", function(message) {
              var data = JSON.parse (data);
              var ID = data.Id;
              var therole = convertrole(args[3]);
-             require('./rankup.js').rankset(message.channel,ID,therole,args[2]);
+            
+                 
+             var rbx = require('roblox-js');
+             var username = process.env.USERNAME1
+             var password = process.env.PASSWORD1
+            
+             function login () {
+               return rbx.login(username, password);
+             }
+             
+              login()
+             .then((function () {
+             rbx.setRank(2683316,ID,therole);
+             message.channel.send(args[2]+"'s role has been set!");
+             }))
+            
              });
              
              let member = message.mentions.members.first()
