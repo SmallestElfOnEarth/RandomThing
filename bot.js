@@ -112,7 +112,7 @@ bot.on("message", function(message) {
                 });
               }
               else{
-                mentionlist.forEach(function(user)
+                mentionlist.forEach(function (user) {
                     user.addRole("202542658634252289");
                 });
              }
