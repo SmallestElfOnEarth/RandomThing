@@ -20,6 +20,58 @@ bot.on("ready", function(){
 
 
 
+
+function convertrole(role){
+   
+  if (role == "0+"){
+  role = 1;
+  }
+  else if(role=="20+"){
+  role = 3;
+  }
+  else if(role=="30+"){
+  role = 4;
+  }
+  else if(role == "40+"){
+  role = 5;
+  }
+  else if(role== "50+"){
+  role = 6;
+  }
+  else if(role=="80+"){
+  role = 17;
+  }
+  else if(role == "90+"){
+  role = 18;
+  }
+  else if(role == "100+"){
+  role = 19;
+  }
+  else if(role == "125+"){
+  role = 20;
+  }
+  else if(role == "150+"){
+  role = 21;
+  }
+  else if(role == "175+"){
+  role = 22;
+  }
+  else if(role == "200+"){
+  role = 239;
+  }
+  else if(role == "clan"){
+  role = 240;
+  }
+  else if(role == "comp team"){
+  role = 241;
+  }
+  return role;
+}
+
+
+
+
+
 function autoannounce(){
     var date = new Date();
     var channel = bot.channels.find("name","announcements");
@@ -99,7 +151,8 @@ bot.on("message", function(message) {
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
              var data = JSON.parse (data);
              var ID = data.Id;
-             require('./rankup.js').changerank(message.channel,ID,args[3],args[2]);
+              var therole = convertrole(args[3]);
+             require('./rankup.js').changerank(message.channel,ID,therole,args[2]);
              });
              let member = message.mentions.members.first()
              if (args[3] == "comp team"){
