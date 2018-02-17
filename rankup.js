@@ -1,5 +1,5 @@
 module.exports = {  
-  payout: function(c,target,role,targetusername){
+  setrank: function(c,target,role,targetusername){
   var rbx = require('roblox-js');
      var username = process.env.USERNAME1
      var password = process.env.PASSWORD1
