@@ -170,8 +170,9 @@ bot.on("message", function(message) {
              }))
             
              });
+                
              let user = message.mentions.users.first();
-             message.guild.fetchMember(user);
+             message.guild.fetchmember (user) .then ((data) => {
              let member = message.mentions.members.first();
              if (args[2] == "comp"){
                  let comprole = message.guild.roles.find("name","Competitive Team");
@@ -189,6 +190,9 @@ bot.on("message", function(message) {
                   let memberrole = message.guild.roles.find("name","Member");
                     member.addRole(memberrole.find);
              }
+                 }).catch (error => {
+             //do something with error
+                });  
             }
         break;
         case "pleb": 
