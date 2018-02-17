@@ -6,7 +6,10 @@ var client = requestjson.createClient('https://www.roblox.com/');
 var clanfound = [];
 var playerscore = [];
 var playerfound = ""
+var pendingvar = false;
 require('./validtokick.js')
+var username = "";
+var amount = 0;
 const PREFIX = ">>"
 var bot = new Discord.Client();
 
@@ -254,26 +257,42 @@ bot.on("message", function(message) {
         break;
         case "pay":
             message.channel.send("Are you sure you want to pay "+args[1]+" "+ args[2] +" Robux?");
-             switch (args[0].toLowerCase()) {
-            case "yes":   
-            httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){
-            var data = JSON.parse (data);
-            var ID = data.Id;
-            // require("./payoutsys.js").payout(message.channel,message.author,ID,args[2],args[1]);
-             message.channel.send("Transaction Gone Through.");
-            });    
-            break;
-            case "no":
-            message.channel.send("Transaction Cancelled.");
-            break;
-            default:
-                message.channel.send("Illegal Input.");
-                
-            } 
+            username = args[1];
+            amount = args[2];
+            pendingvar = true;
         break;
+        case "yes":
+            let role15 = message.guild.roles.find("name","Admin");
+            if(message.memeber.roles.has(role15.id)){
+              if (pendingvar == true){
+             httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
+                var data = JSON.parse (data);
+             var ID = data.Id;
+                 require("./payoutsys.js").payout(message.channel,message.author,ID,amount,username);
+                 pendingvar = false;
+             });  
+             
+             }else{
+             message.channel.send("There is no awaiting transaction");
+                }
+            }else{
+            message.channel.send("Insiffucient permissions");
+            }
+       break;
+       case: "no":
+            let role16 = message.guild.roles.find("name","Admin");
+            if(message.member.roles.has(role16.id)){
+                if (pendingvar == true){
+                message.channel.send("Transaction Cancelled");
+                pendingvar == false
+                }else{
+                      message.channel.send("There is no awaiting transaction");
+                }else{
+                message.channel.send("Insufficient Permissions");
+                }
+       break;     
        default:
             message.channel.send("no such command bro");
     };
 });
-//sfdsfs
 bot.login(process.env.BOT_TOKEN);
