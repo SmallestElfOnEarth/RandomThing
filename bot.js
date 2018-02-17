@@ -148,12 +148,13 @@ bot.on("message", function(message) {
         case "rankup":
             let role = message.guild.roles.find("name", "Staff Assistant | Bitches");
             if (message.member.roles.has(role.id)){           
-             httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
+             httpGet (`https://api.roblox.com/users/get-by-username?username=${args[2]}`, function (data){
              var data = JSON.parse (data);
              var ID = data.Id;
-              var therole = convertrole(args[3]);
-             });
+             var therole = convertrole(args[3]);
              require('./rankup.js').rankset(message.channel,ID,therole,args[2]);
+             });
+             
              let member = message.mentions.members.first()
              if (args[3] == "comp team"){
                     member.addRole("414397162622025748");
