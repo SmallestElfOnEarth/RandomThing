@@ -309,7 +309,7 @@ bot.on("message", function(message) {
             message.channel.send("https://cdn.discordapp.com/attachments/224193833506701312/388680687378497546/faggot.png");
         break;
         case "testing":
-            message.channel.send(arr.join("\n"));
+            console.log(args.length);
         break;
         case "christmas":
             message.channel.send("iown wishes y'all niggers merry christmas or whatever idk... i'm jewish tbh happy hanukkah motherfuckers");
