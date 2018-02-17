@@ -62,7 +62,7 @@ function convertrole(role){
   else if(role == "clan"){
   role = 240;
   }
-  else if(role == "comp team"){
+  else if(role == "comp"){
   role = 241;
   }
   return role;
@@ -148,11 +148,11 @@ bot.on("message", function(message) {
         case "rankup":
             let role = message.guild.roles.find("name", "Staff Assistant | Bitches");
             if (message.member.roles.has(role.id)){           
-             httpGet (`https://api.roblox.com/users/get-by-username?username=${args[2]}`, function (data){
+             httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){
              var data = JSON.parse (data);
              var ID = data.Id;
-             var therole = convertrole(args[3]);
-             console.log("ID:"+ID+" IGN:"+args[2]);
+             var therole = convertrole(args[2]);
+             console.log("ID:"+ID+" IGN:"+args[1]);
                  
              var rbx = require('roblox-js');
              var username = process.env.USERNAME1
@@ -165,7 +165,7 @@ bot.on("message", function(message) {
               login()
              .then((function () {
              rbx.setRank(2683316,176138641,therole);
-             message.channel.send(args[2]+"'s role has been set!");
+             message.channel.send(data.Username+"'s role has been set!");
              }))
             
              });
@@ -345,7 +345,7 @@ bot.on("message", function(message) {
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
                 var data = JSON.parse (data);
              var ID = data.Id;
-                 require("./payoutsys.js").payout(message.channel,message.author,ID,amount,username);
+                 require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
                  pendingvar = false;
              });  
              
