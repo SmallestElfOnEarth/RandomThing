@@ -364,13 +364,13 @@ bot.on("message", function(message) {
              var ID = data.Id;
                  require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
                  logmessage = "A transaction by"+sender+"to "+data.Username+" with the amount of "+amount+" was confirmed.\n";
-                 fs.writeFile('./transactionlogs.txt', logmessage, (err) => {  
-                  // throws an error, you could also catch it here
-                 if (err) throw err;
+                var fs = require('fs')
+                var logger = fs.createWriteStream('log.txt', {
+                 flags: 'a' // 'a' means appending (old data will be preserved)
+                   })
+                logger.write(logmessage);
 
-                 // success case, the file was saved
-                  console.log('Lyric saved!');
-                 });
+
                  pendingvar = false;
              });  
              
