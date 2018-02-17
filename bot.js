@@ -362,7 +362,7 @@ bot.on("message", function(message) {
                 var data = JSON.parse (data);
                     
              var ID = data.Id;
-                 require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
+                 //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
                  logmessage = "A transaction by"+sender+"to "+data.Username+" with the amount of "+amount+" was confirmed.\n";
                 var fs = require('fs')
                 var logger = fs.createWriteStream('log.txt', {
@@ -390,7 +390,9 @@ bot.on("message", function(message) {
                 }else{
                 message.channel.send("Insufficient Permissions");
                 }}
-       break;     
+       break;  
+        case "paylogs":
+            message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
        default:
             message.channel.send("no such command bro");
     };
