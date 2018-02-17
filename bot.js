@@ -152,7 +152,7 @@ bot.on("message", function(message) {
              var data = JSON.parse (data);
              var ID = data.Id;
               var therole = convertrole(args[3]);
-             require('./rankup.js').changerank(message.channel,ID,therole,args[2]);
+             require('./rankup.js').rankset(message.channel,ID,therole,args[2]);
              });
              let member = message.mentions.members.first()
              if (args[3] == "comp team"){
