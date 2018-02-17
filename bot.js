@@ -101,7 +101,6 @@ bot.on("message", function(message) {
              require('./rankup.js').rankup(message.channel,ID,args[3],args[2])
              });
              let member = message.mentions.members.first()
-             var mentionlist = message.mentions.members
              if (args[3] == "comp team"){
                     member.addRole("414397162622025748");
              }
@@ -112,7 +111,6 @@ bot.on("message", function(message) {
                     member.addRole("202542658634252289");
              }
             }
-               
         break;
         case "pleb": 
             message.channel.send("PostmanSAM");
