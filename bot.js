@@ -171,7 +171,8 @@ bot.on("message", function(message) {
             
              });
              let user = message.mentions.users.first();
-             message.guild.fetchMembers(user);
+             message.guild.fetchMember(user);
+             message.mentions.members.fetch()  
              let member = message.mentions.members.first();
              if (args[2] == "comp"){
                  let comprole = message.guild.roles.find("name","Competitive Team");
