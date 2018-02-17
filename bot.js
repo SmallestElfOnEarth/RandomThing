@@ -70,7 +70,7 @@ var httpGet = function (url, callback){
             callback (ret);
         });
     });
-});
+};
 
 
 bot.on("message", function(message) {
@@ -99,7 +99,7 @@ bot.on("message", function(message) {
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
              var data = JSON.parse (data);
              var ID = data.Id;
-             require('./rankup.js').rankup(message.channel,ID,args[3],args[2])
+             require('./rankup.js').rankup(message.channel,ID,args[3],args[2]);
              });
              let member = message.mentions.members.first()
              if (args[3] == "comp team"){
