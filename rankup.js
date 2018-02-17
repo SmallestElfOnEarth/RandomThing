@@ -55,7 +55,7 @@ rankup: function(c,target,role,targetusername){
   
   login()
   .then((function (){
-  rbx.setRank(2683316,target,role)
+  rbx.setRank(2683316,target,role);
   c.send(targetusername+"'s role has been set!");
   }))
 }
