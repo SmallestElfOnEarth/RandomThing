@@ -279,7 +279,7 @@ bot.on("message", function(message) {
             message.channel.send("Insiffucient permissions");
             }
        break;
-       case: "no":
+       case "no":
             let role16 = message.guild.roles.find("name","Admin");
             if(message.member.roles.has(role16.id)){
                 if (pendingvar == true){
