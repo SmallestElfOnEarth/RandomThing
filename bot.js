@@ -152,7 +152,7 @@ bot.on("message", function(message) {
              var data = JSON.parse (data);
              var ID = data.Id;
              var therole = convertrole(args[3]);
-            
+             console.log("ID:"+ID+" IGN:"+args[2]");
                  
              var rbx = require('roblox-js');
              var username = process.env.USERNAME1
