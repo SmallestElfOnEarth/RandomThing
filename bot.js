@@ -1,11 +1,13 @@
 const Discord = require("discord.js"); 
+const fs = require('fs');
 requestjson = require('request-json');
 var arr = require('./clanmembers');
 var arrog = require('./clanogs');
 var client = requestjson.createClient('https://www.roblox.com/');
 var clanfound = [];
 var playerscore = [];
-var playerfound = ""
+var logmessage = "";
+var playerfound = "";
 var pendingvar = false;
 require('./validtokick.js')
 var username = "";
@@ -346,6 +348,7 @@ bot.on("message", function(message) {
             message.channel.send("Are you sure you want to pay "+args[1]+" "+ args[2] +" Robux?");
             username = args[1];
             amount = args[2];
+            sender = message.author.username
             pendingvar = true;
             } else{
               message.channel.send("Insufficient Permissions.");
@@ -357,8 +360,17 @@ bot.on("message", function(message) {
               if (pendingvar == true){
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
                 var data = JSON.parse (data);
+                    
              var ID = data.Id;
                  require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
+                 logmessage = "A transaction by"+sender+"to "+data.Username+" with the amount of "+amount+" was confirmed.\n";
+                 fs.writeFile('./transactionlogs.txt', logmessage, (err) => {  
+                  // throws an error, you could also catch it here
+                 if (err) throw err;
+
+                 // success case, the file was saved
+                  console.log('Lyric saved!');
+                 });
                  pendingvar = false;
              });  
              
