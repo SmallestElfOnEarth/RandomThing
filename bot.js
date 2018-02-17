@@ -93,21 +93,24 @@ bot.on("message", function(message) {
             message.channel.send("I will do what iOwn wants to, iOwn wants me to take over PR! \n http://www.reactiongifs.com/wp-content/uploads/2013/09/evil-laugh.gif");
         break;
         case "rankup":
-            console.log(args.length);
             let role = message.guild.roles.find("name", "Staff Assistant | Bitches");
-            if (message.member.roles.has(role.id)) {
-
-                var mentionlist = message.mentions.members;
-                mentionlist.forEach(function (user) {
-                    wait(500);
-                    message.channel.send(user.user.username+ " , You have been ranked up! ");
-                    user.addRole("202542658634252289");
-                });
-            message.channel.send(" \n\n\n**If you have not been ranked up, here's why:** \n**1.** You are not matching the minimum level requirement (20+) \n**2.** You did not join/you left the roblox group.\n**3.** You are a clan member, Clan members have their own rank on the group.\n**4.** You need to show a picture of ALL your stats, not just level.")
-            }  
-            else {
-                message.channel.send("Insufficient Permissions.");
-            }
+            if (message.member.roles.has(role.id)){           
+             httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
+             var data = JSON.parse (data);
+             var ID = data.Id;
+             require('./rankup.js').rankup(message.channel,ID,args[3],args[2])
+             var mentionlist = message.mentions.members
+             if (args[3] == "comp team"){
+             mentionlist[0].addRole("414397162622025748");
+             }
+              else if(args[3] == "clan"){
+                    mentionlist[0].addRole("414397198650966037");
+              }
+                 else{
+                     mentionlist[0].addRole("202542658634252289");
+                 }
+                     
+               
         break;
         case "pleb": 
             message.channel.send("PostmanSAM");
