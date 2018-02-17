@@ -287,7 +287,7 @@ bot.on("message", function(message) {
                 pendingvar == false
                 }else{
                 message.channel.send("Insufficient Permissions");
-                }
+                }}
        break;     
        default:
             message.channel.send("no such command bro");
