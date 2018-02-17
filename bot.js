@@ -12,7 +12,7 @@ var username = "";
 var amount = 0;
 const PREFIX = ">>"
 var bot = new Discord.Client();
-
+new Discord.Client({ fetchAllMembers: true })
 bot.on("ready", function(){
     console.log("Ready");
     bot.user.setActivity("with iown's genitalia.");
