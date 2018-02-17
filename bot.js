@@ -363,7 +363,7 @@ bot.on("message", function(message) {
                     
              var ID = data.Id;
                  //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
-                 logmessage = "A transaction by"+sender+"to "+data.Username+" with the amount of "+amount+" was confirmed.\n";
+                 logmessage = "A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed.\n";
                 var fs = require('fs')
                 var logger = fs.createWriteStream('transactionlogs.txt', {
                  flags: 'a' // 'a' means appending (old data will be preserved)
@@ -393,6 +393,7 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
+        break;
        default:
             message.channel.send("no such command bro");
     };
