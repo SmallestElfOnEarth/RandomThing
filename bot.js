@@ -146,6 +146,7 @@ bot.on("message", function(message) {
             message.channel.send("I will do what iOwn wants to, iOwn wants me to take over PR! \n http://www.reactiongifs.com/wp-content/uploads/2013/09/evil-laugh.gif");
         break;
         case "rankup":
+            console.log(args.length);
             let role = message.guild.roles.find("name", "Staff Assistant | Bitches");
             if (message.member.roles.has(role.id)){           
              httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){
@@ -164,7 +165,7 @@ bot.on("message", function(message) {
              
               login()
              .then((function () {
-             rbx.setRank(2683316,176138641,therole);
+             rbx.setRank(2683316,ID,therole);
              message.channel.send(data.Username+"'s role has been set!");
              }))
             
