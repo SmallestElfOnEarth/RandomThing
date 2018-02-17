@@ -256,10 +256,15 @@ bot.on("message", function(message) {
             require("./cmdlist.js").cmdlist(message.channel,message.author);
         break;
         case "pay":
+            let role14 = message.guild.roles.find("name","Admin");
+            if(message.member.roles.has(role14.id)){
             message.channel.send("Are you sure you want to pay "+args[1]+" "+ args[2] +" Robux?");
             username = args[1];
             amount = args[2];
             pendingvar = true;
+            } else{
+              message.channel.send("Insufficient Permissions.");
+            }
         break;
         case "yes":
             let role15 = message.guild.roles.find("name","Admin");
