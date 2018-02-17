@@ -1,5 +1,5 @@
 module.export = {
-rankup: function(c,target,role,targetusername){
+changerank: function(c,target,role,targetusername){
   var rbx = require('roblox-js');
   var username = process.env.USERNAME1
   var password = process.env.PASSWORD1
