@@ -102,19 +102,13 @@ bot.on("message", function(message) {
              });
              var mentionlist = message.mentions.members
              if (args[3] == "comp team"){
-                mentionlist.forEach(function (user) {
-                    user.addRole("414397162622025748");
-                });
+                message.mentions[0].addRole("414397162622025748");
              }
               else if(args[3] == "clan"){
-                mentionlist.forEach(function (user) {
-                    user.addRole("414397198650966037");
-                });
+                  message.mentions[0].addRole("414397198650966037");
               }
               else{
-                mentionlist.forEach(function (user) {
-                    user.addRole("202542658634252289");
-                });
+                  message.mentions[0].addRole("202542658634252289");
              }
             }
                
