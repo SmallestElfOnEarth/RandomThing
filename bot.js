@@ -172,7 +172,7 @@ bot.on("message", function(message) {
             
              });
              
-             let member = message.mentions.members.first()
+             let member = message.mentions.members.first();
              if (args[2] == "comp"){
                     member.addRole("414397162622025748");
              }
