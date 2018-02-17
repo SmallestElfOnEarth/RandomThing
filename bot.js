@@ -267,11 +267,10 @@ bot.on("message", function(message) {
             case "no":
             message.channel.send("Transaction Cancelled.");
             break;
-                default:
+            default:
                 message.channel.send("Illegal Input.");
-            }
-              
-});
+            } 
+            });
         break;
        default:
             message.channel.send("no such command bro");
