@@ -7,7 +7,6 @@ var clanfound = [];
 var playerscore = [];
 var playerfound = ""
 require('./validtokick.js')
-
 const PREFIX = ">>"
 var bot = new Discord.Client();
 
@@ -262,14 +261,15 @@ bot.on("message", function(message) {
             var ID = data.Id;
             // require("./payoutsys.js").payout(message.channel,message.author,ID,args[2],args[1]);
              message.channel.send("Transaction Gone Through.");
+            });    
             break;
             case "no":
             message.channel.send("Transaction Cancelled.");
             break;
             default:
                 message.channel.send("Illegal Input.");
+                
             } 
-            });
         break;
        default:
             message.channel.send("no such command bro");
