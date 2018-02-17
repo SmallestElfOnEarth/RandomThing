@@ -286,8 +286,6 @@ bot.on("message", function(message) {
                 message.channel.send("Transaction Cancelled");
                 pendingvar == false
                 }else{
-                      message.channel.send("There is no awaiting transaction");
-                }else{
                 message.channel.send("Insufficient Permissions");
                 }
        break;     
