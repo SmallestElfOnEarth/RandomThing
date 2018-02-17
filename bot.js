@@ -365,7 +365,7 @@ bot.on("message", function(message) {
                  //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
                  logmessage = "A transaction by"+sender+"to "+data.Username+" with the amount of "+amount+" was confirmed.\n";
                 var fs = require('fs')
-                var logger = fs.createWriteStream('log.txt', {
+                var logger = fs.createWriteStream('transactionlogs.txt', {
                  flags: 'a' // 'a' means appending (old data will be preserved)
                    })
                 logger.write(logmessage);
