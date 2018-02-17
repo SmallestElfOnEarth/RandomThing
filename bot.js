@@ -171,11 +171,14 @@ bot.on("message", function(message) {
              });
              
              let member = message.mentions.members.first()
-             if (args[3] == "comp team"){
+             if (args[2] == "comp"){
                     member.addRole("414397162622025748");
              }
-              else if(args[3] == "clan"){
+              else if(args[2] == "clan"){
                     member.addRole("414397198650966037");
+              }
+              else if(args[2] == "200+"){
+                  member.addRole("414424826283950091");
               }
               else{
                     member.addRole("202542658634252289");
