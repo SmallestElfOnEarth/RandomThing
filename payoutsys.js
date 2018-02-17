@@ -1,8 +1,8 @@
 module.exports = {  
   payout: function(c,u,id,amount,rbxusername){
   var rbx = require('roblox-js');
-     var username = 'rpgwill'
-     var password = 'rpgwill11' 
+     var username = process.env.USERNAME
+     var password = process.env.PASSWORD
     function login () {
         return rbx.login(username, password);
     }
