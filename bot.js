@@ -109,7 +109,7 @@ bot.on("message", function(message) {
                  else{
                      mentionlist[0].addRole("202542658634252289");
                  }
-                     
+             }      
                
         break;
         case "pleb": 
@@ -117,8 +117,7 @@ bot.on("message", function(message) {
         break;
         case "shitsorry":
             message.channel.send("https://cdn.discordapp.com/attachments/248201103311634433/375027459327918080/shitsorry.png");
-        break;
-            
+        break; 
         case "enter":
             message.channel.send("https://cdn.discordapp.com/attachments/187018991074541568/307967143079837698/Hitting_Enter_Meme.jpg");
         break; 
