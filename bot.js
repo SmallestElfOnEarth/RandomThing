@@ -188,7 +188,7 @@ bot.on("message", function(message) {
               }
               else{
                   let memberrole = message.guild.roles.find("name","Member");
-                    member.addRole(memberrole.find);
+                    member.addRole("202542658634252289");
              }
                  }).catch (error => {
              //do something with error
