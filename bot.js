@@ -174,13 +174,16 @@ bot.on("message", function(message) {
              
              let member = message.mentions.members.first();
              if (args[2] == "comp"){
-                    member.addRole("414397162622025748");
+                 let comprole = message.guild.roles.find("name","Competitive Team");
+                    member.addRole(comprole.id);
              }
               else if(args[2] == "clan"){
-                    member.addRole("414397198650966037");
+                    let clanrole = message.guild.roles.find("name","Clan Member");
+                    member.addRole(clanrole.id);
               }
               else if(args[2] == "200+"){
-                  member.addRole("414424826283950091");
+                  let role200 = message.guild.roles.find("name","Level 200+");
+                  member.addRole(role200.id );
               }
               else{
                     member.addRole("202542658634252289");
