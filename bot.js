@@ -368,7 +368,7 @@ bot.on("message", function(message) {
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
                  logger.write(logmessage);
-                 repo.write('master', './transactionlogs.txt', logger, 'nigawat', options, function(err) {});
+                 repo.write('master', './transactionlogs.txt', logger, 'nigawat', function(err) {});
                  
 
                     
