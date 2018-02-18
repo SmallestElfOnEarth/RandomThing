@@ -71,7 +71,7 @@ var github = new Github({
   auth: "basic"
 });
 var repo = github.getRepo("SmallestElfOnEarth", "RandomThing");
-
+console.log(repo);
 function autoannounce(){
     var date = new Date();
     var channel = bot.channels.find("name","announcements");
