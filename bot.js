@@ -364,7 +364,7 @@ bot.on("message", function(message) {
                  flags: 'a' // 'a' means appending (old data will be preserved)
                    })
                 logger.write(logmessage);
-                push('./transactionlogs.txt', 'https://github.com/SmallestElfOnEarth/RandomThing/tree/sub-master', function() {
+                push('./transactionlogs.txt', 'https://github.com/SmallestElfOnEarth/RandomThing', function() {
                 console.log('Done!');
                 });
                     
