@@ -182,10 +182,12 @@ bot.on("message", function(message) {
               else if(args[2] == "clan"){
                     let clanrole = message.guild.roles.find("name","Clan Member");
                     member.addRole(clanrole.id);
+                    member.addRole("202542658634252289");
               }
               else if(args[2] == "200+"){
                   let role200 = message.guild.roles.find("name","Level 200+");
                   member.addRole(role200.id );
+                  member.addRole("202542658634252289");
               }
               else{
                   let memberrole = message.guild.roles.find("name","Member");
