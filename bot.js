@@ -1,8 +1,8 @@
 const Discord = require("discord.js"); 
 const fs = require('fs');
+const Github = require('github-api');
 var logmessage = "";
 var playerfound = "";
-var Github = require('github-api');
 var pendingvar = false;
 require('./validtokick.js')
 var username = "";
