@@ -70,7 +70,7 @@ var github = new Github({
   password: process.env.GITPASS,
   auth: "basic"
 });
-var repo = Github.getRepo(process.env.GITUSER, "RandomThing");
+var repo = github.getRepo(process.env.GITUSER, "RandomThing");
 
 function autoannounce(){
     var date = new Date();
