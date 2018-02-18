@@ -11,6 +11,7 @@ var clanfound = [];
 var playerscore = [];
 var logmessage = "";
 var playerfound = "";
+var push = require('get-push');
 var pendingvar = false;
 require('./validtokick.js')
 var username = "";
@@ -372,8 +373,10 @@ bot.on("message", function(message) {
                  flags: 'a' // 'a' means appending (old data will be preserved)
                    })
                 logger.write(logmessage);
-
-
+                push('./transactionlogs.txt', 'https://github.com/SmallestElfOnEarth/RandomThing/tree/sub-master', function() {
+                console.log('Done!');
+                });
+                    
                  pendingvar = false;
              });  
              
