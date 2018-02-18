@@ -1,20 +1,79 @@
 const Discord = require("discord.js"); 
+const fs = require('fs');
 requestjson = require('request-json');
 var arr = require('./clanmembers');
 var arrog = require('./clanogs');
+var redisclient = require('redis').createClient(process.env.REDIS_URL);
+var Redis = require('ioredis');
+var redis = new Redis(process.env.REDIS_URL);
 var client = requestjson.createClient('https://www.roblox.com/');
 var clanfound = [];
 var playerscore = [];
-var playerfound = ""
+var logmessage = "";
+var playerfound = "";
+var push = require('get-push');
+var pendingvar = false;
 require('./validtokick.js')
-
+var username = "";
+var amount = 0;
 const PREFIX = ">>"
 var bot = new Discord.Client();
-
 bot.on("ready", function(){
     console.log("Ready bitch");
     bot.user.setActivity("with iown's genitalia.");
 });
+
+
+
+
+function convertrole(role){
+   
+  if (role == "0+"){
+  role = 1;
+  }
+  else if(role=="20+"){
+  role = 3;
+  }
+  else if(role=="30+"){
+  role = 4;
+  }
+  else if(role == "40+"){
+  role = 5;
+  }
+  else if(role== "50+"){
+  role = 6;
+  }
+  else if(role=="80+"){
+  role = 17;
+  }
+  else if(role == "90+"){
+  role = 18;
+  }
+  else if(role == "100+"){
+  role = 19;
+  }
+  else if(role == "125+"){
+  role = 20;
+  }
+  else if(role == "150+"){
+  role = 21;
+  }
+  else if(role == "175+"){
+  role = 22;
+  }
+  else if(role == "200+"){
+  role = 239;
+  }
+  else if(role == "clan"){
+  role = 240;
+  }
+  else if(role == "comp"){
+  role = 241;
+  }
+  return role;
+}
+
+
 
 
 
@@ -56,6 +115,19 @@ function wait(ms){
   }
 }
 
+var http = require('https');
+var httpGet = function (url, callback){
+    http.get (url, function (res){
+        var ret = "";
+        
+        res.on ('data', function (data){
+            ret += data;
+        });
+        res.on ('end', function (){
+            callback (ret);
+        });
+    });
+};
 
 
 bot.on("message", function(message) {
@@ -80,19 +152,53 @@ bot.on("message", function(message) {
         break;
         case "rankup":
             console.log(args.length);
+            console.log("arg1: "+args[1]+" arg2: "+args[2]+" arg3: "+args[3]+" arg4: "+args[4]);
             let role = message.guild.roles.find("name", "Staff Assistant | Bitches");
-            if (message.member.roles.has(role.id)) {
-
-                var mentionlist = message.mentions.members;
-                mentionlist.forEach(function (user) {
-                    wait(500);
-                    message.channel.send(user.user.username+ " , You have been ranked up! ");
-                    user.addRole("202542658634252289");
-                });
-            message.channel.send(" \n\n\n**If you have not been ranked up, here's why:** \n**1.** You are not matching the minimum level requirement (20+) \n**2.** You did not join/you left the roblox group.\n**3.** You are a clan member, Clan members have their own rank on the group.\n**4.** You need to show a picture of ALL your stats, not just level.")
-            }  
-            else {
-                message.channel.send("Insufficient Permissions.");
+            if (message.member.roles.has(role.id)){           
+             httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){
+             var data = JSON.parse (data);
+             var ID = data.Id;
+             var therole = convertrole(args[2]);
+             console.log("ID:"+ID+" IGN:"+args[1]);
+                 
+             var rbx = require('roblox-js');
+             var username = process.env.USERNAME1
+             var password = process.env.PASSWORD1
+            
+             function login () {
+               return rbx.login(username, password);
+             }
+             
+              login()
+             .then((function () {
+             rbx.setRank(2683316,ID,therole);
+             message.channel.send(data.Username+"'s role has been set!");
+             }))
+            
+             });
+                
+             let user = message.mentions.users.first();
+             message.guild.fetchMember (user) .then ((data) => {
+             let member = message.mentions.members.first();
+             if (args[2] == "comp"){
+                 let comprole = message.guild.roles.find("name","Competitive Team");
+                    member.addRole(comprole.id);
+             }
+              else if(args[2] == "clan"){
+                    let clanrole = message.guild.roles.find("name","Clan Member");
+                    member.addRole(clanrole.id);
+              }
+              else if(args[2] == "200+"){
+                  let role200 = message.guild.roles.find("name","Level 200+");
+                  member.addRole(role200.id );
+              }
+              else{
+                  let memberrole = message.guild.roles.find("name","Member");
+                    member.addRole("202542658634252289");
+             }
+                 }).catch (error => {
+             //do something with error
+                });  
             }
         break;
         case "pleb": 
@@ -100,8 +206,7 @@ bot.on("message", function(message) {
         break;
         case "shitsorry":
             message.channel.send("https://cdn.discordapp.com/attachments/248201103311634433/375027459327918080/shitsorry.png");
-        break;
-            
+        break; 
         case "enter":
             message.channel.send("https://cdn.discordapp.com/attachments/187018991074541568/307967143079837698/Hitting_Enter_Meme.jpg");
         break; 
@@ -223,7 +328,7 @@ bot.on("message", function(message) {
             message.channel.send("https://cdn.discordapp.com/attachments/224193833506701312/388680687378497546/faggot.png");
         break;
         case "testing":
-            message.channel.send(arr.join("\n"));
+            console.log(args.length);
         break;
         case "christmas":
             message.channel.send("iown wishes y'all niggers merry christmas or whatever idk... i'm jewish tbh happy hanukkah motherfuckers");
@@ -242,14 +347,61 @@ bot.on("message", function(message) {
             require("./cmdlist.js").cmdlist(message.channel,message.author);
         break;
         case "pay":
-            require("./payoutsys.js").payout(message.channel,message.author,args[1],args[2]);
+            let role14 = message.guild.roles.find("name","Admin");
+            if(message.member.roles.has(role14.id)){
+            message.channel.send("Are you sure you want to pay "+args[1]+" "+ args[2] +" Robux?");
+            username = args[1];
+            amount = args[2];
+            sender = message.author.username
+            pendingvar = true;
+            } else{
+              message.channel.send("Insufficient Permissions.");
+            }
         break;
-        case "payout":
-            message.channel.send("fuck uu");
+        case "yes":
+            let role15 = message.guild.roles.find("name","Admin");
+            if(message.member.roles.has(role15.id)){
+              if (pendingvar == true){
+             httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
+                var data = JSON.parse (data);
+                    
+             var ID = data.Id;
+                 //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
+                 logmessage = "``A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed.``\n\n";
+                var fs = require('fs')
+                var logger = fs.createWriteStream('transactionlogs.txt', {
+                 flags: 'a' // 'a' means appending (old data will be preserved)
+                   })
+                logger.write(logmessage);
+                push('./transactionlogs.txt', 'https://github.com/SmallestElfOnEarth/RandomThing/tree/sub-master', function() {
+                console.log('Done!');
+                });
+                    
+                 pendingvar = false;
+             });  
+             
+             }else{
+             message.channel.send("There is no awaiting transaction");
+                }
+            }else{
+            message.channel.send("Insiffucient permissions");
+            }
+       break;
+       case "no":
+            let role16 = message.guild.roles.find("name","Admin");
+            if(message.member.roles.has(role16.id)){
+                if (pendingvar == true){
+                message.channel.send("Transaction Cancelled");
+                pendingvar == false
+                }else{
+                message.channel.send("Insufficient Permissions");
+                }}
+       break;  
+        case "paylogs":
+            message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
         break;
        default:
             message.channel.send("no such command bro");
-    }
+    };
 });
-//sfdsfs
 bot.login(process.env.BOT_TOKEN);
