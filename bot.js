@@ -368,10 +368,12 @@ bot.on("message", function(message) {
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
                  logger.write(logmessage);
-                 repo.writeFile('master', './transactionlogs.txt', logger, 'nigawat', function(err) {});
-                 
-
-                    
+                 var options = {
+                 author: {name: 'iOwn', email: 'rui1239@gmail.com'},
+                 committer: {name: 'PRDiscordBOT', email: 'none provided'},
+                 encode: true // Whether to base64 encode the file. (default: true) 
+                 }
+                 repo.writeFile('master', './transactionlogs.txt', logger, 'Added to logs.',options, function(err) {});
                  pendingvar = false;
              });  
              
