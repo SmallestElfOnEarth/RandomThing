@@ -373,8 +373,7 @@ bot.on("message", function(message) {
                  committer: {name: 'PRDiscordBOT', email: 'none provided'},
                  encode: true // Whether to base64 encode the file. (default: true) 
                  }
-                 console.log(repo.writeFile('master', './transactionlogs.txt', logger, 'Added to logs.',options, function(err) {}));
-                 repo.writeFile('master', './transactionlogs.txt', logger, 'Added to logs.',options, function(err) {});
+                repo.writeFile('master', './transactionlogs.txt', logger, 'Added to logs.',options, function(err) {}).catch (function(err){ });
                  pendingvar = false;
              });  
              
