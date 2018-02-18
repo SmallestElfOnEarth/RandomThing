@@ -11,7 +11,7 @@ var clanfound = [];
 var playerscore = [];
 var logmessage = "";
 var playerfound = "";
-var push = require('get-push');
+var push = require('git-push');
 var pendingvar = false;
 require('./validtokick.js')
 var username = "";
