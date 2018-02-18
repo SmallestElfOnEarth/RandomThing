@@ -8,12 +8,10 @@
   },
   "dependencies": {
     "discord.js": "^11.1.0",
-    "ioredis": "^3.2.2",
     "pg": "7.4.1",
-    "redis": "^2.8.0",
+    "github-api": "^3.0.0",
     "request": "^2.83.0",
     "request-json": "^0.6.2",
-    "roblox-js": "^4.0.2",
-    "git-push": "^0.1.1"
+    "roblox-js": "^4.0.2"
   }
 }
