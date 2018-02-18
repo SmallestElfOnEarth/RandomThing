@@ -65,7 +65,7 @@ function convertrole(role){
 }
 
 
-var github = new github({
+var github = new Github({
   username: process.env.GITUSER,
   password: process.env.GITPASS,
   auth: "basic"
