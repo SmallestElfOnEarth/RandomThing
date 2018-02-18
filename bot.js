@@ -1,14 +1,5 @@
 const Discord = require("discord.js"); 
 const fs = require('fs');
-requestjson = require('request-json');
-var arr = require('./clanmembers');
-var arrog = require('./clanogs');
-var redisclient = require('redis').createClient(process.env.REDIS_URL);
-var Redis = require('ioredis');
-var redis = new Redis(process.env.REDIS_URL);
-var client = requestjson.createClient('https://www.roblox.com/');
-var clanfound = [];
-var playerscore = [];
 var logmessage = "";
 var playerfound = "";
 var push = require('git-push');
