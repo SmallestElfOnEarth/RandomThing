@@ -19,40 +19,40 @@ bot.on("ready", function(){
 
 function convertrole(role){
    
-  if (role == "0+"){
+  if (pareseInt(role) >= 0 && pareseInt(role)< 20){
   role = 1;
   }
-  else if(role=="20+"){
+  else if(pareseInt(role)>=20 && pareseInt(role)< 30){
   role = 3;
   }
-  else if(role=="30+"){
+  else if(pareseInt(role)>=30 &&pareseInt(role) < 40){
   role = 4;
   }
-  else if(role == "40+"){
+  else if(pareseInt(role) >= 40 && pareseInt(role) < 50){
   role = 5;
   }
-  else if(role== "50+"){
+  else if(pareseInt(role)>= 50 && pareseInt(role) < 80){
   role = 6;
   }
-  else if(role=="80+"){
+  else if(pareseInt(role)>=80 && pareseInt(role) < 90 ){
   role = 17;
   }
-  else if(role == "90+"){
+  else if(pareseInt(role) >= 90 && pareseInt(role) < 100){
   role = 18;
   }
-  else if(role == "100+"){
+  else if(pareseInt(role) >= 100 && pareseInt(role) < 125){
   role = 19;
   }
-  else if(role == "125+"){
+  else if(pareseInt(role) >= 125 && pareseInt(role) < 150){
   role = 20;
   }
-  else if(role == "150+"){
+  else if(pareseInt(role) >= 150 && pareseInt(role) < 175){
   role = 21;
   }
-  else if(role == "175+"){
+  else if(pareseInt(role) >= 175 && pareseInt(role) < 200){
   role = 22;
   }
-  else if(role == "200+"){
+  else if(pareseInt(role) >= 200){
   role = 239;
   }
   else if(role == "clan"){
@@ -363,7 +363,7 @@ bot.on("message", function(message) {
              var ID = data.Id;
                  //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
-                 logmessage = "``A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed.``\n\n";
+                 logmessage = "\n``A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed.``\n";
                   //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
@@ -373,6 +373,7 @@ bot.on("message", function(message) {
                  committer: {name: 'PRDiscordBOT', email: 'none provided'},
                  encode: true // Whether to base64 encode the file. (default: true) 
                  }
+                 console.log(repo.writeFile('master', './transactionlogs.txt', logger, 'Added to logs.',options, function(err) {}));
                  repo.writeFile('master', './transactionlogs.txt', logger, 'Added to logs.',options, function(err) {});
                  pendingvar = false;
              });  
