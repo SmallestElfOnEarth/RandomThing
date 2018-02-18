@@ -14,11 +14,8 @@
     "request": "^2.83.0",
     "request-json": "^0.6.2",
     "roblox-js": "^4.0.2"
-<<<<<<< HEAD
-=======
   },
   "devDependencies": {
     "git-push": "^0.1.1"
->>>>>>> 7715ddcd87e334d4a3534214fbd5d1b1dc1b8b75
   }
 }
