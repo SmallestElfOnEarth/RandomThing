@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 var logmessage = "";
 var playerfound = "";
-var push = require('git-push');
+var Github = require('github-api');
 var pendingvar = false;
 require('./validtokick.js')
 var username = "";
@@ -65,8 +65,12 @@ function convertrole(role){
 }
 
 
-
-
+var github = new Github({
+  username: process.env.GITUSER,
+  password: process.env.GITPASS,
+  auth: "basic"
+});
+var repo = github.getRepo(process.env.GITUSER, "RandomThing");
 
 function autoannounce(){
     var date = new Date();
@@ -357,16 +361,16 @@ bot.on("message", function(message) {
                 var data = JSON.parse (data);
                     
              var ID = data.Id;
+                 repo.read('master', './transactionlogs.txt', function(err, data) {});
                  //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
                  logmessage = "``A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed.``\n\n";
-                var fs = require('fs')
-                var logger = fs.createWriteStream('transactionlogs.txt', {
-                 flags: 'a' // 'a' means appending (old data will be preserved)
-                   })
-                logger.write(logmessage);
-                push('./transactionlogs.txt', 'https://github.com/SmallestElfOnEarth/RandomThing', function() {
-                console.log('Done!');
-                });
+                  //repo.read('master', './transactionlogs.txt', function(err, data) {});
+                 var fs = require('fs')
+                 var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
+                 logger.write(logmessage);
+                // repo.write('master', './transactionlogs.txt', 'YOUR_NEW_CONTENTS', 'YOUR_COMMIT_MESSAGE', options, function(err) {});
+                 
+
                     
                  pendingvar = false;
              });  
