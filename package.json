@@ -12,6 +12,7 @@
     "github-api": "^3.0.0",
     "request": "^2.83.0",
     "request-json": "^0.6.2",
+    "sqlite3": "^3.1.13",
     "roblox-js": "^4.0.2"
   }
 }
