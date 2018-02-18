@@ -18,41 +18,41 @@ bot.on("ready", function(){
 
 
 function convertrole(role){
-   
-  if (pareseInt(role) >= 0 && pareseInt(role)< 20){
+  var rolenum = parseInt(role)
+  if (rolenum >= 0 && rolenum< 20){
   role = 1;
   }
-  else if(pareseInt(role)>=20 && pareseInt(role)< 30){
+  else if(rolenum>=20 && rolenum< 30){
   role = 3;
   }
-  else if(pareseInt(role)>=30 &&pareseInt(role) < 40){
+  else if(rolenum>=30 &&rolenum < 40){
   role = 4;
   }
-  else if(pareseInt(role) >= 40 && pareseInt(role) < 50){
+  else if(rolenum >= 40 &&rolenum < 50){
   role = 5;
   }
-  else if(pareseInt(role)>= 50 && pareseInt(role) < 80){
+  else if(rolenum>= 50 && rolenum < 80){
   role = 6;
   }
-  else if(pareseInt(role)>=80 && pareseInt(role) < 90 ){
+  else if(rolenum>=80 && rolenum < 90 ){
   role = 17;
   }
-  else if(pareseInt(role) >= 90 && pareseInt(role) < 100){
+  else if(rolenum >= 90 && rolenum < 100){
   role = 18;
   }
-  else if(pareseInt(role) >= 100 && pareseInt(role) < 125){
+  else if(rolenum >= 100 && rolenum < 125){
   role = 19;
   }
-  else if(pareseInt(role) >= 125 && pareseInt(role) < 150){
+  else if(rolenum >= 125 && rolenum < 150){
   role = 20;
   }
-  else if(pareseInt(role) >= 150 && pareseInt(role) < 175){
+  else if(rolenum >= 150 && rolenum < 175){
   role = 21;
   }
-  else if(pareseInt(role) >= 175 && pareseInt(role) < 200){
+  else if(rolenum >= 175 && rolenum < 200){
   role = 22;
   }
-  else if(pareseInt(role) >= 200){
+  else if(rolenum >= 200){
   role = 239;
   }
   else if(role == "clan"){
