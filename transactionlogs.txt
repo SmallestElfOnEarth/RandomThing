@@ -1,1 +1,2 @@
-
+Logs of all transactions made with PRDiscordBOT
+tracking who made which transaction, who got the robux and when the transaction was made.
