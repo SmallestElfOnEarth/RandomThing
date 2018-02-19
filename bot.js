@@ -397,7 +397,7 @@ bot.on("message", function(message) {
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));   
             var output = [];
-            connection.query("SELECT * FROM transactions",function(err,result){
+           /* connection.query("SELECT * FROM transactions",function(err,result){
                 if (err) throw err;
                 var output = [];
                 console.log(result);
@@ -407,7 +407,19 @@ bot.on("message", function(message) {
                 });
                 output.join("\n");  
                 message.channel.send(output);
-            });
+            }); */
+            
+            connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
+                if (err) throw err;
+                var output = [];
+                for (let i = 0; i < result.length) {
+                 output.push (result[i].info);
+                 if (i === result.length - 1) {
+             output.join("\n");  
+             message.channel.send(output);
+        }
+                });
+            
             wait(2000);
              output.join("\n");  
              message.channel.send(output);
