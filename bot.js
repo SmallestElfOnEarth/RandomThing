@@ -377,14 +377,6 @@ bot.on("message", function(message) {
                  pendingvar = false; 
                  }); 
                     connection.query('insert into transactions (info) values (?)', [logmessage], function(err, query){ });
-                    connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
-                      if (err) throw err;
-                      console.log(result);
-                      var output = [];
-                      result.forEach (function (obj){
-                      output.push (obj.info);
-                      });
-                      });
              }else{
              message.channel.send("There is no awaiting transaction");
                 }
@@ -404,9 +396,8 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));   
-            if (output == undefined){
             var output = [];
-            connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
+            connection.query("SELECT * FROM transactions",function(err,result){
                 if (err) throw err;
                 var output = [];
                 console.log(result);
@@ -416,10 +407,9 @@ bot.on("message", function(message) {
                 output.join("\n");  
                 message.channel.send(output);
             });
-            }else{
              output.join("\n");  
              message.channel.send(output);
-            }
+
         break;
        default:
             message.channel.send("no such command bro");
