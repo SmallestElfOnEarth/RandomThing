@@ -409,16 +409,17 @@ bot.on("message", function(message) {
                 message.channel.send(output);
             }); */
             
-            connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
-                if (err) throw err;
-                var output = [];
-                for (let i = 0; i < result.length) {
-                 output.push (result[i].info);
-                 if (i === result.length - 1) {
-             output.join("\n");  
-             message.channel.send(output);
+connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
+    if (err) throw err;
+    var output = [];
+    for (let i = 0; i < result.length; i++) {
+        output.push(result[i].info);
+        if (i === result.length - 1) {
+            output.join("\n");  
+            message.channel.send(output);
         }
-                });
+    }
+});
             
             wait(2000);
              output.join("\n");  
