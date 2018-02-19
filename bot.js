@@ -22,13 +22,18 @@ const connection = mysql.createPool({ connectionLimit: 10, database: 't89mmx70xy
 /*connection.query('create table if not exists transactions(info text)', function (err, result) {
     if (err) throw err;
 });
-*/
+
 
 connection.query(`create table if not exists transactionslogs (transaction_id INT(255) AUTO_INCREMENT PRIMARY KEY ,sender_id VARCHAR(255),reciever_id VARCHAR(255),sent_on TIMESTAMP,amount INT(255)`, function (err, result) {
     if (err) throw err;
     console.log("Table created");
 });
 
+*/
+
+db.query(`CREATE TABLE "transactions" ( "transaction_id" int(255) NOT NULL, "sender_id" varchar(255) NOT NULL, "receiver_id" varchar(255) NOT NULL, "sent_on" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, "amount" int(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1; ALTER TABLE "transactions"  ADD PRIMARY KEY ("transaction_id"); ALTER TABLE "transactions" MODIFY "transaction_id" int(255) NOT NULL AUTO_INCREMENT; COMMIT;`, function (err) {
+        if (err) console.log(err)
+      })
 
 function convertrole(role) {
     var rolenum = parseInt(role)
