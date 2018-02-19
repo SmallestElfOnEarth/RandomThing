@@ -38,10 +38,22 @@ connection.query(`CREATE TABLE "transactionslogs" ( "transaction_id" int(255), "
 */
 
 
-connection.query(`create table if not exists "transactionslogss" (transaction_id INT(255) AUTO_INCREMENT PRIMARY KEY ,sender_id VARCHAR(255),reciever_id VARCHAR(255),sent_on TIMESTAMP,amount INT(255)`, function (err, result) {
-    if (err) throw err;
-    console.log("Table created");
-});
+db.query(`CREATE TABLE transactionslog (
+          transaction_id int(255) NOT NULL AUTO_INCREMENT,
+          sender_id varchar(255) NOT NULL,
+          receiver_id varchar(255) NOT NULL,
+          sent_on timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+          amount int(255) NOT NULL,
+          PRIMARY KEY (transaction_id)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1`, function (err, result) {
+        if (err) throw err;
+        console.log("Table created");
+      });
+
+
+
+
+
 function convertrole(role) {
     var rolenum = parseInt(role)
     if (rolenum >= 0 && rolenum < 20) {
