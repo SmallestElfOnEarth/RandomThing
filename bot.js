@@ -404,7 +404,10 @@ bot.on("message", function(message) {
             var output= "";
             connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
                 if (err) throw err;
-                message.channel.send(result);
+                var output = [];
+                query.forEach (function (result){
+                 output.push (result.info);
+                });
             });
         break;
        default:
