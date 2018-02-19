@@ -388,15 +388,14 @@ bot.on("message", function (message) {
             break;
         case "paylogs":
             if (message.member.roles.has(admin.id)) {
-                connection.query("SELECT * FROM transactions ORDER BY info", function (err, result) {
-                    if (err) throw err;
-                    var output = [];
-                    result.forEach(function (obj) {
-                        output.push(obj.info);
-                    });
-                    output.join("\n");
-                    message.channel.send(output);
-                });
+                  connection.query("SELECT * FROM test", (err, results) => {
+                    if (err) return console.log(err)
+                    let output = []
+                    for (let i = 0; i < results.length; i++) {
+                        output.push(results[i].info)
+                    }
+                    message.channel.send(output.join(" "))
+                })
             } else message.channel.send("Insufficient Permissions.");
             break;
         default: message.channel.send("no such command bro");
