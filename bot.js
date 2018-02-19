@@ -22,8 +22,8 @@ bot.on("ready", function(){
 var connection = mysql.createConnection({
     host     :'localhsot',
     user     :'b4c25e60c89b54',
-    password : '1b4d9a72',
-    database : 'heroku_a921b5b602a995d'
+    password : '1b4d9a72'//,
+  //  database : 'heroku_a921b5b602a995d'
 });
 
 connection.connect(function(err) {
