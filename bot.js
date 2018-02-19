@@ -20,7 +20,9 @@ bot.on("ready", function(){
 
 
 const connection = mysql.createPool ({connectionLimit: 10, database: 'heroku_a921b5b602a995d', host: 'eu-cdbr-west-02.cleardb.net', user: 'b4c25e60c89b54', password: '1b4d9a72'});
-
+connection.query('create table if not exists transactions (info text)', function (err,result) {
+    if (err) throw err;
+});
 
 
 
@@ -374,10 +376,6 @@ bot.on("message", function(message) {
                  logger.write(logmessage);
                  pendingvar = false; 
                  }); 
-
-                     connection.query('create table if not exists transactions (info text)', function (err,result) {
-                        if (err) throw err;
-                     });
                     connection.query('insert into transactions (info) values (?)', [logmessage], function(err, query){
                     });
              }else{
