@@ -379,8 +379,8 @@ bot.on("message", function(message) {
                 var stmt = db.prepare("INSERT INTO transactions VALUES(?)");
                      stmt.run(logmessage);
                      stmt.finalize();
+             }); 
                  pendingvar = false;
-             });  
              });  
              }else{
              message.channel.send("There is no awaiting transaction");
