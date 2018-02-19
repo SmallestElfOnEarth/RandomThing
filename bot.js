@@ -390,6 +390,7 @@ bot.on("message", function (message) {
             if (message.member.roles.has(admin.id)) {
                 connection.query("SELECT * FROM transactions ORDER BY info", function (err, result) {
                     if (err) throw err;
+                    var output = [];
                     result.forEach(function (obj) {
                         output.push(obj.info);
                     });
