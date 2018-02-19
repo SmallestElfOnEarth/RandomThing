@@ -371,14 +371,7 @@ bot.on("message", function(message) {
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
                  logger.write(logmessage);
-
-                //var db = new sqlite3.Database('Transactions');
-               /* db.serialize(function(){
-                db.run("CREATE TABLE IF NOT EXISTS transactions (info,TEXT"); 
-                var stmt = db.prepare("INSERT INTO transactions VALUES(?)");
-                     stmt.run(logmessage);
-                     stmt.finalize();
-             }); */
+                 
                    let db = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
                    db.run(`CREATE TABLE transactions (info text)`); 
                    db.run(`INSERT INTO transactions(info) VALUES(?)`,[logmessage], function(err) { if (err) { return console.log(err.message)} console.log(`A row has been inserted with rowid ${this.lastID}`); });
