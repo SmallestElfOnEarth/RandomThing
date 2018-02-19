@@ -11,7 +11,7 @@ var amount = 0;
 const PREFIX = ">>"
 var bot = new Discord.Client();
 bot.on("ready", function(){
-    console.log("Ready bitch");
+    console.log("Ready");
     bot.user.setActivity("with iown's genitalia.");
 });
 
@@ -375,13 +375,10 @@ bot.on("message", function(message) {
 
                 var db = new sqlite3.Database('Transactions');
                 db.serialize(function(){
-                db.run("CREATE TABLE IF NOT EXISTS transactions (id TEXT"); 
-                var stmt = db.prepare("INSERT into transactions values(?)");
-
-                     stmt.run(logmessage,Date().now);
+                db.run("CREATE TABLE IF NOT EXISTS transactions (info TEXT"); 
+                var stmt = db.prepare("INSERT INTO transactions VALUES(?)");
+                     stmt.run(logmessage);
                      stmt.finalize();
-
-
                  pendingvar = false;
              });  
              });  
@@ -404,9 +401,10 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
-            db.each("SELECT id,dt from transaction",function(err,row){
-            console.log("Transaction id:"+row.id);
-});
+            db.each("SELECT id,info FROM transaction",function(err,row){
+                console.log("\nTransaction id:"+row.id + "\nTransaction Info:"+row.info);
+            });
+            db.close();
         break;
        default:
             message.channel.send("no such command bro");
