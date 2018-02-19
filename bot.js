@@ -363,17 +363,7 @@ bot.on("message", function(message) {
             if(message.member.roles.has(role15.id)){
               if (pendingvar == true){
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
-                var data = JSON.parse (data);
-                var db = new sqlite3.Database('Transactions');
-                db.serialize(function(){
-                db.run("CREATE TABLE transactions (id TEXT"); 
-                var stmt = db.prepare("INSERT into transactions values(?,?)");
-
-                     stmt.run(logger,Date().now);
-                     stmt.finalize();
-});
-
-//db.close();          
+                var data = JSON.parse (data);         
              var ID = data.Id;
                  //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
@@ -382,12 +372,17 @@ bot.on("message", function(message) {
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
                  logger.write(logmessage);
-                 var options = {
-                 author: {name: 'SmallestElfOnEarth', email: 'rui1239@gmail.com'},
-                 committer: {name: 'SmallestElfOnEarth', email: 'rui1239@gmail.com'},
-                 encode: true // Whether to base64 encode the file. (default: true) 
-                 }
-                repo.writeFile('master', './transactionlogs.txt', logger, 'Added to logs.',options, function(err) {}).catch (function(err){ });
+
+                var db = new sqlite3.Database('Transactions');
+                db.serialize(function(){
+                db.run("CREATE TABLE IF NOT EXIST transactions (id TEXT"); 
+                var stmt = db.prepare("INSERT into transactions values(?,?)");
+
+                     stmt.run(logmessage,Date().now);
+                     stmt.finalize();
+                });
+
+
                  pendingvar = false;
              });  
              
