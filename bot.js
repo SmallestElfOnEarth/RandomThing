@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const Github = require('github-api');
 const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('Transactions');
 var logmessage = "";
 var playerfound = "";
 var pendingvar = false;
@@ -15,8 +16,6 @@ bot.on("ready", function(){
     bot.user.setActivity("with iown's genitalia.");
 });
 
-
-var db = new sqlite3.Database(':memory:');
 
 
 
@@ -373,7 +372,7 @@ bot.on("message", function(message) {
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
                  logger.write(logmessage);
 
-                var db = new sqlite3.Database('Transactions');
+                //var db = new sqlite3.Database('Transactions');
                /* db.serialize(function(){
                 db.run("CREATE TABLE IF NOT EXISTS transactions (info,TEXT"); 
                 var stmt = db.prepare("INSERT INTO transactions VALUES(?)");
@@ -409,7 +408,7 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
-            var db = new sqlite3.Database('Transactions');
+            //var db = new sqlite3.Database('Transactions');
             db.each("SELECT info FROM transaction",function(err,row){
             console.log(row);    
             console.log(row.info);
