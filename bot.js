@@ -383,7 +383,7 @@ bot.on("message", function(message) {
                       var output = [];
                       result.forEach (function (obj){
                       output.push (obj.info);
-                      }
+                      });
                       });
              }else{
              message.channel.send("There is no awaiting transaction");
