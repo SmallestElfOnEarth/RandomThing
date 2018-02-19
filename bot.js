@@ -385,6 +385,7 @@ bot.on("message", function(message) {
                      if (err) {
                      return console.log(err.message);
                    }
+                   db.close();
                  pendingvar = false;
              });  
              }); 
@@ -410,7 +411,6 @@ bot.on("message", function(message) {
             db.each("SELECT id,info FROM transaction",function(err,row){
                 console.log("\nTransaction id:"+row.id + "\nTransaction Info:"+row.info);
             });
-            db.close();
         break;
        default:
             message.channel.send("no such command bro");
