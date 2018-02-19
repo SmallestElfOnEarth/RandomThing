@@ -35,7 +35,7 @@ connection.connect(function(err) {
   });
 });
 
-connection.end();
+//connection.end();
 
 
 
@@ -402,7 +402,7 @@ bot.on("message", function(message) {
                         console.log("1 record inserted");
                      });
                 });
-               connection.end()
+              // connection.end()
              }else{
              message.channel.send("There is no awaiting transaction");
                 }
