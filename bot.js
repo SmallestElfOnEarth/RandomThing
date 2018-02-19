@@ -29,7 +29,10 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  connection.query('create table transactions (info text) if not exists');
+  connection.query('create table transactions (info text) if not exists', function (err,result) {
+      if (err) throw err;
+      console.log("Table created");
+  });
 });
 
 connection.end();
