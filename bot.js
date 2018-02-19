@@ -415,14 +415,14 @@ connection.query("SELECT * FROM transactions ORDER BY info",function(err,result)
     for (let i = 0; i < result.length; i++) {
         output.push(result[i].info);
         if (i === result.length - 1) {
-            output.join("\n");  
+          //  output.join("\n");  
             message.channel.send(output);
         }
     }
 });
             
             wait(2000);
-             output.join("\n");  
+           //  output.join("\n");  
              message.channel.send(output);
 
         break;
