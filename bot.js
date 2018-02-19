@@ -232,7 +232,7 @@ bot.on("message", function(message) {
         case "daddy":
             message.channel.send("daddy koods is my true passion i love him");
             break;
-        case "validokick":
+        case "validtokick":
             let role3 = message.guild.roles.find("name", "Clan Manager");
             if (message.member.roles.has(role3.id)) {
                 require('./validtokick.js').default(isNaN(Number(args[1])) ? 1000000 : Number(args[1]), message.channel);
