@@ -1,20 +1,44 @@
 const Discord = require("discord.js"); 
 const fs = require('fs');
-const Github = require('github-api');
-const sqlite3 = require('sqlite3').verbose();
-//const db = new sqlite3.Database(':memory:',sqlite3.OPEN_READWRITE);
+require('./validtokick.js')
+var mysql = require('mysql');
+
 var logmessage = "";
 var playerfound = "";
 var pendingvar = false;
-require('./validtokick.js')
 var username = "";
 var amount = 0;
 const PREFIX = ">>"
+
+
 var bot = new Discord.Client();
 bot.on("ready", function(){
     console.log("Ready");
     bot.user.setActivity("with iown's genitalia.");
 });
+
+
+
+var connection = mysql.createConnection({
+    host     :'localhsot',
+    user     :'b4c25e60c89b54',
+    password : '1b4d9a72',
+    database : 'heroku_a921b5b602a995d'
+});
+
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
+
+
+
+
+
+
+
+
 
 
 
@@ -371,11 +395,6 @@ bot.on("message", function(message) {
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
                  logger.write(logmessage);
-                 
-                   let db = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
-                   db.run(`CREATE TABLE transactions (info text)`); 
-                   db.run(`INSERT INTO transactions(info) VALUES(?)`,[logmessage], function(err) { if (err) { return console.log(err.message)} console.log(`A row has been inserted with rowid ${this.lastID}`); });
-                   db.close((err) => { if (err) { console.error(err.message); } });
                  pendingvar = false; 
              }); 
              }else{
@@ -396,13 +415,7 @@ bot.on("message", function(message) {
                 }}
        break;  
         case "paylogs":
-            //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
-            let db = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
-            db.serialize(() => {db.each(`SELECT Info as info from transactions`,(err,row) => { if (err) { console.error(err.message); } message.channel.send(row.info); }); });
-            db.close((err) => { if (err) { console.error(err.message); } });
-          
-
-            
+            //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));   
         break;
        default:
             message.channel.send("no such command bro");
