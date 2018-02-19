@@ -30,7 +30,6 @@ connection.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
   connection.query('create table transactions (info text) if not exists');
-   });
 });
 
 connection.end();
