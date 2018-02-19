@@ -29,16 +29,11 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  var sql = "CREATE TABLE transactions (id INT AUTO_INCREMENT PRIMARY KEY, info VARCHAR(255))";
-  connection.query(sql, function(err,result) {
-      if (err) throw err;
-      console.log("Table created");
+  connection.query('create table transactions (info text) if not exists');
    });
 });
 
-
-
-
+connection.end();
 
 
 
@@ -392,6 +387,16 @@ bot.on("message", function(message) {
                   //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
+                 connection.connect(function(err) {
+                 if (err) throw err;
+                 console.log("Connected!");
+                 var sql = "INSERT INTO transactions (info) VALUES(logmessage)");
+                 connection.query(sql, function (err,result) {
+                  if(err) throw err;
+                  console.log("1 record inserted");
+                 });          
+               });
+            });
                  logger.write(logmessage);
                  pendingvar = false; 
              }); 
