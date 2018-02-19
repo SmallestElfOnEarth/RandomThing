@@ -385,6 +385,10 @@ bot.on("message", function(message) {
                      return console.log(err.message);
                    }
                    console.log(`A row has been inserted with rowid ${this.lastID}`);
+                   db.each("SELECT info FROM transaction",function(err,row){
+                    console.log(row);    
+                    console.log(row.info);
+                   });
                });
                  pendingvar = false; 
              }); 
