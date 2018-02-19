@@ -397,7 +397,6 @@ bot.on("message", function(message) {
                  });          
                });
                connection.end()
-            });
                  logger.write(logmessage);
                  pendingvar = false; 
              }); 
