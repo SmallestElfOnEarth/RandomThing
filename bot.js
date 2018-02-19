@@ -400,7 +400,7 @@ bot.on("message", function (message) {
                         logmessage = "`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + new Date(Date.now()).toLocaleString() + "``";
                         pendingvar = false;
                     });
-                         connection.query("INSERT into transactionslog (sender_id,reciever_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, Date.now().toLocaleString(),amount], function (err) {
+                         connection.query("INSERT into transactionslog (sender_id,receiver_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, Date.now().toLocaleString(),amount], function (err) {
                           if (err) return console.log(err)
                          });
                     //connection.query('insert into transactions (info) values (?)', [logmessage], function (err, query) { console.log(query); });
