@@ -396,6 +396,7 @@ bot.on("message", function(message) {
                   console.log("1 record inserted");
                  });          
                });
+               connection.end()
             });
                  logger.write(logmessage);
                  pendingvar = false; 
