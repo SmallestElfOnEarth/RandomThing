@@ -31,7 +31,7 @@ connection.query(`create table if not exists transactionslogs (transaction_id IN
 
 */
 
-connection.query(`CREATE TABLE "transactions" ( "transaction_id" int(255) NOT NULL, "sender_id" varchar(255) NOT NULL, "receiver_id" varchar(255) NOT NULL, "sent_on" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, "amount" int(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1; ALTER TABLE "transactions"  ADD PRIMARY KEY ("transaction_id"); ALTER TABLE "transactions" MODIFY "transaction_id" int(255) NOT NULL AUTO_INCREMENT; COMMIT;`, function (err) {
+connection.query(`CREATE TABLE "transactionslogs" ( "transaction_id" int(255) NOT NULL, "sender_id" varchar(255) NOT NULL, "receiver_id" varchar(255) NOT NULL, "sent_on" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, "amount" int(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1; ALTER TABLE "transactions"  ADD PRIMARY KEY ("transaction_id"); ALTER TABLE "transactions" MODIFY "transaction_id" int(255) NOT NULL AUTO_INCREMENT; COMMIT;`, function (err) {
         if (err) console.log(err);
         console.log("table created");
       });
@@ -382,7 +382,7 @@ bot.on("message", function (message) {
                         logmessage = "`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + new Date(Date.now()).toLocaleString() + "``";
                         pendingvar = false;
                     });
-                         connection.query("INSERT into transactions (sender_id,reciever_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, Date.now().toLocaleString(),amount], function (err) {
+                         connection.query("INSERT into transactionslogs (sender_id,reciever_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, Date.now().toLocaleString(),amount], function (err) {
                           if (err) return console.log(err)
                          });
                     //connection.query('insert into transactions (info) values (?)', [logmessage], function (err, query) { console.log(query); });
