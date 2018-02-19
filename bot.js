@@ -387,6 +387,10 @@ bot.on("message", function(message) {
                   //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
+                 logger.write(logmessage);
+                 pendingvar = false; 
+                 }); 
+                  
                  connection.connect(function(err) {
                  if (err) throw err;
                  console.log("Connected!");
@@ -397,9 +401,6 @@ bot.on("message", function(message) {
                  });          
                });
                connection.end()
-                 logger.write(logmessage);
-                 pendingvar = false; 
-             }); 
              }else{
              message.channel.send("There is no awaiting transaction");
                 }
