@@ -404,7 +404,6 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));   
-            var output= "";
            /* connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
                 if (err) throw err;
                 var output = [];
@@ -414,7 +413,7 @@ bot.on("message", function(message) {
                 }); */
                 output.join("\n");  
                 message.channel.send(output);
-            });
+           // });
         break;
        default:
             message.channel.send("no such command bro");
