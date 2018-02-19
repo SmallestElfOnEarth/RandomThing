@@ -401,9 +401,9 @@ bot.on("message", function(message) {
                 if (err) throw err;
                 var output = [];
                 console.log(result);
-                result.forEach (function (obj){
-                 output.push (obj.info);
-                }); 
+                for (var i = 0;i < result.lenght; i++{
+                 output.push (result.info[i]);
+                }
                 output.join("\n");  
                 message.channel.send(output);
             });
