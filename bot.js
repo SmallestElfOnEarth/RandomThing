@@ -367,7 +367,7 @@ bot.on("message", function(message) {
              var ID = data.Id;
                  //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
-                 logmessage = "``A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed @ "+ new Date(Date.now()).toLocaleString() + "`` \n";
+                 logmessage = "``A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed @ "+ new Date(Date.now()).toLocaleString() + "``";
                   //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
@@ -377,10 +377,8 @@ bot.on("message", function(message) {
 
                      connection.query('create table if not exists transactions (info text)', function (err,result) {
                         if (err) throw err;
-                        console.log("Table created");
                      });
                     connection.query('insert into transactions (info) values (?)', [logmessage], function(err, query){
-                      //  console.log (err ? err : query);
                     });
              }else{
              message.channel.send("There is no awaiting transaction");
@@ -408,6 +406,7 @@ bot.on("message", function(message) {
                 result.forEach (function (obj){
                  output.push (obj.info);
                 });
+                output.join("\n")  
                 message.channel.send(output);
             });
         break;
