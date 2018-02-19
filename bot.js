@@ -426,6 +426,7 @@ bot.on("message", function (message) {
             if (message.member.roles.has(admin.id)) {
                  connection.query("SELECT * FROM transactions", (err, results) => {
                     if (err) return console.log(err)
+                    if (!results.length) return msg.channel.send("There's not transaction to show :( ")
                     let output = []
                     for (let i = 0; i < results.length; i++) {
                         output.push("``A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ results[i].sent_on +" ``")
