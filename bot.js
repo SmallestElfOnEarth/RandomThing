@@ -393,7 +393,7 @@ bot.on("message", function(message) {
                  pendingvar = false; 
                  }); 
                   
-                con.connect(function(err) {
+                connection.connect(function(err) {
                      if (err) throw err;
                      console.log("Connected!");
                      var sql = "INSERT INTO transactions (name) VALUES (logmessage)";
