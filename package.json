@@ -13,6 +13,7 @@
     "request": "^2.83.0",
     "request-json": "^0.6.2",
     "sqlite3": "^3.1.13",
+     "mysql": "^2.15.0",
     "roblox-js": "^4.0.2"
   }
 }
