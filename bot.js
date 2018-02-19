@@ -379,7 +379,7 @@ bot.on("message", function(message) {
                      stmt.run(logmessage);
                      stmt.finalize();
              }); */
-                   let db = new sqlite.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
+                   let db = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
                    db.run("CREATE TABLE IF NOT EXISTS transactions (info text)"); 
                    db.run(`INSERT INTO transactions(info) VALUES(?)`, logmessage, function(err) {
                      if (err) {
@@ -412,7 +412,7 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
-            let db = new sqlite.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
+            let db = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
             db.serialize(() => {db.each(`SELECT Info as info from transactions`,(err,row) => { if (err) { console.error(err.message); } message.channel.send(row.info); }); });
             db.close((err) => { if (err) { console.error(err.message); } });
           
