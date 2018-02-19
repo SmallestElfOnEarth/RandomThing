@@ -380,8 +380,8 @@ bot.on("message", function(message) {
                      stmt.run(logmessage);
                      stmt.finalize();
              }); */
-                   db.run("CREATE TABLE IF NOT EXISTS transactions (info TEXT"); 
-                   db.run(`INSERT INTO transactions(name) VALUES(?)`, logmessage, function(err) {
+                   db.run("CREATE TABLE IF NOT EXISTS transactions (info text"); 
+                   db.run(`INSERT INTO transactions(info) VALUES(?)`, logmessage, function(err) {
                      if (err) {
                      return console.log(err.message);
                    }
