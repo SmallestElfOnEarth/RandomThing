@@ -74,7 +74,7 @@ var github = new Github({
   auth: "basic"
 });
 var repo = github.getRepo("SmallestElfOnEarth", "RandomThing");
-console.log(repo);
+//console.log(repo);
 function autoannounce(){
     var date = new Date();
     var channel = bot.channels.find("name","announcements");
@@ -375,7 +375,7 @@ bot.on("message", function(message) {
 
                 var db = new sqlite3.Database('Transactions');
                 db.serialize(function(){
-                db.run("CREATE TABLE IF NOT EXIST transactions (id TEXT"); 
+                db.run("CREATE TABLE IF NOT EXISTS transactions (id TEXT"); 
                 var stmt = db.prepare("INSERT into transactions values(?,?)");
 
                      stmt.run(logmessage,Date().now);
