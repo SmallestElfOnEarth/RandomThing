@@ -408,6 +408,7 @@ bot.on("message", function(message) {
                 query.forEach (function (result){
                  output.push (result.info);
                 });
+                message.channel.send(output);
             });
         break;
        default:
