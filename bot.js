@@ -377,6 +377,12 @@ bot.on("message", function(message) {
                  pendingvar = false; 
                  }); 
                     connection.query('insert into transactions (info) values (?)', [logmessage], function(err, query){ });
+                    connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
+                      if (err) throw err;
+                      var output = [];
+                      result.forEach (function (obj){
+                      output.push (obj.info);
+                      });
              }else{
              message.channel.send("There is no awaiting transaction");
                 }
