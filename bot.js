@@ -386,7 +386,6 @@ bot.on("message", function(message) {
                    }
                    console.log(`A row has been inserted with rowid ${this.lastID}`);
                });
-                   db.close();
                  pendingvar = false; 
              }); 
              }else{
