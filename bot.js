@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const Github = require('github-api');
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(':memory:');
+//const db = new sqlite3.Database(':memory:',sqlite3.OPEN_READWRITE);
 var logmessage = "";
 var playerfound = "";
 var pendingvar = false;
@@ -379,6 +379,7 @@ bot.on("message", function(message) {
                      stmt.run(logmessage);
                      stmt.finalize();
              }); */
+                   let db = new sqlite.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
                    db.run("CREATE TABLE IF NOT EXISTS transactions (info text)"); 
                    db.run(`INSERT INTO transactions(info) VALUES(?)`, logmessage, function(err) {
                      if (err) {
@@ -411,21 +412,11 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
-            //var db = new sqlite3.Database('Transactions');
-           // db.each("SELECT info FROM transaction",function(err,row){
-            //console.log(row);    
-            //console.log(row.info);
-            //});
-            let sql = `SELECT DISTINCT Info info FROM transactions
-                       ORDER BY info`;
-            db.all(sql,[],(err,rows) =>{
-                if (err) {
-                    throw err;
-                }
-                rows.forEach((row) => {
-                    console.log(row.info);
-                });
-            });
+            let db = new sqlite.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
+            db.serialize(() => {db.each(`SELECT Info as info from transactions`,(err,row) => { if (err) { console.error(err.message); } message.channel.send(row.info); }); });
+            db.close((err) => { if (err) { console.error(err.message); } });
+          
+
             
         break;
        default:
