@@ -375,12 +375,11 @@ bot.on("message", function(message) {
                  pendingvar = false; 
                  }); 
 
-                     var sql = "INSERT INTO transactions (name) VALUES (logmessage)";
                      connection.query('create table if not exists transactions (info text)', function (err,result) {
                         if (err) throw err;
                         console.log("Table created");
                      });
-                    connection.query('insert into transactions (name) values (?)', [logmessage], function(err, query){
+                    connection.query('insert into transactions (info) values (?)', [logmessage], function(err, query){
                         console.log (err ? err : query);
                     });
              }else{
