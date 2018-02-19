@@ -424,13 +424,13 @@ bot.on("message", function (message) {
             break;
         case "paylogs":
             if (message.member.roles.has(admin.id)) {
-                  connection.query("SELECT * FROM transactions", (err, results) => {
+                 connection.query("SELECT * FROM transactions", (err, results) => {
                     if (err) return console.log(err)
                     let output = []
                     for (let i = 0; i < results.length; i++) {
-                        output.push(results[i].info)
+                        output.push("``A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ results[i].sent_on)
                     }
-                    message.channel.send(output.join(" "))
+                    message.channel.send(output.join("\n"))
                 })
             } else message.channel.send("Insufficient Permissions.");
             break;
