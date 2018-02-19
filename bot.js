@@ -365,13 +365,11 @@ bot.on("message", function(message) {
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
                 var data = JSON.parse (data);
                 var db = new sqlite3.Database('Transactions');
-
                 db.serialize(function(){
                 db.run("CREATE TABLE transactions (id INT, dt TEXT"); 
                 var stmt = db.prepare("INSERT into transactions values(?,?)");
-                     var d = new Date();
-                     var n = d.toLocateTimeString();
-                     stmt.run(logger,n);
+
+                     stmt.run(logger,date);
                      stmt.finalize();
 });
 
