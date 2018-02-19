@@ -404,10 +404,8 @@ bot.on("message", function(message) {
             var output= "";
             connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
                 if (err) throw err;
-                console.log(result)
-                output = result;
+                message.channel.send(result);
             });
-            message.channel.send(output);
         break;
        default:
             message.channel.send("no such command bro");
