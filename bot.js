@@ -377,11 +377,12 @@ bot.on("message", function (message) {
                     httpGet(`https://api.roblox.com/users/get-by-username?username=${username}`, function (data) {
                         var data = JSON.parse(data);
                         var ID = data.Id;
+                        username = data.Username
                         //require("./payoutsys.js").payout(message.channel, message.author, ID, amount, data.Username);
                         logmessage = "`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + new Date(Date.now()).toLocaleString() + "``";
                         pendingvar = false;
                     });
-                         connection.query("INSERT into transactions (info) VALUES (?)", ["`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + new Date(Date.now()).toLocaleString() + "``"], function (err) {
+                         connection.query("INSERT into transactions (sender_id,reciever_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, Date.now()).toLocaleString(),amount], function (err) {
                           if (err) return console.log(err)
       })
                     //connection.query('insert into transactions (info) values (?)', [logmessage], function (err, query) { console.log(query); });
