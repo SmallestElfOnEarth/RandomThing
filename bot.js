@@ -376,11 +376,10 @@ bot.on("message", function(message) {
                 var db = new sqlite3.Database('Transactions');
                 db.serialize(function(){
                 db.run("CREATE TABLE IF NOT EXISTS transactions (id TEXT"); 
-                var stmt = db.prepare("INSERT into transactions values(?,?)");
+                var stmt = db.prepare("INSERT into transactions values(?)");
 
                      stmt.run(logmessage,Date().now);
                      stmt.finalize();
-                });
 
 
                  pendingvar = false;
