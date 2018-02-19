@@ -19,7 +19,8 @@ bot.on("ready", function(){
 
 
 
-const connection = mysql.createPool ({connectionLimit: 10, database: 'heroku_a921b5b602a995d', host: 'eu-cdbr-west-02.cleardb.net', user: 'b4c25e60c89b54', password: '1b4d9a72'});
+//const connection = mysql.createPool ({connectionLimit: 10, database: 'heroku_a921b5b602a995d', host: 'eu-cdbr-west-02.cleardb.net', user: 'b4c25e60c89b54', password: '1b4d9a72'});
+const connection = mysql.createPool ({connectionLimit: 10, database: 't89mmx70xyt82q9n', host: 'wyqk6x041tfxg39e.chr7pe7iynqr.eu-west-1.rds.amazonaws.com', user: 'uylam3r9h4df40rf', password: 'aq4nez71z3po5of8'});
 connection.query('create table if not exists transactions (info text)', function (err,result) {
     if (err) throw err;
 });
