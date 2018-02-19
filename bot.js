@@ -90,13 +90,6 @@ function convertrole(role){
   return role;
 }
 
-
-var github = new Github({
-  username: process.env.GITUSER,
-  password: process.env.GITPASS,
-  auth: "basic"
-});
-var repo = github.getRepo("SmallestElfOnEarth", "RandomThing");
 //console.log(repo);
 function autoannounce(){
     var date = new Date();
