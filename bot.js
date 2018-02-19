@@ -18,7 +18,7 @@ bot.on("ready", function () {
 
 
 const connection = mysql.createPool({ connectionLimit: 10, database: 't89mmx70xyt82q9n', host: 'wyqk6x041tfxg39e.chr7pe7iynqr.eu-west-1.rds.amazonaws.com', user: 'uylam3r9h4df40rf', password: 'aq4nez71z3po5of8' });
-connection.query('create table if not exist transactions(info text)', function (err, result) {
+connection.query('create table if not exists transactions(info text)', function (err, result) {
     if (err) throw err;
 });
 
