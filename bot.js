@@ -402,6 +402,7 @@ bot.on("message", function(message) {
                 var output = [];
                 console.log(result);
                 result.forEach (function (obj){
+                 console.log(obj.info);
                  output.push (obj.info);
                 });
                 output.join("\n");  
