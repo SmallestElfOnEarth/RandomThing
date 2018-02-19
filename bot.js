@@ -409,6 +409,7 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
+            var db = new sqlite3.Database('Transactions');
             db.each("SELECT info FROM transaction",function(err,row){
             console.log(row);    
             console.log(row.info);
