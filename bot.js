@@ -388,8 +388,7 @@ bot.on("message", function(message) {
                    console.log(`A row has been inserted with rowid ${this.lastID}`);
                });
                    db.close();
-                 pendingvar = false;
-             });  
+                 pendingvar = false; 
              }); 
              }else{
              message.channel.send("There is no awaiting transaction");
