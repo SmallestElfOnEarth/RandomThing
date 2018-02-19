@@ -38,7 +38,7 @@ connection.query(`CREATE TABLE "transactionslogs" ( "transaction_id" int(255), "
 */
 
 
-connection.query(`create table if not exists transactionslogss (transaction_id INT(255) AUTO_INCREMENT PRIMARY KEY ,sender_id VARCHAR(255),reciever_id VARCHAR(255),sent_on TIMESTAMP,amount INT(255)`, function (err, result) {
+connection.query(`create table if not exists "transactionslogss" (transaction_id INT(255) AUTO_INCREMENT PRIMARY KEY ,sender_id VARCHAR(255),reciever_id VARCHAR(255),sent_on TIMESTAMP,amount INT(255)`, function (err, result) {
     if (err) throw err;
     console.log("Table created");
 });
