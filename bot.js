@@ -404,7 +404,7 @@ bot.on("message", function(message) {
                 result.forEach (function (obj){
                  output.push (obj.info);
                 });
-                output.join("\n")  
+                output.join("\n");  
                 message.channel.send(output);
             });
         break;
