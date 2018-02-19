@@ -404,16 +404,16 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));   
-           /* connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
+            connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
                 if (err) throw err;
                 var output = [];
                 console.log(result);
                 result.forEach (function (obj){
                  output.push (obj.info);
-                }); */
+                }); 
                 output.join("\n");  
                 message.channel.send(output);
-           // });
+            });
         break;
        default:
             message.channel.send("no such command bro");
