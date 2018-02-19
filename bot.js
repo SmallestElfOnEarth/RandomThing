@@ -380,17 +380,9 @@ bot.on("message", function(message) {
                      stmt.finalize();
              }); */
                    let db = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => { if(err){ console.error(err.message); } });
-                   db.run("CREATE TABLE IF NOT EXISTS transactions (info text)"); 
-                   db.run(`INSERT INTO transactions(info) VALUES(?)`, logmessage, function(err) {
-                     if (err) {
-                     return console.log(err.message);
-                   }
-                   console.log(`A row has been inserted with rowid ${this.lastID}`);
-                 //  db.each("SELECT info FROM transaction",function(err,row){
-                   // console.log(row);    
-                 //   console.log(row.info);
-                 //  });
-               });
+                   db.run(`CREATE TABLE transactions (info text)`); 
+                   db.run(`INSERT INTO transactions(info) VALUES(?)`,[logmessage], function(err) { if (err) { return console.log(err.message)} console.log(`A row has been inserted with rowid ${this.lastID}`); });
+                   db.close((err) => { if (err) { console.error(err.message); } });
                  pendingvar = false; 
              }); 
              }else{
