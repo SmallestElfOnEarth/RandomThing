@@ -366,7 +366,7 @@ bot.on("message", function(message) {
                 var data = JSON.parse (data);
                 var db = new sqlite3.Database('Transactions');
                 db.serialize(function(){
-                db.run("CREATE TABLE transactions (id INT, dt TEXT"); 
+                db.run("CREATE TABLE transactions (id TEXT"); 
                 var stmt = db.prepare("INSERT into transactions values(?,?)");
 
                      stmt.run(logger,Date().now);
@@ -411,7 +411,7 @@ bot.on("message", function(message) {
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
             db.each("SELECT id,dt from transaction",function(err,row){
-            console.log("Transaction id:"+row.id,row.dt);
+            console.log("Transaction id:"+row.id);
 });
         break;
        default:
