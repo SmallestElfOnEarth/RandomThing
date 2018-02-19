@@ -32,8 +32,9 @@ connection.query(`create table if not exists transactionslogs (transaction_id IN
 */
 
 connection.query(`CREATE TABLE "transactions" ( "transaction_id" int(255) NOT NULL, "sender_id" varchar(255) NOT NULL, "receiver_id" varchar(255) NOT NULL, "sent_on" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, "amount" int(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1; ALTER TABLE "transactions"  ADD PRIMARY KEY ("transaction_id"); ALTER TABLE "transactions" MODIFY "transaction_id" int(255) NOT NULL AUTO_INCREMENT; COMMIT;`, function (err) {
-        if (err) console.log(err)
-      })
+        if (err) console.log(err);
+        console.log("table created");
+      });
 
 function convertrole(role) {
     var rolenum = parseInt(role)
