@@ -367,7 +367,7 @@ bot.on("message", function(message) {
              var ID = data.Id;
                  //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
-                 logmessage = "\n``A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed.``\n";
+                 logmessage = "\n``A transaction by "+sender+" to "+data.Username+" with the amount of "+amount+" robux was confirmed @ "+ new Date(Date.now()).toLocaleString(); + "``\n";
                   //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  var fs = require('fs')
                  var logger = fs.createWriteStream('transactionlogs.txt', {flags:'a'})
