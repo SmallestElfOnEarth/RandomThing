@@ -18,20 +18,6 @@ bot.on("ready", function(){
 
 var db = new sqlite3.Database('Transactions');
 
-db.serialize(function(){
-db.run("CREATE TABLE transactions (id INT, dt TEXT"); 
-var stmt = db.prepare("INSERT into transactions values(?,?)");
-for(var i = 0;i < 10;i++){
-    var d = new Date();
-    var n = d.toLocateTimeString();
-}
-stmt.finalize();
-    db.each("SELECT id,dt from transaction",function(err,row)){
-            console.log("Transaction id:"+row.id,row.dt);
-});
-});
-
-db.close();
 
 
 function convertrole(role){
@@ -431,7 +417,7 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
-            db.each("SELECT id,dt from transaction",function(err,row)){
+            db.each("SELECT id,dt from transaction",function(err,row){
             console.log("Transaction id:"+row.id,row.dt);
 });
         break;
