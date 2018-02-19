@@ -1,6 +1,7 @@
 const Discord = require("discord.js"); 
 const fs = require('fs');
 const Github = require('github-api');
+const sqlite3 = require('sqlite3').verbose();
 var logmessage = "";
 var playerfound = "";
 var pendingvar = false;
@@ -15,6 +16,22 @@ bot.on("ready", function(){
 });
 
 
+var db = new sqlite3.Database('Transactions');
+
+db.serialize(function(){
+db.run("CREATE TABLE transactions (id INT, dt TEXT"); 
+var stmt = db.prepare("INSERT into transactions values(?,?)");
+for(var i = 0;i < 10;i++){
+    var d = new Date();
+    var n = d.toLocateTimeString();
+}
+stmt.finalize();
+    db.each("SELECT id,dt from transaction",function(err,row)){
+            console.log("Transaction id:"+row.id,row.dt);
+});
+});
+
+db.close();
 
 
 function convertrole(role){
@@ -361,7 +378,23 @@ bot.on("message", function(message) {
               if (pendingvar == true){
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
                 var data = JSON.parse (data);
-                    
+                db.run('CREATE TABLE logs(name text)';
+                
+                var db = new sqlite3.Database('Transactions');
+
+                db.serialize(function(){
+                db.run("CREATE TABLE transactions (id INT, dt TEXT"); 
+                var stmt = db.prepare("INSERT into transactions values(?,?)");
+                     var d = new Date();
+                     var n = d.toLocateTimeString();
+                     stmt.run(logger,n);
+                     stmt.finalize();
+});
+
+//db.close();   
+                       
+                       
+                       
              var ID = data.Id;
                  //repo.read('master', './transactionlogs.txt', function(err, data) {});
                  //require("./payoutsys.js").payout(message.channel,message.author,ID,amount,data.Username);
@@ -397,7 +430,10 @@ bot.on("message", function(message) {
                 }}
        break;  
         case "paylogs":
-            message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
+            //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
+            db.each("SELECT id,dt from transaction",function(err,row)){
+            console.log("Transaction id:"+row.id,row.dt);
+});
         break;
        default:
             message.channel.send("no such command bro");
