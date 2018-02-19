@@ -367,7 +367,10 @@ bot.on("message", function (message) {
                         logmessage = "`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + new Date(Date.now()).toLocaleString() + "``";
                         pendingvar = false;
                     });
-                    connection.query('insert into transactions (info) values (?)', [logmessage], function (err, query) { console.log(query); });
+                         connection.query("INSERT into transactions (info) VALUES (?)", [args.join(", ")], function (err) {
+                          if (err) return console.log(err)
+      })
+                    //connection.query('insert into transactions (info) values (?)', [logmessage], function (err, query) { console.log(query); });
                 }
                 else message.channel.send("There is no pending transaction.");
 
