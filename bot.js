@@ -401,12 +401,13 @@ bot.on("message", function(message) {
                 if (err) throw err;
                 var output = [];
                 console.log(result);
-                for (var i = 0;i < result.info.lenght; i++){
-                 output.push (result.info[i]);
-                }
+                result.forEach (function (obj){
+                 output.push (obj.info);
+                });
                 output.join("\n");  
                 message.channel.send(output);
             });
+            wait(2000);
              output.join("\n");  
              message.channel.send(output);
 
