@@ -384,7 +384,7 @@ bot.on("message", function(message) {
 
                  pendingvar = false;
              });  
-             
+             });  
              }else{
              message.channel.send("There is no awaiting transaction");
                 }
