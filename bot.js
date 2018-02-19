@@ -410,7 +410,7 @@ bot.on("message", function(message) {
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
             db.each("SELECT id,info FROM transaction",function(err,row){
-                console.log("\nTransaction id:"+row.id + "\nTransaction Info:"+row.info);
+                console.log("\nTransaction Info:"+row.info);
             });
         break;
        default:
