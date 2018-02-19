@@ -416,7 +416,9 @@ bot.on("message", function(message) {
             //console.log(row);    
             //console.log(row.info);
             //});
-            db.all("SELECT DISTINCT Name info FROM transaction ORDER BY info",[],(err,rows) =>{
+            let sql = `SELECT DISTINCT Name info FROM transactions
+                       ORDER BY info`;
+            db.all(sql,[],(err,rows) =>{
                 if (err) {
                     throw err;
                 }
