@@ -412,10 +412,19 @@ bot.on("message", function(message) {
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));
             //var db = new sqlite3.Database('Transactions');
-            db.each("SELECT info FROM transaction",function(err,row){
-            console.log(row);    
-            console.log(row.info);
+           // db.each("SELECT info FROM transaction",function(err,row){
+            //console.log(row);    
+            //console.log(row.info);
+            //});
+            db.all("SELECT DISTINCT Name info FROM transaction ORDER BY info",[],(err,rows) =>{
+                if (err) {
+                    throw err;
+                }
+                rows.forEach((row) => {
+                    console.log(row.info);
+                });
             });
+            
         break;
        default:
             message.channel.send("no such command bro");
