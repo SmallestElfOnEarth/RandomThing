@@ -401,7 +401,7 @@ bot.on("message", function(message) {
                 if (err) throw err;
                 var output = [];
                 console.log(result);
-                for (var i = 0;i < result.lenght; i++){
+                for (var i = 0;i < result.info.lenght; i++){
                  output.push (result.info[i]);
                 }
                 output.join("\n");  
