@@ -16,7 +16,7 @@ bot.on("ready", function(){
 });
 
 
-var db = new sqlite3.Database('Transactions');
+var db = new sqlite3.Database(':memory:');
 
 
 
