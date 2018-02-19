@@ -380,7 +380,7 @@ bot.on("message", function(message) {
                         console.log("Table created");
                      });
                     connection.query('insert into transactions (info) values (?)', [logmessage], function(err, query){
-                        console.log (err ? err : query);
+                      //  console.log (err ? err : query);
                     });
              }else{
              message.channel.send("There is no awaiting transaction");
@@ -401,6 +401,13 @@ bot.on("message", function(message) {
        break;  
         case "paylogs":
             //message.channel.send (fs.readFileSync ('transactionlogs.txt').toString ('ascii'));   
+            var output= "";
+            connection.query("SELECT * FROM transactions ORDER BY info",function(err,result){
+                if (err) throw err;
+                console.log(result)
+                output = result;
+            });
+            message.channel.send(output);
         break;
        default:
             message.channel.send("no such command bro");
