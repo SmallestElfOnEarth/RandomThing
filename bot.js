@@ -10,7 +10,7 @@ var amount = 0;
 
 
 const PREFIX = ">>";
-var bot = new Discord.client();
+var bot = new Discord.Client();
 bot.on("ready", function () {
     console.log("ready");
     bot.user.setActivity("with iown's genitalia");
