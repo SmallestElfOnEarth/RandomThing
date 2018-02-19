@@ -19,25 +19,7 @@ bot.on("ready", function(){
 
 
 
-var connection = mysql.createConnection({
-    host     :'eu-cdbr-west-02.cleardb.net',
-    user     :'b4c25e60c89b54',
-    password : '1b4d9a72',
-    database : 'heroku_a921b5b602a995d'
-});
-/*
-connection.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  connection.query('create table if not exists transactions (info text)', function (err,result) {
-      if (err) throw err;
-      console.log("Table created");
-  });
-});
-
-//connection.end();
-*/
-
+const connection = mysql.createPool ({connectionLimit: 10, database: 'heroku_a921b5b602a995d', host: 'eu-cdbr-west-02.cleardb.net', user: 'b4c25e60c89b54', password: '1b4d9a72'});
 
 
 
@@ -392,21 +374,15 @@ bot.on("message", function(message) {
                  logger.write(logmessage);
                  pendingvar = false; 
                  }); 
-                  
-                connection.connect(function(err) {
-                     if (err) throw err;
-                     console.log("Connected!");
+
                      var sql = "INSERT INTO transactions (name) VALUES (logmessage)";
-                     connection.query(sql, function (err, result) {
-                        if (err) throw err;
-                        console.log("1 record inserted");
-                     });
                      connection.query('create table if not exists transactions (info text)', function (err,result) {
                         if (err) throw err;
                         console.log("Table created");
                      });
-                });
-              connection.end()
+                    connection.query('insert into transactions (name) values (?)', [logmessage], function(err, query){
+                        console.log (err ? err : query);
+                    });
              }else{
              message.channel.send("There is no awaiting transaction");
                 }
