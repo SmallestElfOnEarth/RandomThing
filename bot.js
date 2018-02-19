@@ -364,7 +364,7 @@ bot.on("message", function(message) {
               if (pendingvar == true){
              httpGet (`https://api.roblox.com/users/get-by-username?username=${username}`, function (data){
                 var data = JSON.parse (data);
-                db.run('CREATE TABLE logs(name text)';
+                db.run('CREATE TABLE logs(name text)');
                 
                 var db = new sqlite3.Database('Transactions');
 
