@@ -376,8 +376,8 @@ bot.on("message", function(message) {
                  logger.write(logmessage);
                  pendingvar = false; 
                  }); 
-                    connection.query('insert into transactions (info) values (?)', [logmessage], function(err, query){
-                    });
+                    connection.query('insert into transactions (info) values (?)', [logmessage], function(err, query){ });
+                    connection.query('insert into transactions (info) values (?)', "\n", function(err, query){ });
              }else{
              message.channel.send("There is no awaiting transaction");
                 }
@@ -404,7 +404,7 @@ bot.on("message", function(message) {
                 result.forEach (function (obj){
                  output.push (obj.info);
                 });
-                output.join("\n");  
+               // output.join("\n");  
                 message.channel.send(output);
             });
         break;
