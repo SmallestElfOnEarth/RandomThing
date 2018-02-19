@@ -1,7 +1,7 @@
 const Discord = require("discord.js"); 
 const fs = require('fs');
 require('./validtokick.js')
-var mysql = require('mysql');
+var mysql = require('mysql2');
 
 var logmessage = "";
 var playerfound = "";
