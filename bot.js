@@ -38,7 +38,7 @@ connection.query(`CREATE TABLE "transactionslogs" ( "transaction_id" int(255), "
 */
 
 
-connection.query(`CREATE TABLE transactionslog (
+connection.query(`CREATE TABLE if not exists transactionslog (
           transaction_id int(255) NOT NULL AUTO_INCREMENT,
           sender_id varchar(255) NOT NULL,
           receiver_id varchar(255) NOT NULL,
