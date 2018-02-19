@@ -369,7 +369,7 @@ bot.on("message", function(message) {
                 db.run("CREATE TABLE transactions (id INT, dt TEXT"); 
                 var stmt = db.prepare("INSERT into transactions values(?,?)");
 
-                     stmt.run(logger,date);
+                     stmt.run(logger,Date().now);
                      stmt.finalize();
 });
 
