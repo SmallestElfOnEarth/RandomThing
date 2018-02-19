@@ -375,7 +375,7 @@ bot.on("message", function(message) {
 
                 var db = new sqlite3.Database('Transactions');
                 db.serialize(function(){
-                db.run("CREATE TABLE IF NOT EXISTS transactions (info TEXT"); 
+                db.run("CREATE TABLE IF NOT EXISTS transactions (info,TEXT"); 
                 var stmt = db.prepare("INSERT INTO transactions VALUES(?)");
                      stmt.run(logmessage);
                      stmt.finalize();
