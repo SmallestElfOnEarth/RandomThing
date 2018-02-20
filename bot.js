@@ -263,7 +263,6 @@ bot.on("message", function (message) {
 
                     httpGet(`https://api.roblox.com/users/${ID}/groups`, function (data) {
                         var groupdata = JSON.parse(data);
-                        console.log(groupdata);
                         var groupid = 2683316;
                         inPR = false;
                         userrank = 0;
