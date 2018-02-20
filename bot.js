@@ -262,6 +262,7 @@ bot.on("message", function (message) {
 
                     httpGet(`https://api.roblox.com/users/${ID}/groups`, function (data) {
                         var groupdata = JSON.parse(data);
+                        console.log(groupdata);
                         var groupid = 2683316;
                         groupdata.forEach(function (data) {
                             if (data.Id == 2683316) 
