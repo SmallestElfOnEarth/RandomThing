@@ -42,7 +42,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
           transaction_id int(255) NOT NULL AUTO_INCREMENT,
           sender_id varchar(255) NOT NULL,
           receiver_id varchar(255) NOT NULL,
-          sent_on timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+          sent_on DATE,
           amount int(255) NOT NULL,
           PRIMARY KEY (transaction_id)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1`, function (err, result) {
