@@ -3,11 +3,10 @@ const rbx = require("roblox-js");
 const vtk = require('./validtokick.js');
 var mysql = require('mysql2');
 
-var logmessage = "";
 var pendingvar = false;
 var username = "";
 var amount = 0;
-
+var reason = "";
 var role = 0;
 var nextlevel = 0;
 const PREFIX = ">>";
@@ -33,6 +32,8 @@ connection.query(`CREATE TABLE if not exists transactionslog (
         console.log("Table created");
       });
 
+
+connection.query(`ALTER table login add column (reason varchar(255))`,function (err,result){ if(err) throw err; });
 
 //connection.query(`TRUNCATE TABLE transactionslog`, function(err,result){ if(err) throw err; }); -- wipe table
 
@@ -434,6 +435,7 @@ message.guild.fetchMember(member).then((data) => {
                 username = args[1];
                 amount = args[2];
                 sender = message.author.username;
+                reason = args[3];
                 pendingvar = true;
             }
             else message.channel.send("Insufficient Permissions");
@@ -449,7 +451,7 @@ message.guild.fetchMember(member).then((data) => {
                         //require("./payoutsys.js").payout(message.channel, message.author, ID, amount, data.Username);
                         pendingvar = false;
                     });
-                         connection.query("INSERT into transactionslog (sender_id,receiver_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, new Date(Date.now()).toLocaleString(),amount], function (err) {
+                         connection.query("INSERT into transactionslog (sender_id,receiver_id,sent_on,amount,reason) VALUES (?,?,?,?,?)", [sender,username, new Date(Date.now()).toLocaleString(),amount,reason], function (err) {
                           if (err) return console.log(err)
                          });
                 }
