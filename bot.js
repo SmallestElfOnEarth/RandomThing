@@ -33,7 +33,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
       });
 
 
-connection.query(`ALTER table login add column (reason varchar(255))`,function (err,result){ if(err) throw err; });
+connection.query(`ALTER table transactionslog add column (reason varchar(255))`,function (err,result){ if(err) throw err; });
 
 //connection.query(`TRUNCATE TABLE transactionslog`, function(err,result){ if(err) throw err; }); -- wipe table
 
