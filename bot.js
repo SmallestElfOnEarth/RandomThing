@@ -408,7 +408,7 @@ bot.on("message", function (message) {
             if (message.member.roles.has(admin.id)) {
                  connection.query("SELECT * FROM transactionslog ORDER BY transaction_id DESC", (err, results) => {
                     if (err) return console.log(err)
-                    if (!results.length) return msg.channel.send("There's not transaction to show :( ")
+                    if (!results.length) return message.channel.send("There's not transaction to show :( ")
                     let output = []
                     for (let i = 0; i < results.length; i++) {
                         let dateFromDb = new Date(results[i].sent_on)
