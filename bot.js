@@ -33,7 +33,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
       });
 
 
-connection.query(`ALTER table transactionslog add column (reason varchar(255))`,function (err,result){ if(err) throw err; });
+//connection.query(`ALTER table transactionslog add column (reason varchar(255))`,function (err,result){ if(err) throw err; }); -- add column
 
 //connection.query(`TRUNCATE TABLE transactionslog`, function(err,result){ if(err) throw err; }); -- wipe table
 
@@ -481,7 +481,7 @@ message.guild.fetchMember(member).then((data) => {
                     for (let i = 0; i < results.length; i++) {
                         let dateFromDb = new Date(results[i].sent_on)
                         let date = dateFromDb.getMonth()+1 + "/" + dateFromDb.getDate() + "/" + dateFromDb.getFullYear()
-                        output.push("``ID:"+results[i].transaction_id+"  --A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ date +" ``")
+                        output.push("``ID:"+results[i].transaction_id+"  --A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ date +" REASON: "+results[i].reason + ``")
                     }
                     message.channel.send(output.join("\n"))
                 })
