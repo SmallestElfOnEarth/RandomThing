@@ -38,65 +38,53 @@ connection.query(`CREATE TABLE if not exists transactionslog (
 
 function convertrole(role) {
     var rolenum = parseInt(role)
-    var nextlevel = 0;
+    var nextlevel = 0
     if (rolenum >= 0 && rolenum < 20) {
         role = 1;
-        nextlevel = 20;
     }
     else if (rolenum >= 20 && rolenum < 30) {
-        return { role: 3, nextlevel: 30};
+        role = 3;
+        nextlevel = 30;
     }
     else if (rolenum >= 30 && rolenum < 40) {
         role = 4;
-        nextlevel = 40;
     }
     else if (rolenum >= 40 && rolenum < 50) {
         role = 5;
-        nextlevel = 50;
     }
     else if (rolenum >= 50 && rolenum < 80) {
         role = 6;
-        nextlevel = 80;
     }
     else if (rolenum >= 80 && rolenum < 90) {
         role = 17;
-        nextlevel = 90;
     }
     else if (rolenum >= 90 && rolenum < 100) {
         role = 18;
-        nextlevel = 100;
     }
     else if (rolenum >= 100 && rolenum < 125) {
         role = 19;
-        nextlevel = 125;
-        console.log("picked up");
     }
     else if (rolenum >= 125 && rolenum < 150) {
         role = 20;
-        nextlevel = 150;
     }
     else if (rolenum >= 150 && rolenum < 175) {
         role = 21;
-        nextlevel = 175;
     }
     else if (rolenum >= 175 && rolenum < 200) {
         role = 22;
-        nextlevel = 200;
-        return role,nextlevel;
     }
     else if (rolenum >= 200) {
         role = 239;
-        nextlevel = "Max level reached.";
     }
     else if (role == "clan") {
         role = 240;
-        nextlevel = "Clan members dont rank up.";
     }
     else if (role == "comp") {
         role = 241;
-        nextlevel = "Competitive players dont rank up.";
     }
+    return role,nextlevel;
 }
+
 
 function autoannounce() {
     var date = new Date();
@@ -253,7 +241,7 @@ bot.on("message", function (message) {
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
                     var ID = data.Id;
-                    role,nextlevel = convertrole(args[2]);
+                    var role,nextlevel = convertrole(args[2]);
 
                     var username = process.env.USERNAME1;
                     var password = process.env.PASSWORD1;
