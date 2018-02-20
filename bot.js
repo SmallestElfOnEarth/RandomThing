@@ -413,7 +413,7 @@ bot.on("message", function (message) {
                     for (let i = 0; i < results.length; i++) {
                         let dateFromDb = new Date(results[i].sent_on)
                         let date = dateFromDb.getMonth()+1 + "/" + dateFromDb.getDate() + "/" + dateFromDb.getFullYear()
-                        output.push("``:"+results[i].transaction.id+": A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ date +" ``")
+                        output.push("``:"+results[i].transaction_id+": A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ date +" ``")
                     }
                     message.channel.send(output.join("\n"))
                 })
