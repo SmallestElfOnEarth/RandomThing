@@ -32,7 +32,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
         console.log("Table created");
       });
 
-connection.query(`ALTER TABLE transactions MODIFY COLUMN sent_on DATE`,function (err,result){if (err) throw err; });
+connection.query(`ALTER TABLE transactionslog MODIFY COLUMN sent_on DATE`,function (err,result){if (err) throw err; });
 
 
 
