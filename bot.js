@@ -280,7 +280,7 @@ bot.on("message", function (message) {
                     login()
                         .then((function () {
                             if (inPR){
-                                console.log("group = "+inPR+"user rank = "+userrank +" what role "+role);
+                                console.log("group = "+inPR+" user rank = "+userrank +" what role "+role+ " next level "+nextlevel);
                             }
                             if (inPR && role > userrank) {
                                 console.log("first if");
