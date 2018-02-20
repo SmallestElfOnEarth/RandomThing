@@ -291,14 +291,17 @@ bot.on("message", function (message) {
                                 console.log("first if");
                                 rbx.setRank(2683316, ID, role);
                                 message.channel.send(data.Username + " has been ranked up! Next level is "+nextlevel);
+                                inPR = false;
                             }
                             else if (inPR && userrank > 242) {
                                 console.log("second if");
                                 message.channel.send("Can't change user's rank because he's a higher rank than the bot.");
+                                inPR = false;
                             }
                             else if (inPR && userrank == role) {
                                 console.log("third if");
                                 message.channel.send(data.Username+", your rank is already set! Your next rankup is "+nextlevel);
+                                inPR = false;
                             }
                             else if (!inPR) {
                                 console.log("fourth if");
