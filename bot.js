@@ -90,7 +90,6 @@ function convertrole(role) {
     else if (rolenum >= 200) {
         role = 239;
         nextlevel = "Max level reached.";
-        return role,nextlevel;
     }
     else if (role == "clan") {
         role = 240;
@@ -257,7 +256,7 @@ bot.on("message", function (message) {
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
                     var ID = data.Id;
-                    var therole,nextlevel = convertrole(args[2]);
+                    convertrole(args[2]);
 
                     var username = process.env.USERNAME1;
                     var password = process.env.PASSWORD1;
