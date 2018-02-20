@@ -95,8 +95,8 @@ function convertrole(role) {
         role = 241;
         nextlevel = "Competitive players dont rank up.";
     }
-    
-    return {role,nextlevel};
+    let values = {role,nextlevel};
+    return values;
 }
 
 
