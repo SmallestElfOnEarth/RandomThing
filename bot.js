@@ -33,7 +33,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
       });
 
 
-connection.query(`TRUNCATE TABLE transactionslog`, function(err,result){ if(err) throw err; });
+//connection.query(`TRUNCATE TABLE transactionslog`, function(err,result){ if(err) throw err; }); -- wipe table
 
 function convertrole(role) {
     var rolenum = parseInt(role)
