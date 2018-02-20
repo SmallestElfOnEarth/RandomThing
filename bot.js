@@ -32,8 +32,6 @@ connection.query(`CREATE TABLE if not exists transactionslog (
         console.log("Table created");
       });
 
-connection.query(`TRUNCATE TABLE transactionslog`,function (err,result){if (err) throw err; });
-
 
 
 function convertrole(role) {
