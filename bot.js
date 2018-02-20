@@ -228,6 +228,7 @@ bot.on("message", function (message) {
 
         case "rankup":
             if (message.member.roles.has(staffass.id)) {
+                let user= message.mentions.users.first();
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
                     var ID = data.Id;
@@ -248,7 +249,6 @@ bot.on("message", function (message) {
                         }))
 
                 });
-let user= message.mentions.users.first();
 message.guild.fetchMember(user).then((data) => {
                     let member = message.mentions.first();
                     if (args[2] == 241) {
