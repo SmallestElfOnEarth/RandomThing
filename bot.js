@@ -39,51 +39,51 @@ connection.query(`CREATE TABLE if not exists transactionslog (
 function convertrole(role) {
     var rolenum = parseInt(role)
     var nextlevel = 0
-    var role = 0
+    var rolee = 0
     if (rolenum >= 0 && rolenum < 20) {
-        role = 1;
+        rolee = 1;
     }
     else if (rolenum >= 20 && rolenum < 30) {
         role = 3;
         nextlevel = 30;
     }
     else if (rolenum >= 30 && rolenum < 40) {
-        role = 4;
+        rolee = 4;
     }
     else if (rolenum >= 40 && rolenum < 50) {
-        role = 5;
+        rolee = 5;
     }
     else if (rolenum >= 50 && rolenum < 80) {
-        role = 6;
+        rolee = 6;
     }
     else if (rolenum >= 80 && rolenum < 90) {
-        role = 17;
+        rolee = 17;
     }
     else if (rolenum >= 90 && rolenum < 100) {
-        role = 18;
+        rolee = 18;
     }
     else if (rolenum >= 100 && rolenum < 125) {
-        role = 19;
+        rolee = 19;
     }
     else if (rolenum >= 125 && rolenum < 150) {
-        role = 20;
+        rolee = 20;
     }
     else if (rolenum >= 150 && rolenum < 175) {
-        role = 21;
+        rolee = 21;
     }
     else if (rolenum >= 175 && rolenum < 200) {
-        role = 22;
+        rolee = 22;
     }
     else if (rolenum >= 200) {
-        role = 239;
+        rolee = 239;
     }
     else if (role == "clan") {
-        role = 240;
+        rolee = 240;
     }
     else if (role == "comp") {
-        role = 241;
+        rolee = 241;
     }
-    return role,nextlevel;
+    return rolee,nextlevel;
 }
 
 
