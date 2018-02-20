@@ -253,7 +253,7 @@ bot.on("message", function (message) {
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
                     var ID = data.Id;
-                    convertrole(args[2]);
+                    role,nextlevel = convertrole(args[2]);
 
                     var username = process.env.USERNAME1;
                     var password = process.env.PASSWORD1;
