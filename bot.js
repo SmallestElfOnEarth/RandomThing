@@ -39,6 +39,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
 function convertrole(role) {
     var rolenum = parseInt(role)
     var nextlevel = 0
+    var role = 0
     if (rolenum >= 0 && rolenum < 20) {
         role = 1;
     }
