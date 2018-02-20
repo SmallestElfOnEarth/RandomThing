@@ -265,6 +265,8 @@ bot.on("message", function (message) {
                         var groupdata = JSON.parse(data);
                         console.log(groupdata);
                         var groupid = 2683316;
+                        inPR = false;
+                        userrank = 0;
                         groupdata.forEach(function (data) {
                             if (data.Id == 2683316) 
                                 inPR = true;
