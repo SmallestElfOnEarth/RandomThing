@@ -379,10 +379,10 @@ bot.on("message", function (message) {
                         var ID = data.Id;
                         username = data.Username
                         //require("./payoutsys.js").payout(message.channel, message.author, ID, amount, data.Username);
-                        logmessage = "`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + new Date(Date.now()).toLocaleString() + "``";
+                        logmessage = "`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + Date(Date.now()) + "``";
                         pendingvar = false;
                     });
-                         connection.query("INSERT into transactionslog (sender_id,receiver_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, Date.now().toLocaleString(),amount], function (err) {
+                         connection.query("INSERT into transactionslog (sender_id,receiver_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, Date(Date.now()),amount], function (err) {
                           if (err) return console.log(err)
                          });
                     //connection.query('insert into transactions (info) values (?)', [logmessage], function (err, query) { console.log(query); });
