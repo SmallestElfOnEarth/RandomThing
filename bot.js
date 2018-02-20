@@ -248,6 +248,7 @@ bot.on("message", function (message) {
             if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id) || message.member.roles.has(trialcomm.id)) {
                 let member = message.mentions.users.first();
                 var inPR = false;
+                var userrank = 0;
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
                     var ID = data.Id;
@@ -274,8 +275,10 @@ bot.on("message", function (message) {
 
                     login()
                         .then((function () {
-                            console.log("group = "+inPR);
-                            if (inPR) var userrank = rbx.getRankInGroup(2683316, ID);
+                            if (inPR){
+                                var userrank = rbx.getRankInGroup(2683316, ID);
+                                console.log("group = "+inPR+"user rank = "+userrank);
+                            }
                             if (inPR && therole > userrank) {
                                 rbx.setRank(2683316, ID, therole);
                                 message.channel.send(data.Username + " has been ranked up! Next level is "+nextlevel);
