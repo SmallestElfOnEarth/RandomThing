@@ -268,6 +268,7 @@ bot.on("message", function (message) {
                         groupdata.forEach(function (data) {
                             if (data.Id == 2683316) 
                                 inPR = true;
+                                userrank = data.Rank;
                         });
                     });
 
@@ -276,7 +277,6 @@ bot.on("message", function (message) {
                     login()
                         .then((function () {
                             if (inPR){
-                                var userrank = rbx.getRankInGroup(2683316, ID);
                                 console.log("group = "+inPR+"user rank = "+userrank);
                             }
                             if (inPR && therole > userrank) {
