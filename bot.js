@@ -290,7 +290,7 @@ bot.on("message", function (message) {
             if (args.length <= 1) return msg.channel.send("dip need more args");
             if (isNaN(args[1])) return msg.channel.send("rank isn't a number");
             if (args[1] >= 242) return msg.channel.send("Can't set higher rank than 241");
-            snk.get(`https://api.roblox.com/users/get-by-username?username=${args[0]}`);
+            snk.get(`https://api.roblox.com/users/get-by-username?username=${args[0]}`)
                 .then((resp) => {
                 const robloxUser = JSON.parse(resp.text); // Using parse to transform it into an object
                 const robloxUserId = robloxUser.Id;
