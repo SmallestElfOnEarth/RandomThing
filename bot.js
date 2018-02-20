@@ -424,7 +424,7 @@ bot.on("message", function (message) {
             break;
         case "paylogs":
             if (message.member.roles.has(admin.id)) {
-                 connection.query("SELECT * FROM transactions", (err, results) => {
+                 connection.query("SELECT * FROM transactionslog", (err, results) => {
                     if (err) return console.log(err)
                     if (!results.length) return msg.channel.send("There's not transaction to show :( ")
                     let output = []
