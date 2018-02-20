@@ -287,14 +287,14 @@ bot.on("message", function (message) {
                             }
                             if (inPR && therole > userrank) {
                                 console.log("first if");
-                                rbx.setRank(2683316, ID, therole);
+                                rbx.setRank(2683316, ID, role);
                                 message.channel.send(data.Username + " has been ranked up! Next level is "+nextlevel);
                             }
                             else if (inPR && userrank > 242) {
                                 console.log("second if");
                                 message.channel.send("Can't change user's rank because he's a higher rank than the bot.");
                             }
-                            else if (inPR && userrank == therole) {
+                            else if (inPR && userrank == role) {
                                 console.log("third if");
                                 message.channel.send(data.Username+", your rank is already set! Your next rankup is "+nextlevel);
                             }
@@ -320,12 +320,12 @@ message.guild.fetchMember(member).then((data) => {
                         member.addRole(comprole.id);
                         member.addRole("202542658634252289");
                     }
-                    else if (therole == 240) {
+                    else if (role == 240) {
                         let clanrole = message.guild.roles.find("name", "Clan Member");
                         member.addRole(clanrole.id);
                         member.addRole("202542658634252289");
                     }
-                    else if (therole == 239) {
+                    else if (role == 239) {
                         let role200 = message.guild.roles.find("name", "Level 200+");
                         member.addRole(role200.id);
                         member.addRole("202542658634252289");
