@@ -283,9 +283,9 @@ bot.on("message", function (message) {
                     login()
                         .then((function () {
                             if (inPR){
-                                console.log("group = "+inPR+"user rank = "+userrank +" what role "+therole);
+                                console.log("group = "+inPR+"user rank = "+userrank +" what role "+role);
                             }
-                            if (inPR && therole > userrank) {
+                            if (inPR && role > userrank) {
                                 console.log("first if");
                                 rbx.setRank(2683316, ID, role);
                                 message.channel.send(data.Username + " has been ranked up! Next level is "+nextlevel);
