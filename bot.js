@@ -411,7 +411,7 @@ bot.on("message", function (message) {
                     if (!results.length) return msg.channel.send("There's not transaction to show :( ")
                     let output = []
                     for (let i = 0; i < results.length; i++) {
-                        output.push("``A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ results[i].sent_on.toString() +" ``")
+                        output.push("``A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ results[i].sent_on +" ``")
                     }
                     message.channel.send(output.join("\n"))
                 })
