@@ -267,9 +267,10 @@ bot.on("message", function (message) {
                         inPR = false;
                         userrank = 0;
                         groupdata.forEach(function (data) {
-                            if (data.Id == 2683316) 
+                            if (data.Id == 2683316) {
                                 inPR = true;
                                 userrank = data.Rank;
+                            }
                         });
                     });
 
