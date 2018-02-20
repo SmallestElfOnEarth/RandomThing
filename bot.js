@@ -264,7 +264,7 @@ bot.on("message", function (message) {
                         var groupdata = JSON.parse(data);
                         var groupid = 2683316;
                         groupdata.forEach(function (data) {
-                            if (data.id == "2683316")
+                            if (data.id == 2683316)
                                 inPR = true;
                         });
                     });
