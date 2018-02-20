@@ -247,6 +247,7 @@ bot.on("message", function (message) {
         case "rankup":
             if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id) || message.member.roles.has(trialcomm.id)) {
                 let member = message.mentions.users.first();
+                var inPR = false;
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
                     var ID = data.Id;
@@ -262,7 +263,6 @@ bot.on("message", function (message) {
                     httpGet(`https://api.roblox.com/users/${ID}/groups`, function (data) {
                         var groupdata = JSON.parse(data);
                         var groupid = 2683316;
-                        var inPR = false;
                         groupdata.forEach(function (data) {
                             if (data.id == "2683316")
                                 inPR = true;
