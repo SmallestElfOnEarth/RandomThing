@@ -41,30 +41,37 @@ function convertrole(role) {
     if (rolenum >= 0 && rolenum < 20) {
         role = 1;
         nextlevel = 20;
+        return role,nextlevel;
     }
     else if (rolenum >= 20 && rolenum < 30) {
         role = 3;
         nextlevel = 30;
+        return role,nextlevel;
     }
     else if (rolenum >= 30 && rolenum < 40) {
         role = 4;
         nextlevel = 40;
+        return role,nextlevel;
     }
     else if (rolenum >= 40 && rolenum < 50) {
         role = 5;
         nextlevel = 50;
+        return role,nextlevel;
     }
     else if (rolenum >= 50 && rolenum < 80) {
         role = 6;
         nextlevel = 80;
+        return role,nextlevel;
     }
     else if (rolenum >= 80 && rolenum < 90) {
         role = 17;
         nextlevel = 90;
+        return role,nextlevel;
     }
     else if (rolenum >= 90 && rolenum < 100) {
         role = 18;
         nextlevel = 100;
+        return role,nextlevel;
     }
     else if (rolenum >= 100 && rolenum < 125) {
         role = 19;
@@ -73,28 +80,33 @@ function convertrole(role) {
     else if (rolenum >= 125 && rolenum < 150) {
         role = 20;
         nextlevel = 150;
+        return role,nextlevel;
     }
     else if (rolenum >= 150 && rolenum < 175) {
         role = 21;
         nextlevel = 175;
+        return role,nextlevel;
     }
     else if (rolenum >= 175 && rolenum < 200) {
         role = 22;
         nextlevel = 200;
+        return role,nextlevel;
     }
     else if (rolenum >= 200) {
         role = 239;
         nextlevel = "Max level reached.";
+        return role,nextlevel;
     }
     else if (role == "clan") {
         role = 240;
         nextlevel = "Clan members dont rank up.";
+        return role,nextlevel;
     }
     else if (role == "comp") {
         role = 241;
         nextlevel = "Competitive players dont rank up.";
+        return role,nextlevel;
     }
-    return role,nextlevel;
 }
 
 function autoannounce() {
