@@ -38,52 +38,65 @@ connection.query(`CREATE TABLE if not exists transactionslog (
 
 function convertrole(role) {
     var rolenum = parseInt(role)
-    var nextlevel = 0
-    var rolee = 0
+    var nextlevel = 0;
     if (rolenum >= 0 && rolenum < 20) {
-        rolee = 1;
+        role = 1;
+        nextlevel = 20;
     }
     else if (rolenum >= 20 && rolenum < 30) {
         role = 3;
         nextlevel = 30;
     }
     else if (rolenum >= 30 && rolenum < 40) {
-        rolee = 4;
+        role = 4;
+        nextlevel = 40;
     }
     else if (rolenum >= 40 && rolenum < 50) {
-        rolee = 5;
+        role = 5;
+        nextlevel = 50;
     }
     else if (rolenum >= 50 && rolenum < 80) {
-        rolee = 6;
+        role = 6;
+        nextlevel = 80;
     }
     else if (rolenum >= 80 && rolenum < 90) {
-        rolee = 17;
+        role = 17;
+        nextlevel = 90;
     }
     else if (rolenum >= 90 && rolenum < 100) {
-        rolee = 18;
+        role = 18;
+        nextlevel = 100;
     }
     else if (rolenum >= 100 && rolenum < 125) {
-        rolee = 19;
+        role = 19;
+        nextlevel = 125;
     }
     else if (rolenum >= 125 && rolenum < 150) {
-        rolee = 20;
+        role = 20;
+        nextlevel = 150;
     }
     else if (rolenum >= 150 && rolenum < 175) {
-        rolee = 21;
+        role = 21;
+        nextlevel = 175;
     }
     else if (rolenum >= 175 && rolenum < 200) {
-        rolee = 22;
+        role = 22;
+        nextlevel = 200;
     }
     else if (rolenum >= 200) {
-        rolee = 239;
+        role = 239;
+        nextlevel = "Max level reached.";
     }
     else if (role == "clan") {
-        rolee = 240;
+        role = 240;
+        nextlevel = "Clan members dont rank up.";
     }
     else if (role == "comp") {
-        rolee = 241;
+        role = 241;
+        nextlevel = "Competitive players dont rank up.";
     }
-    return rolee,nextlevel;
+    
+    return {role,nextlevel};
 }
 
 
@@ -242,7 +255,10 @@ bot.on("message", function (message) {
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
                     var ID = data.Id;
-                    var role,nextlevel = convertrole(args[2]);
+                    let values = convertrole(args[2]);
+                    
+                    var role = values[1];
+                    var nextlevel = values[2]
 
                     var username = process.env.USERNAME1;
                     var password = process.env.PASSWORD1;
