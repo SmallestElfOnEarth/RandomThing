@@ -42,12 +42,10 @@ function convertrole(role) {
     if (rolenum >= 0 && rolenum < 20) {
         role = 1;
         nextlevel = 20;
-        return role,nextlevel;
     }
     else if (rolenum >= 20 && rolenum < 30) {
         role = 3;
         nextlevel = 30;
-        return role,nextlevel;
     }
     else if (rolenum >= 30 && rolenum < 40) {
         role = 4;
