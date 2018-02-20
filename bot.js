@@ -406,12 +406,14 @@ bot.on("message", function (message) {
             break;
         case "paylogs":
             if (message.member.roles.has(admin.id)) {
-                 connection.query("SELECT * FROM transactionslog", (err, results) => {
+                 connection.query("SELECT * FROM transactionslog ORDER BY transaction_id DESC", (err, results) => {
                     if (err) return console.log(err)
                     if (!results.length) return msg.channel.send("There's not transaction to show :( ")
                     let output = []
                     for (let i = 0; i < results.length; i++) {
-                        output.push("``A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ results[i].sent_on.getMonth() + 1 + '/' + results[i].sent_on.getDate() + '/' +  results[i].sent_on.getFullYear() +" ``")
+                        let dateFromDb = new Date(results[i].sent_on)
+                        let date = dateFromDb.getMonth()+1 + "/" + dateFromDb.getDate() + "/" + dateFromDb.getFullYear()
+                        output.push("``:"+results[i].transaction.id+": A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ date +" ``")
                     }
                     message.channel.send(output.join("\n"))
                 })
