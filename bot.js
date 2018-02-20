@@ -145,8 +145,11 @@ bot.on("message", function (message) {
     let staffass = message.guild.roles.find("name", "Staff Assistant | Bitches");
     let clanmanager = message.guild.roles.find("name", "Clan Manager");
     let admin = message.guild.roles.find("name", "Admin");
-
-
+    let mod = message.guild.roles.find("name","Moderator");
+    let trialmod = message.guild.roles.find("name","Trial Moderator");
+    let trialclan = message.guild.roles.find("name","Trial Clan Manager");
+    let trialcomm = message.guild.roles.find("name","Trial Community Manager");
+    
     switch (args[0].toLowerCase()) {
         case "waddup":
             message.channel.send("ay wassup my nigga im da bot");
@@ -227,7 +230,7 @@ bot.on("message", function (message) {
 
 
         case "rankup":
-            if (message.member.roles.has(staffass.id)) {
+            if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id)|| message.member.roles.has(trialcomm.id))  {
                 let user= message.mentions.users.first();
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
@@ -249,6 +252,8 @@ bot.on("message", function (message) {
                         }))
 
                 });
+                
+        
 message.guild.fetchMember(user).then((data) => {
                     let member = message.mentions.first();
                     if (args[2] == 241) {
