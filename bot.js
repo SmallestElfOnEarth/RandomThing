@@ -19,24 +19,6 @@ bot.on("ready", function () {
 
 const connection = mysql.createPool({ connectionLimit: 10, database: 't89mmx70xyt82q9n', host: 'wyqk6x041tfxg39e.chr7pe7iynqr.eu-west-1.rds.amazonaws.com', user: 'uylam3r9h4df40rf', password: 'aq4nez71z3po5of8' });
 
-/*connection.query('create table if not exists transactions(info text)', function (err, result) {
-    if (err) throw err;
-});
-
-
-connection.query(`create table if not exists transactionslogs (transaction_id INT(255) AUTO_INCREMENT PRIMARY KEY ,sender_id VARCHAR(255),reciever_id VARCHAR(255),sent_on TIMESTAMP,amount INT(255)`, function (err, result) {
-    if (err) throw err;
-    console.log("Table created");
-});
-
-
-
-connection.query(`CREATE TABLE "transactionslogs" ( "transaction_id" int(255), "sender_id" varchar(255), "receiver_id" varchar(255), "sent_on" timestampDEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, "amount" int(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1; ALTER TABLE "transactions"  ADD PRIMARY KEY ("transaction_id"); ALTER TABLE "transactions" MODIFY "transaction_id" int(255) NOT NULL AUTO_INCREMENT; COMMIT;`, function (err) {
-        if (err) console.log(err);
-        console.log("table created");
-      });
-*/
-
 
 connection.query(`CREATE TABLE if not exists transactionslog (
           transaction_id int(255) NOT NULL AUTO_INCREMENT,
@@ -50,7 +32,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
         console.log("Table created");
       });
 
-
+connection.query(`ALTER TABLE transactions MODIFY COLUMN sent_on DATE`,function (err,result){if (err) throw err; });
 
 
 
