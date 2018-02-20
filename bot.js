@@ -360,7 +360,7 @@ bot.on("message", function (message) {
 
         case "pay":
             if (message.member.roles.has(admin.id)) {
-                message.channel.send("Are you sure you want to pay" + args[1] + " " + args[2] + " Robux>");
+                message.channel.send("Are you sure you want to pay " + args[1] + " " + args[2] + " Robux?");
                 username = args[1];
                 amount = args[2];
                 sender = message.author.username;
@@ -377,13 +377,11 @@ bot.on("message", function (message) {
                         var ID = data.Id;
                         username = data.Username
                         //require("./payoutsys.js").payout(message.channel, message.author, ID, amount, data.Username);
-                        logmessage = "`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + Date(Date.now()) + "``";
                         pendingvar = false;
                     });
                          connection.query("INSERT into transactionslog (sender_id,receiver_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, new Date(Date.now()).toLocaleString(),amount], function (err) {
                           if (err) return console.log(err)
                          });
-                    //connection.query('insert into transactions (info) values (?)', [logmessage], function (err, query) { console.log(query); });
                 }
                 else message.channel.send("There is no pending transaction.");
 
