@@ -382,7 +382,7 @@ bot.on("message", function (message) {
                         logmessage = "`` A transaction by " + sender + " to " + data.Username + " with the amount of " + amount + " robux was confirmed by " + message.author + " @ " + Date(Date.now()) + "``";
                         pendingvar = false;
                     });
-                         connection.query("INSERT into transactionslog (sender_id,receiver_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, Date(Date.now()),amount], function (err) {
+                         connection.query("INSERT into transactionslog (sender_id,receiver_id,sent_on,amount) VALUES (?,?,?,?)", [sender,username, new Date(Date.now()).toLocaleString(),amount], function (err) {
                           if (err) return console.log(err)
                          });
                     //connection.query('insert into transactions (info) values (?)', [logmessage], function (err, query) { console.log(query); });
@@ -411,7 +411,7 @@ bot.on("message", function (message) {
                     if (!results.length) return msg.channel.send("There's not transaction to show :( ")
                     let output = []
                     for (let i = 0; i < results.length; i++) {
-                        output.push("``A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ results[i].sent_on.toString() +" ``")
+                        output.push("``A transaction by " + results[i].sender_id + " to " + results[i].receiver_id + " with the amount of " + results[i].amount + " $R was confirmed @ "+ results[i].sent_on +" ``")
                     }
                     message.channel.send(output.join("\n"))
                 })
