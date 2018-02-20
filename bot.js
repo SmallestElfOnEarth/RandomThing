@@ -282,18 +282,23 @@ bot.on("message", function (message) {
                                 console.log("group = "+inPR+"user rank = "+userrank);
                             }
                             if (inPR && therole > userrank) {
+                                console.log("first if");
                                 rbx.setRank(2683316, ID, therole);
                                 message.channel.send(data.Username + " has been ranked up! Next level is "+nextlevel);
                             }
                             else if (inPR && userrank > 242) {
+                                console.log("second if");
                                 message.channel.send("Can't change user's rank because he's a higher rank than the bot.");
                             }
                             else if (inPR && userrank == therole) {
+                                console.log("third if");
                                 message.channel.send(data.Username+", your rank is already set! Your next rankup is "+nextlevel);
                             }
                             else if (!inPR) {
+                                console.log("fourth if");
                                 message.channel.send(data.Username + ", you're not in the group! Please join our group to get ranked up!");
                             }
+                            console.log("none of the if's? wtf");
                         }))
 
 
