@@ -257,8 +257,8 @@ bot.on("message", function (message) {
                     var ID = data.Id;
                     let values = convertrole(args[2]);
                     
-                    var role = values[1];
-                    var nextlevel = values[2]
+                    var role = values.role;
+                    var nextlevel = values.nextlevel;
 
                     var username = process.env.USERNAME1;
                     var password = process.env.PASSWORD1;
