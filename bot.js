@@ -283,64 +283,59 @@ bot.on("message", function (message) {
 
 
 
-        case "rankup":
-            if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id)|| message.member.roles.has(trialcomm.id))  {
-                let user= message.mentions.users.first();
-                httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
-                    var data = JSON.parse(data);
-                    var ID = data.Id;
-                    var therole = convertrole(args[2]);
-
-                    var username = process.env.USERNAME1;
-                    var password = process.env.PASSWORD1;
-
-                    function login() {
-                        return rbx.login(process.env.USERNAME1, process.env.PASSWORD1);
-                    }
-
-                    login()
-                        .then((function () {
-                            rbx.setRank(2683316, ID, therole);
-                            message.channel.send(data.Username + "'s role has been set!");
-
-                        }))
-
-                });
-                
-        
-message.guild.fetchMember(user).then((data) => {
-                    let member= message.mentions.users.first();
-                 //   let member = message.mentions.first();
-                    let mem = message.guild.roles.find("name", "Member");
-                    member.addRole(mem.id);
-                    if (therole == 241) {
-                        let comprole = message.guild.roles.find("name", "Competitive Team");
-                        member.addRole(comprole.id);
-                        member.addRole(mem.id);
-                    }
-                    else if (therole == 240) {
-                        let clanrole = message.guild.roles.find("name", "Clan Member");
-                        member.addRole(clanrole.id);
-                        member.addRole(mem.id);
-                    }
-                    else if (therole == 239) {
-                        let role200 = message.guild.roles.find("name", "Level 200+");
-                        member.addRole(role200.id);
-                        member.addRole(mem.id);
-                    }
-                    else {
-                        member.addRole(mem.id);
-                    }
-
-                }).catch(error => {
-
-                });
-
-
-            }
-            else message.channel.send("Insufficient Permissions.");
-
-            break;
+       -        case "rankup":	
+-            console.log(args.length);	
+-            console.log("arg1: "+args[1]+" arg2: "+args[2]+" arg3: "+args[3]+" arg4: "+args[4]);	
+-            let role = message.guild.roles.find("name", "Staff Assistant | Bitches");	
+-            if (message.member.roles.has(role.id)){           	
+-             httpGet (`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data){	
+-             var data = JSON.parse (data);	
+-             var ID = data.Id;	
+-             var therole = convertrole(args[2]);	
+-             console.log("ID:"+ID+" IGN:"+args[1]);	
+-                 	
+-             var rbx = require('roblox-js');	
+-             var username = process.env.USERNAME1	
+-             var password = process.env.PASSWORD1	
+-            	
+-             function login () {	
+-               return rbx.login(username, password);	
+-             }	
+-             	
+-              login()	
+-             .then((function () {	
+-             rbx.setRank(2683316,ID,therole);	
+-             message.channel.send(data.Username+"'s role has been set!");	
+-             }))	
+-            	
+-             });	
+-                	
+-             let user = message.mentions.users.first();	
+-             message.guild.fetchMember (user) .then ((data) => {	
+-             let member = message.mentions.members.first();	
+-             if (therole == 241){	
+-                 let comprole = message.guild.roles.find("name","Competitive Team");	
+-                    member.addRole(comprole.id);	
+-             }	
+-              else if(therole == 240){	
+-                    let clanrole = message.guild.roles.find("name","Clan Member");	
+-                    member.addRole(clanrole.id);	
+-                    member.addRole("202542658634252289");	
+-              }	
+-              else if(therole == 239){	
+-                  let role200 = message.guild.roles.find("name","Level 200+");	
+-                  member.addRole(role200.id);	
+-                  member.addRole("202542658634252289");	
+-              }	
+-              else{	
+-                  let memberrole = message.guild.roles.find("name","Member");	
+-                    member.addRole(memberrole.id);	
+-             }	
+-                 }).catch (error => {	
+-             //do something with error	
+-                });  	
+-            }	
+-        break;
 
 
 
