@@ -284,7 +284,6 @@ bot.on("message", function (message) {
 
 
         case "rankup":
-              case "rankup":
             if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id)|| message.member.roles.has(trialcomm.id))  {
                 let user= message.mentions.users.first();
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
@@ -296,7 +295,7 @@ bot.on("message", function (message) {
                     var password = process.env.PASSWORD1;
 
                     function login() {
-                        return rbx.login(username, password);
+                        return rbx.login(process.env.USERNAME1, process.env.PASSWORD1);
                     }
 
                     login()
@@ -333,7 +332,7 @@ message.guild.fetchMember(user).then((data) => {
                         member.addRole(mem.id);
                     }
 
-                }).catch(error => {
+                }).catch(error => console.error(error);{
 
                 });
 
