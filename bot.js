@@ -107,15 +107,15 @@ function robloxUpdateRank(groupId, userId, roleFromArgs, callback) {
     let convertedRole = convertRole(roleFromArgs)
     let role = convertedRole.role
     if (isNaN(convertedRole.nextLevel)) return callback(convertedRole.nextLevel)
-    rblx.login(rblxUser, rblxPass).then(() => {
-        rblx.getPlayers(groupId, role).then(group => {
+    rbx.login(process.env.USERNAME1, process.env.PASSWORD1).then(() => {
+        rbx.getPlayers(groupId, role).then(group => {
             for (let i = 0; i < group.players.length; i++) {
                 if (group.players[i].id === userId) {
                     callback("You already have that role cunt")
                     break;
                 }
                 if (i === group.players.length - 1) {
-                    rblx.setRank(groupId, userId, role).then(function (newRole) {
+                    rbx.setRank(groupId, userId, role).then(function (newRole) {
                         console.log('The new role is: ' + JSON.stringify(newRole));
                         callback(null, JSON.stringify(newRole))
                     }).catch((err) => {
@@ -288,9 +288,8 @@ bot.on("message", function (message) {
             const groupId = 2683316;
             if (!args.length) return message.channel.send("dip need args");
             if (args.length <= 1) return message.channel.send("dip need more args");
-            if (isNaN(args[1])) return message.channel.send("rank isn't a number");
-            if (args[1] >= 242) return message.channel.send("Can't set higher rank than 241");
-            snk.get(`https://api.roblox.com/users/get-by-username?username=${args[0]}`)
+            if (args[2] >= 242) return message.channel.send("Can't set higher rank than 241");
+            snk.get(`https://api.roblox.com/users/get-by-username?username=${args[1]}`)
                 .then((resp) => {
                 const robloxUser = JSON.parse(resp.text); // Using parse to transform it into an object
                 const robloxUserId = robloxUser.Id;
@@ -315,12 +314,7 @@ bot.on("message", function (message) {
                     })
             })
                 .catch(err => console.error(err))
-    
 
-
-
-                
-        
                 message.guild.fetchMember(member).then((data) => {
                     if (role == 241) {
                         let comprole = message.guild.roles.find("name", "Competitive Team");
