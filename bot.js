@@ -119,7 +119,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
   
   
   
-  function robloxUpdateRank (groupId, userId, roleFromArgs, callback,robloxUsername) {
+  function robloxUpdateRank (robloxUsername,groupId, userId, roleFromArgs, callback) {
     let convertedRole = convertRole(roleFromArgs)
     let role = convertedRole.role
     if (isNaN(convertedRole.nextLevel)) return callback(convertedRole.nextLevel)
@@ -313,7 +313,7 @@ bot.on("message", function (message) {
                   if (!groupsRespParsed.length) return message.channel.send(robloxUsername+",You're not in the group, Please join our group and resend your rankup.") // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
                   for (let i = 0; i < groupsRespParsed.length; i++) {
                     if (groupsRespParsed[i].Id === groupId) {
-                      robloxUpdateRank(groupId, robloxUserId, args[2], (err, newRole) => {
+                      robloxUpdateRank(robloxUsername,groupId, robloxUserId, args[2], (err, newRole) => {
                         if (err) return message.channel.send(err)
                         message.channel.send(robloxUsername+ ", you've been ranked up to " + newRole + "! Your next rankup will be at level  "+convertRole(args[2]).nextLevel)
                       })
