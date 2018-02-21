@@ -129,7 +129,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
           if (group.players[i].id === userId) {
             if(convertedRole.nextLevel == 0 ){
                 callback(robloxUsername+", Congratulations, You ranked up to the highest rank we currently offer! (200).");
-            }else if(convertedRole.nextLevel == 1){
+            }else if(convertedRole.role == 1){
                 callback(robloxUsername+", your rank isn't high enough! the minimum rank available is 20.");
             }else{
                 callback(robloxUsername+", you already have that role assigned! Your next rankup is at level" + convertRole(roleFromArgs).nextLevel)
