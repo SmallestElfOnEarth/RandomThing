@@ -313,7 +313,7 @@ bot.on("message", function (message) {
                   if (!groupsRespParsed.length) return message.channel.send('user ain\'t in the group') // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
                   for (let i = 0; i < groupsRespParsed.length; i++) {
                     if (groupsRespParsed[i].Id === groupId) {
-                      robloxUpdateRank(groupId, robloxUserId, args[1], (err, newRole) => {
+                      robloxUpdateRank(groupId, robloxUserId, args[2], (err, newRole) => {
                         if (err) return message.channel.send(err)
                         message.channel.send("updated your role to " + newRole)
                       })
