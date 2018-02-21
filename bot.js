@@ -41,7 +41,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
 //connection.query(`TRUNCATE TABLE transactionslog`, function(err,result){ if(err) throw err; });// -- wipe table
 
 
-  function convertRole (role) {
+  function convertRole (role,username) {
     let roleNum = parseInt(role)
     let nextLevel
     if (roleNum >= 0 && roleNum < 20) {
@@ -101,7 +101,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
     }
     if (roleNum >= 200) {
       role = 239;
-      nextLevel = 0;
+      nextLevel = username+",Congratulations! You have reached the maximum level we rank up to! (200)";
       return { role, nextLevel }
     }
     if (role === "clan") {
