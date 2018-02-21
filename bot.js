@@ -328,7 +328,7 @@ if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") 
                             message.channel.send(robloxUsername + ",You're not in the group, Please join our group and resend your rankup.")
                         }
                     }
-                })
+                }).catch(err => console.error(err)) 
             })
         .catch(err => {
             console.log(err)
