@@ -332,7 +332,7 @@ message.guild.fetchMember(user).then((data) => {
                         member.addRole(mem.id);
                     }
 
-                }).catch(error => console.error(error);{
+                }).catch(error => {
 
                 });
 
