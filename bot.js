@@ -286,30 +286,30 @@ bot.on("message", function (message) {
         case "rankup":
             if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id) || message.member.roles.has(trialcomm.id)) {
             const groupId = 2683316;
-            if (!args.length) return msg.channel.send("dip need args");
-            if (args.length <= 1) return msg.channel.send("dip need more args");
-            if (isNaN(args[1])) return msg.channel.send("rank isn't a number");
-            if (args[1] >= 242) return msg.channel.send("Can't set higher rank than 241");
+            if (!args.length) return message.channel.send("dip need args");
+            if (args.length <= 1) return message.channel.send("dip need more args");
+            if (isNaN(args[1])) return message.channel.send("rank isn't a number");
+            if (args[1] >= 242) return message.channel.send("Can't set higher rank than 241");
             snk.get(`https://api.roblox.com/users/get-by-username?username=${args[0]}`)
                 .then((resp) => {
                 const robloxUser = JSON.parse(resp.text); // Using parse to transform it into an object
                 const robloxUserId = robloxUser.Id;
                 const robloxUsername = robloxUser.Username;
-                msg.channel.send(`found ${robloxUsername}`);
+                message.channel.send(`found ${robloxUsername}`);
                 snk.get(`https://api.roblox.com/users/${robloxUserId}/groups`)
                     .then((res) => {
                         let groupsRespParsed = JSON.parse(res.text)
-                        if (!groupsRespParsed.length) return msg.channel.send('user ain\'t in the group') // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
+                        if (!groupsRespParsed.length) return message.channel.send('user ain\'t in the group') // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
                         for (let i = 0; i < groupsRespParsed.length; i++) {
                             if (groupsRespParsed[i].Id === groupId) {
                                 robloxUpdateRank(groupId, robloxUserId, args[1], (err, newRole) => {
-                                    if (err) return msg.channel.send(err);
-                                    msg.channel.send("updated your role to " + newRole);
+                                    if (err) return message.channel.send(err);
+                                    message.channel.send("updated your role to " + newRole);
                                 })
                                 break;
                             }
                             if (i === groupsRespParsed.length - 1) {
-                                msg.channel.send('user ain\'t in the group');
+                                message.channel.send('user ain\'t in the group');
                             }
                         }
                     })
