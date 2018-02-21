@@ -194,7 +194,7 @@ setInterval(function () {
 bot.on("message", function (message) {
     if (message.author.equals(bot.user)) return;
     if (!message.content.startsWith(PREFIX)) return;
-    var args = message.content.substring(PREFIX.length).split(" ")
+    var args = message.content.substring(PREFIX.length).split(" ");
     let staffass = message.guild.roles.find("name", "Staff Assistant | Bitches");
     let clanmanager = message.guild.roles.find("name", "Clan Manager");
     let admin = message.guild.roles.find("name", "Admin");
