@@ -312,7 +312,7 @@ bot.on("message", function (message) {
 message.guild.fetchMember(user).then((data) => {
                     let member = message.mentions.first();
                     let mem = message.guild.roles.find("name", "Member");
-                    user.addRole(mem.id);
+                    member.addRole(mem.id);
                     if (therole == 241) {
                         let comprole = message.guild.roles.find("name", "Competitive Team");
                         member.addRole(comprole.id);
