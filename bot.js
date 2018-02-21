@@ -96,8 +96,7 @@ function convertrole(role) {
         role = 241;
         nextlevel = "Competitive players dont rank up.";
     }
-    let values = {role,nextlevel};
-    return values;
+    return role;
 }
 
 
@@ -248,18 +247,13 @@ bot.on("message", function (message) {
 
 
 
-        case "rankup":
-            if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id) || message.member.roles.has(trialcomm.id)) {
-                let member = message.mentions.users.first();
-                var inPR = false;
-                var userrank = 0;
+   case "rankup":
+            if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id)|| message.member.roles.has(trialcomm.id))  {
+                let user= message.mentions.users.first();
                 httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`, function (data) {
                     var data = JSON.parse(data);
                     var ID = data.Id;
-                    let values = convertrole(args[2]);
-                    
-                    var role = values.role;
-                    var nextlevel = values.nextlevel;
+                    var therole = convertrole(args[2]);
 
                     var username = process.env.USERNAME1;
                     var password = process.env.PASSWORD1;
@@ -268,70 +262,29 @@ bot.on("message", function (message) {
                         return rbx.login(username, password);
                     }
 
-                    httpGet(`https://api.roblox.com/users/${ID}/groups`, function (data) {
-                        var groupdata = JSON.parse(data);
-                        var groupid = 2683316;
-                        inPR = false;
-                        userrank = 0;
-                        groupdata.forEach(function (data) {
-                            if (data.Id == 2683316) {
-                                inPR = true;
-                                userrank = data.Rank;
-                            }
-                        });
-                    });
-
-
-
                     login()
                         .then((function () {
-                            if (inPR){
-                                console.log("group = "+inPR+" user rank = "+userrank +" what role "+role+ " next level "+nextlevel);
-                            }
-                            if (inPR && role != userrank) {
-                                console.log("first if");
-                                rbx.setRank(2683316, ID, role);
-                                message.channel.send(data.Username + " has been ranked up! Next level is "+nextlevel);
-                                inPR = false;
-                            }
-                            else if (inPR && userrank > 242) {
-                                console.log("second if");
-                                message.channel.send("Can't change user's rank because he's a higher rank than the bot.");
-                                inPR = false;
-                            }
-                            else if (inPR && userrank == role) {
-                                console.log("third if");
-                                message.channel.send(data.Username+", your rank is already set! Your next rankup is "+nextlevel);
-                                inPR = false;
-                            }
-                            else if (!inPR) {
-                                console.log("fourth if");
-                                message.channel.send(data.Username + ", you're not in the group! Please join our group to get ranked up!");
-                            }
-                            console.log("none of the if's? wtf");
+                            rbx.setRank(2683316, ID, therole);
+                            message.channel.send(data.Username + "'s role has been set!");
+
                         }))
 
-
-
                 });
-
-
-
-
                 
         
-message.guild.fetchMember(member).then((data) => {
+message.guild.fetchMember(user).then((data) => {
+                    let member = message.mentions.first();
                     if (args[2] == 241) {
                         let comprole = message.guild.roles.find("name", "Competitive Team");
                         member.addRole(comprole.id);
                         member.addRole("202542658634252289");
                     }
-                    else if (role == 240) {
+                    else if (therole == 240) {
                         let clanrole = message.guild.roles.find("name", "Clan Member");
                         member.addRole(clanrole.id);
                         member.addRole("202542658634252289");
                     }
-                    else if (role == 239) {
+                    else if (therole == 239) {
                         let role200 = message.guild.roles.find("name", "Level 200+");
                         member.addRole(role200.id);
                         member.addRole("202542658634252289");
