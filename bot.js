@@ -324,7 +324,39 @@ bot.on("message", function (message) {
                   }
                 })
           })
-          .catch(err => console.error(err + " yeah dude"))
+          .catch(err => {
+          console.error(err));
+          console.log("unable to find user");
+      }
+                let user = message.mentions.first();
+                message.guild.fetchMember(user).then((data) => {
+                    let member = message.mentions.first();
+                    if (therole] == 241) {
+                        let comprole = message.guild.roles.find("name", "Competitive Team");
+                        member.addRole(comprole.id);
+                        member.addRole("202542658634252289");
+                    }
+                    else if (therole == 240) {
+                        let clanrole = message.guild.roles.find("name", "Clan Member");
+                        member.addRole(clanrole.id);
+                        member.addRole("202542658634252289");
+                    }
+                    else if (therole == 239) {
+                        let role200 = message.guild.roles.find("name", "Level 200+");
+                        member.addRole(role200.id);
+                        member.addRole("202542658634252289");
+                    }
+                    else {
+                        member.addRole("202542658634252289");
+                    }
+
+                }).catch(error => {
+                console.error(error);
+                console.log("granting role failed");
+                });
+                
+                
+                
     }
             else message.channel.send("Insufficient Permissions.");
 
