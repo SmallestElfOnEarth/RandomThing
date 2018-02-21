@@ -132,11 +132,11 @@ connection.query(`CREATE TABLE if not exists transactionslog (
           }
           if (i === group.players.length - 1) {
             rbx.setRank(groupId, userId, role).then(function (newRole) {
-              console.log('The new role is: ' + JSON.stringify(newRole));
+              console.log('The new role is: ' + JSON.stringify(newRole.Name));
               callback(null, JSON.stringify(newRole))
             }).catch((err) => {
               console.log(err)
-              callback("Could not set your role :(")
+              callback("Can't change this user's role. (rank higher than the bot's)")
             })
           }
         }
@@ -300,7 +300,7 @@ bot.on("message", function (message) {
       const groupId = 2683316
       if (!args.length) return message.channel.send("Missing arguments.")
       if (args.length <= 1) return message.channel.send("Missing arguments.")
-      if (convertRole(args[2]).role >= 22) return message.channel.send("User's rank is higher than the bot's")
+      if (convertRole(args[2]).role >= 22) return message.channel.send(message.author.name+" You're trying to assign user to a role higher than the bot's")
       snk.get(`https://api.roblox.com/users/get-by-username?username=${args[1]}`)
           .then((resp) => {
             const robloxUser = JSON.parse(resp.text) // Using parse to transform it into an object
