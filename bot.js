@@ -325,7 +325,7 @@ bot.on("message", function (message) {
                 })
           })
           .catch(err => {
-          console.error(err));
+          console.error(err);
           console.log("unable to find user");
       });
                let user = message.mentions.first();
