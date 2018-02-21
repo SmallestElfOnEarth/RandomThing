@@ -282,7 +282,7 @@ bot.on("message", function (message) {
 
 
 
-       -        case "rankup":	
+       case "rankup":	
 -            console.log(args.length);	
 -            console.log("arg1: "+args[1]+" arg2: "+args[2]+" arg3: "+args[3]+" arg4: "+args[4]);	
 -            let role = message.guild.roles.find("name", "Staff Assistant | Bitches");	
