@@ -311,23 +311,25 @@ bot.on("message", function (message) {
         
 message.guild.fetchMember(user).then((data) => {
                     let member = message.mentions.first();
+                    let mem = message.guild.roles.find("name", "Member");
+                    user.addRole(mem.id);
                     if (therole == 241) {
                         let comprole = message.guild.roles.find("name", "Competitive Team");
                         member.addRole(comprole.id);
-                        member.addRole("202542658634252289");
+                        member.addRole(mem.id);
                     }
                     else if (therole == 240) {
                         let clanrole = message.guild.roles.find("name", "Clan Member");
                         member.addRole(clanrole.id);
-                        member.addRole("202542658634252289");
+                        member.addRole(mem.id);
                     }
                     else if (therole == 239) {
                         let role200 = message.guild.roles.find("name", "Level 200+");
                         member.addRole(role200.id);
-                        member.addRole("202542658634252289");
+                        member.addRole(mem.id);
                     }
                     else {
-                        member.addRole("202542658634252289");
+                        member.addRole(mem.id);
                     }
 
                 }).catch(error => {
