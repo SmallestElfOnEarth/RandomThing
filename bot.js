@@ -301,7 +301,7 @@ bot.on("message", function (message) {
       if (!args.length) return message.channel.send("dip need args")
       if (args.length <= 1) return message.channel.send("dip need more args")
       if (convertRole(args[2]).role >= 242) return message.channel.send("User's rank is higher than the bot's")
-      snk.get(`https://api.roblox.com/users/get-by-username?username=${args[0]}`)
+      snk.get(`https://api.roblox.com/users/get-by-username?username=${args[1]}`)
           .then((resp) => {
             const robloxUser = JSON.parse(resp.text) // Using parse to transform it into an object
             const robloxUserId = robloxUser.Id
