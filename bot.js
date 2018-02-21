@@ -300,8 +300,7 @@ bot.on("message", function (message) {
       const groupId = 2683316
       if (!args.length) return message.channel.send("dip need args")
       if (args.length <= 1) return message.channel.send("dip need more args")
-      if (isNaN(args[1])) return message.channel.send("rank isn't a number")
-      if (args[1] >= 242) return message.channel.send("Can't set higher rank than 241")
+      if (convertrole(args[2]).role >= 242) return message.channel.send("User's rank is higher than the bot's")
       snk.get(`https://api.roblox.com/users/get-by-username?username=${args[0]}`)
           .then((resp) => {
             const robloxUser = JSON.parse(resp.text) // Using parse to transform it into an object
