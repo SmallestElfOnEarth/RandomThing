@@ -360,6 +360,7 @@ if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") 
             data.addRole(role200.id);
             data.addRole(memberrole.id);
         }
+        else data.addRole(memberrole.id); 
 
     }).catch(error => {
         console.error(error);
