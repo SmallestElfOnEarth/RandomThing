@@ -120,7 +120,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
   
   
   function robloxUpdateRank (robloxUsername,groupId, userId, roleFromArgs, callback) {
-    let convertedRole = convertRole(roleFromArgs)
+    let convertedRole = convertRole(roleFromArgs,robloxUsername)
     let role = convertedRole.role
     if (isNaN(convertedRole.nextLevel)) return callback(convertedRole.nextLevel)
     rbx.login(rblxUser, rblxPass).then(() => {
@@ -132,7 +132,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
             }else if(convertedRole.role == 1){
                 callback(robloxUsername+", your rank isn't high enough! the minimum rank available is 20.");
             }else{
-                callback(robloxUsername+", you already have that role assigned! Your next rankup is at level" + convertRole(roleFromArgs).nextLevel)
+                callback(robloxUsername+", you already have that role assigned! Your next rankup is at level" + convertRole(roleFromArgs,robloxUsername).nextLevel)
             }
             break;
           }
