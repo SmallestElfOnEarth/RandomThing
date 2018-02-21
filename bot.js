@@ -327,10 +327,11 @@ bot.on("message", function (message) {
           .catch(err => {
           console.error(err));
           console.log("unable to find user");
-      }
-                let user = message.mentions.first();
+      });
+               let user = message.mentions.first();
                 message.guild.fetchMember(user).then((data) => {
                     let member = message.mentions.first();
+                    let therole = convertRole(args[2]).role
                     if (therole] == 241) {
                         let comprole = message.guild.roles.find("name", "Competitive Team");
                         member.addRole(comprole.id);
