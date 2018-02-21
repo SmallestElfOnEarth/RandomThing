@@ -46,7 +46,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
     let nextLevel
     if (roleNum >= 0 && roleNum < 20) {
       role = 1;
-      nextLevel = username+",your rank is too low :( , the minimum rank to get ranked up is 20.";
+      nextLevel = username+", your rank is too low :( , the minimum rank to get ranked up is 20.";
       return { role, nextLevel }
     }
     if (roleNum >= 20 && roleNum < 30) {
@@ -101,17 +101,17 @@ connection.query(`CREATE TABLE if not exists transactionslog (
     }
     if (roleNum >= 200) {
       role = 239;
-      nextLevel = username+",Congratulations! You have reached the maximum level we rank up to! (200)";
+      nextLevel = username+", congratulations! You have reached the maximum level we rank up to! (200)";
       return { role, nextLevel }
     }
     if (role === "clan") {
       role = 240;
-      nextLevel = "Clan members dont rank up.";
+      nextLevel = username+", clan members dont rank up.";
       return { role, nextLevel }
     }
     if (role === "comp") {
       role = 241;
-      nextLevel = "Competitive players dont rank up.";
+      nextLevel = username+ ", competitive players dont rank up.";
       return { role, nextLevel }
     }
   }
