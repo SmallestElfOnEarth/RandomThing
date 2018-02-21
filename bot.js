@@ -325,11 +325,11 @@ bot.on("message", function (message) {
                 })
           })
           .catch(err => {
-          console.error(err);
+         // console.error(err);
           console.log("unable to find user");
       });
                let user = message.mentions.users.first();
-                message.guild.fetchUser(user).then((data) => {
+                message.guild.fetchMember(user).then((data) => {
                     let memberrole = message.guild.roles.find("name","Member");
                     user.addRole(memberrole.id);
                     let therole = convertRole(args[2]).role
@@ -352,7 +352,6 @@ bot.on("message", function (message) {
 
                 }).catch(error => {
                 console.error(error);
-                console.log("granting role failed");
                 });
                 
                 
