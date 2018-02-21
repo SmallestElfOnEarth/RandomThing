@@ -119,7 +119,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
   
   
   
-  function robloxUpdateRank (groupId, userId, roleFromArgs, callback) {
+  function robloxUpdateRank (groupId, userId, roleFromArgs, callback,robloxUsername) {
     let convertedRole = convertRole(roleFromArgs)
     let role = convertedRole.role
     if (isNaN(convertedRole.nextLevel)) return callback(convertedRole.nextLevel)
@@ -127,7 +127,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
       rbx.getPlayers(groupId, role).then(group => {
         for (let i = 0; i < group.players.length; i++) {
           if (group.players[i].id === userId) {
-            callback("You already have that role cunt")
+            callback(robloxUsername+", you already have that role assigned!")
             break;
           }
           if (i === group.players.length - 1) {
