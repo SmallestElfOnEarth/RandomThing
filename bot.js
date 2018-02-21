@@ -35,7 +35,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
 
 //connection.query(`ALTER table transactionslog add column (reason varchar(255))`,function (err,result){ if(err) throw err; }); -- add column
 
-//connection.query(`TRUNCATE TABLE transactionslog`, function(err,result){ if(err) throw err; }); -- wipe table
+connection.query(`TRUNCATE TABLE transactionslog`, function(err,result){ if(err) throw err; }); -- wipe table
 
 function convertrole(role) {
     var rolenum = parseInt(role)
@@ -388,7 +388,7 @@ message.guild.fetchMember(user).then((data) => {
                 username = args[1];
                 amount = args[2];
                 sender = message.author.username;
-                reason = message.content.slice(">>".length).trim().split(/ +/g);
+                reason = args[3]
                 pendingvar = true;
             }
             else message.channel.send("Insufficient Permissions");
