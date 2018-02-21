@@ -130,7 +130,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
             if(convertedRole.nextLevel != 0){
             callback(robloxUsername+", you already have that role assigned! Your next rankup is at level" + convertRole(roleFromArgs).nextLevel)
             }
-            else callback(robloxUsername+", Congratulations, You ranked up to the highest rank we currently offer! (200).);
+            else callback(robloxUsername+", Congratulations, You ranked up to the highest rank we currently offer! (200).");
             break;
           }
           if (i === group.players.length - 1) {
