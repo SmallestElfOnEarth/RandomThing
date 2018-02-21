@@ -328,7 +328,7 @@ bot.on("message", function (message) {
           console.error(err);
           console.log("unable to find user");
       });
-               let user = message.mentions.first();
+               let user = message.mentions.users.first();
                 message.guild.fetchMember(user).then((data) => {
                     let memberrole = message.guild.roles.find("name","Member");
                     user.addRole(memberrole.id);
