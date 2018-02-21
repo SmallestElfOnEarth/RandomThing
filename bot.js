@@ -289,13 +289,13 @@ bot.on("message", function (message) {
             if (!args.length) return message.channel.send("dip need args");
             if (args.length <= 1) return message.channel.send("dip need more args");
             if (args[2] >= 242) return message.channel.send("Can't set higher rank than 241");
-            http.get(`https://api.roblox.com/users/get-by-username?username=${args[1]}`)
+            httpGet(`https://api.roblox.com/users/get-by-username?username=${args[1]}`)
                 .then((resp) => {
                 const robloxUser = JSON.parse(resp.text); // Using parse to transform it into an object
                 const robloxUserId = robloxUser.Id;
                 const robloxUsername = robloxUser.Username;
                 message.channel.send(`found ${robloxUsername}`);
-                http.get(`https://api.roblox.com/users/${robloxUserId}/groups`)
+                httpGet(`https://api.roblox.com/users/${robloxUserId}/groups`)
                     .then((res) => {
                         let groupsRespParsed = JSON.parse(res.text)
                         if (!groupsRespParsed.length) return message.channel.send('user ain\'t in the group') // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
