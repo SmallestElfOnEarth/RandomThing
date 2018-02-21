@@ -388,7 +388,7 @@ message.guild.fetchMember(user).then((data) => {
                 username = args[1];
                 amount = args[2];
                 sender = message.author.username;
-                reason = msg.content.slice(">>".length).trim().split(/ +/g);
+                reason = message.content.slice(">>".length).trim().split(/ +/g);
                 pendingvar = true;
             }
             else message.channel.send("Insufficient Permissions");
