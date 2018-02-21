@@ -127,10 +127,13 @@ connection.query(`CREATE TABLE if not exists transactionslog (
       rbx.getPlayers(groupId, role).then(group => {
         for (let i = 0; i < group.players.length; i++) {
           if (group.players[i].id === userId) {
-            if(convertedRole.nextLevel != 0){
+            if(convertedRole.nextLevel != 0 && convertedRole.nextLevel !=1){
             callback(robloxUsername+", you already have that role assigned! Your next rankup is at level" + convertRole(roleFromArgs).nextLevel)
+            }else if(convertedRole == 1){
+                callback(robloxUsername+", your rank isn't high enough! the minimum rank available is 20.");
+            }else{
+                    callback(robloxUsername+", Congratulations, You ranked up to the highest rank we currently offer! (200).");
             }
-            else callback(robloxUsername+", Congratulations, You ranked up to the highest rank we currently offer! (200).");
             break;
           }
           if (i === group.players.length - 1) {
@@ -334,23 +337,21 @@ bot.on("message", function (message) {
                let user = message.mentions.users.first();
                 message.guild.fetchMember(user).then((data) => {
                     let memberrole = message.guild.roles.find("name","Member");
-                    data.addRole(memberrole.id);
                     let therole = convertRole(args[2]).role
                     if (therole == 241) {
                         let comprole = message.guild.roles.find("name", "Competitive Team");
                         data.addRole(comprole.id);
+                        data.addRole(memberrole.id);
                     }
                     else if (therole == 240) {
                         let clanrole = message.guild.roles.find("name", "Clan Member");
                         data.addRole(clanrole.id);
+                        data.addRole(memberrole.id);
                     }
                     else if (therole == 239) {
                         let role200 = message.guild.roles.find("name", "Level 200+");
                         data.addRole(role200.id);
-                    }
-                    else {
                         data.addRole(memberrole.id);
-                        data.addRole("202542658634252289");
                     }
 
                 }).catch(error => {
