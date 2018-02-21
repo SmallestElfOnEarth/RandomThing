@@ -46,7 +46,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
     let nextLevel
     if (roleNum >= 0 && roleNum < 20) {
       role = 1;
-      nextLevel = 20;
+      nextLevel = username+",your rank is too low :( , the minimum rank to get ranked up is 20.";
       return { role, nextLevel }
     }
     if (roleNum >= 20 && roleNum < 30) {
