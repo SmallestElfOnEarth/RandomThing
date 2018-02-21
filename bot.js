@@ -298,9 +298,9 @@ bot.on("message", function (message) {
    case "rankup":
             if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id)|| message.member.roles.has(trialcomm.id))  {
       const groupId = 2683316
-      if (!args.length) return message.channel.send("dip need args")
-      if (args.length <= 1) return message.channel.send("dip need more args")
-      if (convertRole(args[2]).role >= 242) return message.channel.send("User's rank is higher than the bot's")
+      if (!args.length) return message.channel.send("Missing arguments.")
+      if (args.length <= 1) return message.channel.send("Missing arguments.")
+      if (convertRole(args[2]).role >= 22) return message.channel.send("User's rank is higher than the bot's")
       snk.get(`https://api.roblox.com/users/get-by-username?username=${args[1]}`)
           .then((resp) => {
             const robloxUser = JSON.parse(resp.text) // Using parse to transform it into an object
@@ -310,7 +310,7 @@ bot.on("message", function (message) {
             snk.get(`https://api.roblox.com/users/${robloxUserId}/groups`)
                 .then((res) => {
                   let groupsRespParsed = JSON.parse(res.text)
-                  if (!groupsRespParsed.length) return message.channel.send('user ain\'t in the group') // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
+                  if (!groupsRespParsed.length) return message.channel.send(robloxUsername+",You're not in the group, Please join our group and resend your rankup.") // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
                   for (let i = 0; i < groupsRespParsed.length; i++) {
                     if (groupsRespParsed[i].Id === groupId) {
                       robloxUpdateRank(groupId, robloxUserId, args[2], (err, newRole) => {
@@ -320,7 +320,7 @@ bot.on("message", function (message) {
                       break;
                     }
                     if (i === groupsRespParsed.length - 1) {
-                     message.channel.send('user ain\'t in the group')
+                     message.channel.send(robloxUsername+",You're not in the group, Please join our group and resend your rankup.")
                     }
                   }
                 })
