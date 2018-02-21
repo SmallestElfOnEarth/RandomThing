@@ -324,7 +324,7 @@ bot.on("message", function (message) {
                   }
                 })
           })
-          .catch(err => console.error(err))
+          .catch(err => console.error(err + " yeah dude"))
     }
             else message.channel.send("Insufficient Permissions.");
 
