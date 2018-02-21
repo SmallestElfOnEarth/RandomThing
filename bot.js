@@ -310,7 +310,8 @@ bot.on("message", function (message) {
                 
         
 message.guild.fetchMember(user).then((data) => {
-                    let member = message.mentions.first();
+                    let member= message.mentions.users.first();
+                 //   let member = message.mentions.first();
                     let mem = message.guild.roles.find("name", "Member");
                     member.addRole(mem.id);
                     if (therole == 241) {
