@@ -301,69 +301,71 @@ bot.on("message", function (message) {
 
 
 
-   case "rankup":
-            if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id)|| message.member.roles.has(trialcomm.id))  {
-      const groupId = 2683316
-      if (!args.length) return message.channel.send("Missing arguments.")
-      if (args.length <= 1) return message.channel.send("Missing arguments.")
-      if (convertRole(args[2]).role >= 242) return message.channel.send(message.author.name+" You're trying to assign user to a role higher than the bot's")
-      snk.get(`https://api.roblox.com/users/get-by-username?username=${args[1]}`)
-          .then((resp) => {
+    case "rankup":
+if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id) || message.member.roles.has(trialcomm.id)) {
+    const groupId = 2683316
+    if (!args.length) return message.channel.send("Missing arguments.")
+    if (args.length <= 1) return message.channel.send("Missing arguments.")
+    if (convertRole(args[2]).role >= 242) return message.channel.send(message.author.name + " You're trying to assign user to a role higher than the bot's")
+    snk.get(`https://api.roblox.com/users/get-by-username?username=${args[1]}`)
+        .then((resp) => {
             const robloxUser = JSON.parse(resp.text) // Using parse to transform it into an object
             const robloxUserId = robloxUser.Id
             const robloxUsername = robloxUser.Username
             snk.get(`https://api.roblox.com/users/${robloxUserId}/groups`)
                 .then((res) => {
-                  let groupsRespParsed = JSON.parse(res.text)
-                  if (!groupsRespParsed.length) return message.channel.send(robloxUsername+",You're not in the group, Please join our group and resend your rankup.") // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
-                  for (let i = 0; i < groupsRespParsed.length; i++) {
-                    if (groupsRespParsed[i].Id === groupId) {
-                      robloxUpdateRank(robloxUsername,groupId, robloxUserId, args[2], (err, newRole) => {
-                        if (err) return message.channel.send(err)
-                        message.channel.send(robloxUsername+ ", you've been ranked up to " + newRole + "! Your next rankup will be at rank "+convertRole(args[2]).nextLevel)
-                      })
-                      break;
+                    let groupsRespParsed = JSON.parse(res.text)
+                    if (!groupsRespParsed.length) return message.channel.send(robloxUsername + ",You're not in the group, Please join our group and resend your rankup.") // Some people won't have groups, so if they don't have one they're not in the one needed anyway !
+                    for (let i = 0; i < groupsRespParsed.length; i++) {
+                        if (groupsRespParsed[i].Id === groupId) {
+                            robloxUpdateRank(robloxUsername, groupId, robloxUserId, args[2], (err, newRole) => {
+                                if (err) return message.channel.send(err)
+                                message.channel.send(robloxUsername + ", you've been ranked up to " + newRole + "! Your next rankup will be at rank " + convertRole(args[2]).nextLevel)
+                            })
+                            break;
+                        }
+                        if (i === groupsRespParsed.length - 1) {
+                            message.channel.send(robloxUsername + ",You're not in the group, Please join our group and resend your rankup.")
+                        }
                     }
-                    if (i === groupsRespParsed.length - 1) {
-                     message.channel.send(robloxUsername+",You're not in the group, Please join our group and resend your rankup.")
-                    }
-                  }
                 })
+            })
+        .catch(err => {
+            console.log(err)
+            if (err.statusCode === 404) {
+                message.channel.send("user not found")
+            }
           })
-          .catch(err => {
-         // console.error(err);
-          console.log("unable to find user");
-      });
-               let user = message.mentions.users.first();
-                message.guild.fetchMember(user).then((data) => {
-                    let memberrole = message.guild.roles.find("name","Member");
-                    let therole = convertRole(args[2]).role
-                    if (therole == 241) {
-                        let comprole = message.guild.roles.find("name", "Competitive Team");
-                        data.addRole(comprole.id);
-                        data.addRole(memberrole.id);
-                    }
-                    else if (therole == 240) {
-                        let clanrole = message.guild.roles.find("name", "Clan Member");
-                        data.addRole(clanrole.id);
-                        data.addRole(memberrole.id);
-                    }
-                    else if (therole == 239) {
-                        let role200 = message.guild.roles.find("name", "Level 200+");
-                        data.addRole(role200.id);
-                        data.addRole(memberrole.id);
-                    }
+                let user = message.mentions.users.first();
+    message.guild.fetchMember(user).then((data) => {
+        let memberrole = message.guild.roles.find("name", "Member");
+        let therole = convertRole(args[2]).role
+        if (therole == 241) {
+            let comprole = message.guild.roles.find("name", "Competitive Team");
+            data.addRole(comprole.id);
+            data.addRole(memberrole.id);
+        }
+        else if (therole == 240) {
+            let clanrole = message.guild.roles.find("name", "Clan Member");
+            data.addRole(clanrole.id);
+            data.addRole(memberrole.id);
+        }
+        else if (therole == 239) {
+            let role200 = message.guild.roles.find("name", "Level 200+");
+            data.addRole(role200.id);
+            data.addRole(memberrole.id);
+        }
 
-                }).catch(error => {
-                console.error(error);
-                });
-                
-                
-                
-    }
-            else message.channel.send("Insufficient Permissions.");
+    }).catch(error => {
+        console.error(error);
+    });
 
-            break;
+
+
+}
+else message.channel.send("Insufficient Permissions.");
+
+break;
 
 
 
