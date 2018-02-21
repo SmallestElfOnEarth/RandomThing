@@ -127,7 +127,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
       rbx.getPlayers(groupId, role).then(group => {
         for (let i = 0; i < group.players.length; i++) {
           if (group.players[i].id === userId) {
-            callback(robloxUsername+", you already have that role assigned!")
+            callback(robloxUsername+", you already have that role assigned! Your next rankup is at level" + convertRole(roleFromArgs).nextLevel)
             break;
           }
           if (i === group.players.length - 1) {
@@ -306,7 +306,6 @@ bot.on("message", function (message) {
             const robloxUser = JSON.parse(resp.text) // Using parse to transform it into an object
             const robloxUserId = robloxUser.Id
             const robloxUsername = robloxUser.Username
-            message.channel.send(`found ${robloxUsername}`)
             snk.get(`https://api.roblox.com/users/${robloxUserId}/groups`)
                 .then((res) => {
                   let groupsRespParsed = JSON.parse(res.text)
