@@ -133,7 +133,6 @@ connection.query(`CREATE TABLE if not exists transactionslog (
                 callback(robloxUsername+", your rank isn't high enough! the minimum rank available is 20.");
             }else{
                 callback(robloxUsername+", you already have that role assigned! Your next rankup is at level" + convertRole(roleFromArgs).nextLevel)
-
             }
             break;
           }
