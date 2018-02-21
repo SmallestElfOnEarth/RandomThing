@@ -101,7 +101,7 @@ connection.query(`CREATE TABLE if not exists transactionslog (
     }
     if (roleNum >= 200) {
       role = 239;
-      nextLevel = "Max level reached.";
+      nextLevel = 0;
       return { role, nextLevel }
     }
     if (role === "clan") {
@@ -127,7 +127,10 @@ connection.query(`CREATE TABLE if not exists transactionslog (
       rbx.getPlayers(groupId, role).then(group => {
         for (let i = 0; i < group.players.length; i++) {
           if (group.players[i].id === userId) {
+            if(convertedRole.nextLevel != 0){
             callback(robloxUsername+", you already have that role assigned! Your next rankup is at level" + convertRole(roleFromArgs).nextLevel)
+            }
+            else callback(robloxUsername+", Congratulations, You ranked up to the highest rank we currently offer! (200).);
             break;
           }
           if (i === group.players.length - 1) {
@@ -314,7 +317,7 @@ bot.on("message", function (message) {
                     if (groupsRespParsed[i].Id === groupId) {
                       robloxUpdateRank(robloxUsername,groupId, robloxUserId, args[2], (err, newRole) => {
                         if (err) return message.channel.send(err)
-                        message.channel.send(robloxUsername+ ", you've been ranked up to " + newRole + "! Your next rankup will be at level  "+convertRole(args[2]).nextLevel)
+                        message.channel.send(robloxUsername+ ", you've been ranked up to " + newRole + "! Your next rankup will be at rank "+convertRole(args[2]).nextLevel)
                       })
                       break;
                     }
