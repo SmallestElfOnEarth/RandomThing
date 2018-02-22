@@ -302,7 +302,7 @@ bot.on("message", function (message) {
 
 
     case "rankup":
-if (message.member.roles.has(staffass.id) || message.member.roles.has("mod.id") || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id) || message.member.roles.has(trialcomm.id)) {
+if (message.member.roles.has(staffass.id) || message.member.roles.has(mod.id) || message.member.roles.has(clanmanager.id) || message.member.roles.has(trialmod.id) || message.member.roles.has(trialclan.id) || message.member.roles.has(trialcomm.id)) {
     const groupId = 2683316
     if (!args.length) return message.channel.send("Missing arguments.")
     if (args.length <= 1) return message.channel.send("Missing arguments.")
